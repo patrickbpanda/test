@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>HLC Greenfield — Weekly Dashboard WEEKLY_DASHBOARD_HLC_GREENFIELD_2026-05-17 v2.1 Production</title>
+<style>
+  @page { size: Letter landscape; margin: 0.45in; }
+  :root {
+    --bg: #FAF9F8; --surface: #F3F0E8; --card: #FFFFFF;
+    --border: #E3DDD0; --border-strong: #C5BEAE;
+    --ember: #988F57; --ember-hi: #B5AC7D;
+    --neon: #B5AC7D; --neon-hi: #CFC79A;
+    --white: #000000; --cream: #3C3528; --muted: #6E6552;
+    --leaf: #3F6B2E; --warn: #A8651A; --alert: #8B2C2C; --info: #2B5F8A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--white); font-family: 'Helvetica Neue','Arial',sans-serif; font-size: 8.5pt; line-height: 1.32; }
+  .header { background: #FAF9F8; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
+  .header-row { display: flex; justify-content: space-between; align-items: center; }
+  .brand-block { display: flex; align-items: center; gap: 16px; }
+  .wordmark .word { font-weight: 900; font-size: 24pt; letter-spacing: 4px; color: var(--white); line-height: 0.95; }
+  .wordmark .word .flame { color: var(--ember); }
+  .wordmark .tagline { font-size: 6.5pt; font-weight: 800; color: var(--ember); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 2px; }
+  .wordmark .by { font-size: 6pt; color: var(--cream); font-style: italic; letter-spacing: 0.5px; margin-top: 1px; }
+  .header h1 { font-size: 13pt; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+  .header .subtitle { font-size: 7.5pt; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+  .header .meta { color: var(--muted); font-size: 7.5pt; margin-top: 6px; }
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 14px; font-size: 6.5pt; font-weight: 700; margin-left: 6px; vertical-align: 2px; text-transform: uppercase; letter-spacing: 1px; }
+  .badge-ok { background: rgba(124,179,66,0.18); color: var(--leaf); border: 1px solid rgba(124,179,66,0.5); }
+  .badge-prod { background: rgba(230,57,70,0.18); color: var(--ember-hi); border: 1px solid rgba(230,57,70,0.5); }
+  .right-meta { text-align: right; color: var(--muted); font-size: 7pt; line-height: 1.5; }
+  .right-meta .store-id { color: var(--white); font-weight: 700; font-size: 8pt; }
+  .right-meta .loc-chip { display: inline-block; padding: 3px 12px; border: 1px solid var(--neon); border-radius: 14px; color: var(--neon); font-weight: 800; font-size: 7.5pt; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+  .container { padding: 0 4px; }
+  .grid5 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 7px; margin-bottom: 10px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--neon); border-radius: 3px; padding: 8px 10px; }
+  .kpi-label { font-size: 6.5pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
+  .kpi-val { font-size: 15pt; font-weight: 800; color: var(--white); margin-top: 2px; line-height: 1.05; }
+  .kpi-sub { font-size: 7pt; color: var(--leaf); margin-top: 3px; line-height: 1.25; }
+  .kpi-sub.gap { color: var(--warn); }
+  .kpi-sub.neutral { color: var(--muted); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 12px; margin-bottom: 8px; }
+  .card h2 { font-size: 8.5pt; font-weight: 700; color: var(--neon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border-strong); }
+  .card h2 .sub-id { color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .section-title { font-size: 9.5pt; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 2px; margin: 14px 0 8px; padding-left: 10px; border-left: 4px solid var(--neon); }
+  .section-title .right { float: right; font-weight: 500; font-size: 7.5pt; color: var(--muted); letter-spacing: 0.5px; text-transform: none; }
+  .row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--border); font-size: 8pt; }
+  .row:last-child { border-bottom: none; }
+  .row .label { color: var(--muted); }
+  .row .val { color: var(--white); font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--surface); padding: 5px 7px; text-align: left; font-size: 7pt; color: var(--neon); text-transform: uppercase; letter-spacing: 0.7px; font-weight: 700; border-bottom: 1px solid var(--neon); }
+  td { padding: 4px 7px; border-bottom: 1px solid var(--border); font-size: 8pt; }
+  tr:last-child td { border-bottom: none; }
+  .alert { background: var(--surface); border-left: 3px solid var(--alert); border-radius: 2px; padding: 7px 10px; margin-bottom: 6px; font-size: 8pt; }
+  .alert.warn { border-left-color: var(--warn); } .alert.info { border-left-color: var(--info); }
+  .alert.ok { border-left-color: var(--leaf); } .alert.ember { border-left-color: var(--ember); }
+  .alert.neon { border-left-color: var(--neon); } .alert strong { color: var(--white); }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 2px; font-size: 6.5pt; font-weight: 700; background: var(--surface); color: var(--muted); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag.uplift, .tag.ok { background: rgba(124,179,66,0.18); color: var(--leaf); border-color: rgba(124,179,66,0.5); }
+  .tag.drag, .tag.high, .tag.critical { background: rgba(239,83,80,0.18); color: var(--alert); border-color: rgba(239,83,80,0.5); }
+  .tag.neutral, .tag.info { background: rgba(100,181,246,0.18); color: var(--info); border-color: rgba(100,181,246,0.5); }
+  .tag.med, .tag.warn { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
+  .tag.low { background: rgba(154,149,144,0.18); color: var(--muted); border-color: rgba(154,149,144,0.5); }
+  .tag.gap { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
+  .tag.neon { background: rgba(197,232,71,0.22); color: var(--neon); border-color: rgba(197,232,71,0.6); }
+  .tag.ember { background: rgba(230,57,70,0.18); color: var(--ember-hi); border-color: rgba(230,57,70,0.5); }
+  /* Daily Trend bar: stacked sales + labor with firm-line divider (v2.1-rev2 per CFO 2026-05-15) */
+  .day-bar { display: flex; align-items: flex-end; gap: 5px; height: 140px; padding: 4px 2px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+  .day-bar .day { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .day-bar .bar-wrap { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+  .day-bar .bar { width: 100%; min-height: 2px; border-radius: 2px 2px 0 0; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+  /* Sales-remainder portion (top of stack) — solid, no gradient */
+  .day-bar .bar .sales-portion { width: 100%; background: var(--neon); flex: 1 1 auto; border-radius: 2px 2px 0 0; }
+  /* Labor portion (bottom of stack) — firm-line ember, height = labor as % of sales */
+  .day-bar .bar .labor-portion { width: 100%; background: var(--ember); border-top: 2px solid var(--white); flex: 0 0 auto; }
+  /* No-sales fallback (sales gap-flagged) — show labor-only bar with hatched no-sales pattern above */
+  .day-bar .bar.no-sales .sales-portion { background: repeating-linear-gradient(45deg, var(--border), var(--border) 4px, transparent 4px, transparent 8px); border: 1px dashed var(--warn); opacity: 0.55; }
+  .day-bar .day-label { font-size: 6.5pt; color: var(--muted); margin-top: 3px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.35; }
+  .day-bar .day-label .dow { display: block; font-size: 7pt; color: var(--white); font-weight: 800; letter-spacing: 1px; margin: 0 0 1px 0; padding: 0; background: none; border: none; }
+  .day-bar .day-label .day-date { display: block; color: var(--muted); font-weight: 600; font-size: 6.5pt; margin-bottom: 2px; }
+  .day-bar .day-val { font-size: 7.5pt; color: var(--white); font-weight: 800; margin-bottom: 1px; }
+  .day-bar .day-val.gap { color: var(--warn); font-style: italic; }
+  .day-bar .day-aov { font-size: 6.5pt; color: var(--info); font-weight: 700; margin-bottom: 2px; letter-spacing: 0.3px; }
+  .day-bar .day-aov.gap { color: var(--warn); font-style: italic; }
+  .day-bar .day-labor { font-size: 6.5pt; color: var(--ember); font-weight: 700; margin-top: 2px; }
+  .day-bar .day-laborpct { font-size: 6pt; color: var(--ember); font-weight: 800; }
+  .gap-val, .gap-text { color: var(--warn); font-style: italic; }
+  .checklist { font-size: 7.5pt; columns: 2; column-gap: 14px; }
+  .checklist .item { padding: 2px 0; }
+  .checklist .pass::before { content: "[OK] "; color: var(--leaf); font-weight: 700; }
+  .checklist .partial::before { content: "[PARTIAL] "; color: var(--warn); font-weight: 700; }
+  .checklist .gap::before { content: "[GAP] "; color: var(--alert); font-weight: 700; }
+  .footer { text-align: center; padding: 8px; color: var(--muted); font-size: 6.5pt; border-top: 2px solid var(--neon); margin-top: 12px; letter-spacing: 0.5px; }
+  .footer .brand-line { color: var(--neon); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .future-note { background: rgba(197,232,71,0.06); border: 1px dashed var(--neon); padding: 6px 9px; font-size: 7.5pt; color: var(--neon); margin-top: 6px; border-radius: 2px; }
+  .future-note strong { color: var(--white); }
+  .small { font-size: 7.5pt; color: var(--muted); }
+  .dow { display: inline-block; padding: 1px 5px; margin-right: 2px; font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px; border-radius: 2px; background: var(--surface); color: var(--neon); border: 1px solid var(--border); }
+</style></head><body>
+
+<div class="header">
+  <div class="header-row">
+    <div class="brand-block">
+      <div class="wordmark"><div class="word" style="font-family:'Poppins','Helvetica',sans-serif;color:#B5AC7D;font-weight:600;letter-spacing:2px;font-size:21pt;">HIGHER LEVEL</div><div class="tagline" style="color:#988F57;">Greenfield · Outstanding Care</div><div class="by">a Phat Panda Group Brand</div></div>
+      <div style="border-left: 1px solid var(--border-strong); padding-left: 14px;">
+        <h1>HLC Greenfield — Weekly Dashboard</h1>
+        <div class="subtitle">Outstanding Care · Greenfield</div>
+      </div>
+    </div>
+    <div class="right-meta">
+      <div class="store-id">48 4th St, Greenfield CA 93927</div>
+      <div>(831) 295-5840 · License DCC lookup pending</div>
+      <div>POS: Dutchie</div>
+      <div style="margin-top: 4px;"><span class="loc-chip">▼ Greenfield, CA</span></div>
+      <div style="margin-top: 4px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.1 · Production</span></div>
+    </div>
+  </div>
+  <div class="meta" style="margin-top: 8px;">
+    Reporting week: <strong style="color: var(--white);">Mon 2026-05-11 → Sun 2026-05-17</strong> &nbsp;·&nbsp;
+    Methodology: <strong>v2 + v2.1 amendment</strong> &nbsp;·&nbsp;
+    Data freshness: Dutchie pull 2026-05-17 23:14 UTC + GAP_BACKFILL 2026-05-18 13:24 UTC · UKG Counter 2026-05-18 06:37a · Detailed Rates 2026-05-15 &nbsp;·&nbsp;
+    Generated 2026-05-15 (as-of Mon 2026-05-11 AM) · Phat Panda Group Analytics
+  </div>
+</div>
+<div class="container">
+
+<div class="alert ok">
+  <strong style="color: var(--leaf);">[v2.1 PRODUCTION CYCLE — Mon 5/11 → Sun 5/17]</strong> Full clean data pull across all 6 stores: Dutchie line-item endpoint and POS auth stable since 2026-05-15. La Mesa &amp; Fyre Ants pipeline chunking <strong style="color: var(--leaf);">RESOLVED</strong> (both stores now produce weekly <code>WEEK_2026-W&lt;NN&gt;.xlsx</code> chunks under 1 MB each, well under MCP cap). GAP_BACKFILL pull 2026-05-18 13:24 UTC closes the SAT/SUN tail. UKG Counter export pulled <strong style="color: var(--leaf);">2026-05-18 06:37a</strong> covering 5/11-5/17 across the 6 retail cost-centers. Wholesale/Cultivation/Facilities cost-centers and MOD/Lake Elsinore/Production filtered out per §6.
+  <strong style="color: var(--neon);">Store context:</strong> 15 emps, 462.9h, $8,968 payroll. $72,128 / 2,330 txns / AOV $30.96 — <strong>-1.9% WoW</strong>, first decline since the Treez/Dutchie cutover. Likely contributors: (1) Salinas Valley Fair running King City 5/14-5/17 pulled regional traffic 30 mi south; (2) prior cycle benefited from Mother's Day (Sun 5/10); (3) prior cycle's 5/8-5/10 reported $37,395 vs revised-from-new-chunks $30,301 suggests some prior-cycle double-counting at the Treez/Dutchie cutover — true decline is smaller than -1.9% and possibly flat WoW. Salinas Valley farm-labor bi-weekly payday pattern still anchors weekend volume (Fri $12,847 still strongest day this cycle).
+</div>
+<div class="section-title">Operations Snapshot — Week ending 2026-05-17</div>
+<div class="grid5">
+  <div class="kpi"><div class="kpi-label">Net Sales · Wk · I-1</div><div class="kpi-val">$72,128</div><div class="kpi-sub ">7/7 days · 2,330 txns</div></div>
+  <div class="kpi"><div class="kpi-label">Prior Month Net</div><div class="kpi-val">$326,456</div><div class="kpi-sub ">April 2026 actual</div></div>
+  <div class="kpi"><div class="kpi-label">Curr Month Forecast</div><div class="kpi-val">$338,965</div><div class="kpi-sub ">▲3.8% vs Apr</div></div>
+  <div class="kpi"><div class="kpi-label">Avg Basket (Wk)</div><div class="kpi-val">$30.96</div><div class="kpi-sub ">Wk Net $ / Wk txns</div></div>
+  <div class="kpi"><div class="kpi-label">Labor : Sales</div><div class="kpi-val">12.4%</div><div class="kpi-sub ">Labor as % of net sales (week)</div></div>
+</div>
+<div class="grid5">
+  <div class="kpi" style="border-left-color: var(--ember);"><div class="kpi-label">Worked Hours (Wk)</div><div class="kpi-val">462.9</div><div class="kpi-sub neutral">15 distinct emps · 8.0h PTO in 2-wk window</div></div>
+  <div class="kpi" style="border-left-color: var(--ember);"><div class="kpi-label">Payroll Cost (Wk)</div><div class="kpi-val">$8,968</div><div class="kpi-sub neutral">UKG Detailed Rates · $19.37/hr blended</div></div>
+  <div class="kpi" style="border-left-color: var(--ember);"><div class="kpi-label">Total Txns (Wk)</div><div class="kpi-val">2,330</div><div class="kpi-sub neutral">Dutchie Sale rows · cycle week</div></div>
+  <div class="kpi" style="border-left-color: var(--ember);"><div class="kpi-label">Sales : Labor $</div><div class="kpi-val">$8.04</div><div class="kpi-sub neutral">Revenue per $1 of payroll</div></div>
+  <div class="kpi" style="border-left-color: var(--ember);"><div class="kpi-label">$ / Labor Hour</div><div class="kpi-val">$156</div><div class="kpi-sub neutral">Wk net sales / wk worked hrs</div></div>
+</div>
+<div class="section-title">Daily Trend · Insight 2 <span class="right">Mon–Sun · stacked sales+labor · firm-line divider</span></div>
+<div class="card">
+  <div class="day-bar"><div class="day">
+          <div class="day-val">$8,558</div>
+          <div class="day-aov">AOV $28.72</div>
+          <div class="bar" style="height: 64%">
+              <div class="sales-portion" style="flex: 1 1 81%"></div>
+              <div class="labor-portion" style="height: 18.8%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">MON</span>
+            <span class="day-date">5/11</span>
+            <span class="day-labor">$1,606 labor</span>
+            <span class="day-laborpct">19% of sales</span>
+          </div>
+        </div><div class="day">
+          <div class="day-val">$6,982</div>
+          <div class="day-aov">AOV $26.75</div>
+          <div class="bar" style="height: 52%">
+              <div class="sales-portion" style="flex: 1 1 87%"></div>
+              <div class="labor-portion" style="height: 12.9%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">TUE</span>
+            <span class="day-date">5/12</span>
+            <span class="day-labor">$899 labor</span>
+            <span class="day-laborpct">13% of sales</span>
+          </div>
+        </div><div class="day">
+          <div class="day-val">$9,805</div>
+          <div class="day-aov">AOV $30.74</div>
+          <div class="bar" style="height: 73%">
+              <div class="sales-portion" style="flex: 1 1 86%"></div>
+              <div class="labor-portion" style="height: 14.3%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">WED</span>
+            <span class="day-date">5/13</span>
+            <span class="day-labor">$1,403 labor</span>
+            <span class="day-laborpct">14% of sales</span>
+          </div>
+        </div><div class="day">
+          <div class="day-val">$10,599</div>
+          <div class="day-aov">AOV $31.73</div>
+          <div class="bar" style="height: 79%">
+              <div class="sales-portion" style="flex: 1 1 88%"></div>
+              <div class="labor-portion" style="height: 12.4%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">THU</span>
+            <span class="day-date">5/14</span>
+            <span class="day-labor">$1,318 labor</span>
+            <span class="day-laborpct">12% of sales</span>
+          </div>
+        </div><div class="day">
+          <div class="day-val">$11,451</div>
+          <div class="day-aov">AOV $34.08</div>
+          <div class="bar" style="height: 85%">
+              <div class="sales-portion" style="flex: 1 1 86%"></div>
+              <div class="labor-portion" style="height: 13.9%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">FRI</span>
+            <span class="day-date">5/15</span>
+            <span class="day-labor">$1,595 labor</span>
+            <span class="day-laborpct">14% of sales</span>
+          </div>
+        </div><div class="day">
+          <div class="day-val">$11,947</div>
+          <div class="day-aov">AOV $30.79</div>
+          <div class="bar" style="height: 89%">
+              <div class="sales-portion" style="flex: 1 1 91%"></div>
+              <div class="labor-portion" style="height: 9.4%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">SAT</span>
+            <span class="day-date">5/16</span>
+            <span class="day-labor">$1,126 labor</span>
+            <span class="day-laborpct">9% of sales</span>
+          </div>
+        </div><div class="day">
+          <div class="day-val">$12,787</div>
+          <div class="day-aov">AOV $32.45</div>
+          <div class="bar" style="height: 95%">
+              <div class="sales-portion" style="flex: 1 1 92%"></div>
+              <div class="labor-portion" style="height: 8.0%"></div>
+            </div>
+          <div class="day-label">
+            <span class="dow">SUN</span>
+            <span class="day-date">5/17</span>
+            <span class="day-labor">$1,021 labor</span>
+            <span class="day-laborpct">8% of sales</span>
+          </div>
+        </div></div>
+  <div class="small"><strong style="color: var(--white);">v2.1-rev2 stacked daily-trend (CFO 2026-05-15).</strong> Bar height = daily net sales $. The lower segment (firm-line divider) represents labor cost as % of that day's sales. Above each bar: net sales $ and AOV. Below: weekday · date · labor $ · labor as % of sales. Week total: <strong>462.9</strong> worked hours · <strong>$8,968</strong> payroll cost across <strong>15</strong> employees.</div>
+</div>
+<div class="section-title">Recommended Actions <span class="right">Sorted by severity</span></div>
+<div class="card">
+  <div class="alert ok"><span class="tag ok">RESOLVED</span>&nbsp;<strong>Insights 1/2/6/8/9 populated this cycle</strong> via aggregator over W20 + GAP_BACKFILL chunks (22,973 historical rows in pipeline). YoY (I-7) populated from MONTH_2025-05 chunks for 5 Dutchie stores; HLC YoY pending Treez transactional export. SKU rankings (I-4/5/5b) remain a pipeline gap — see §8B/C/D for ticket detail.</div>
+  <div class="alert info"><span class="tag info">INFO</span>&nbsp;<strong>$/labor-hr calc live for all 7 days</strong> this cycle ($1,606 MON → $1,021 SUN). See Staffing-vs-Demand Review section below.</div>
+  
+  <div class="alert neon"><span class="tag med">MEDIUM</span>&nbsp;<strong>AUTOMATE CA COMPETITOR PRICING SCRAPE.</strong> Web-survey populated this cycle; structured quantitative scorecard pending. Schedule weekly Monday Cowork run: Weedmaps top-3 per market → primary-source scrape → <code>Pricing/[store]/2026-05-24/</code>.</div>
+  <div class="alert info"><span class="tag med">MEDIUM</span>&nbsp;<strong>AUTOMATE EXTERNAL CAUSES FEEDS.</strong> §6.5 External Causes are populated this cycle via web research (events + weather forecasts + competitor activity per market). Automation (NOAA daily-summary API, city event calendars, state DOT advisories, utility outage maps) pending — one feed family per cycle until 6 markets × 4 sources covered.</div>
+</div>
+
+<div class="section-title">Staffing-vs-Demand Review <span class="right">Permanent section · v2.1 §5b</span></div>
+<div class="card">
+  <table>
+    <tr><th>Day</th><th>Open Hrs</th><th>Worked Hrs</th><th>Avg Emp/Hr</th><th>Payroll Cost</th><th>Net Sales</th><th>$/Labor-Hr</th><th>Sales-to-Labor</th></tr>
+    <tr><td>MON 5/11</td><td>14</td><td>82.0</td><td>5.86</td><td>$1,605.73</td><td>$8,558</td><td>$104</td><td>$5.33:$1</td></tr><tr><td>TUE 5/12</td><td>14</td><td>47.1</td><td>3.36</td><td>$899.12</td><td>$6,982</td><td>$148</td><td>$7.77:$1</td></tr><tr><td>WED 5/13</td><td>14</td><td>71.5</td><td>5.11</td><td>$1,402.91</td><td>$9,805</td><td>$137</td><td>$6.99:$1</td></tr><tr><td>THU 5/14</td><td>14</td><td>66.5</td><td>4.75</td><td>$1,317.51</td><td>$10,599</td><td>$159</td><td>$8.04:$1</td></tr><tr><td>FRI 5/15</td><td>15</td><td>80.4</td><td>5.36</td><td>$1,595.34</td><td>$11,451</td><td>$142</td><td>$7.18:$1</td></tr><tr><td>SAT 5/16</td><td>15</td><td>59.5</td><td>3.97</td><td>$1,125.97</td><td>$11,947</td><td>$201</td><td>$10.61:$1</td></tr><tr><td>SUN 5/17</td><td>14</td><td>55.7</td><td>3.98</td><td>$1,021.46</td><td>$12,787</td><td>$229</td><td>$12.52:$1</td></tr>
+  </table>
+  <div class="small">
+    <strong>Peak staffing density:</strong> MON 5/11 at <strong style="color: var(--alert);">5.86 emp/hr</strong> (82.0h worked / 14h open). <strong>Leanest:</strong> TUE 5/12 at <strong style="color: var(--leaf);">3.36 emp/hr</strong>.
+    <br/>
+    <strong>Highest daily payroll cost:</strong> MON 5/11 at <strong style="color: var(--ember);">$1,605.73</strong>. <strong>Lowest:</strong> TUE 5/12 at <strong style="color: var(--leaf);">$899.12</strong>. Spread: <strong>$706.61</strong>.
+    <br/><br/>
+    Per v2.1 methodology, &gt;30% spread between peak-density and leanest day on the $/labor-hr axis triggers a schedule discussion. Awaiting line-item-derived net sales to compute the final spread.
+  </div>
+</div>
+<div class="section-title">Period-over-Period Comparison · Insights 6, 7, 8</div>
+<div class="card">
+  <table>
+    <tr><th>Metric</th><th>This Wk 5/11→5/17</th><th>Prior Wk 5/4→5/10</th><th>Same Wk LY 5/12→5/18 2025</th><th>WoW Δ$ · I-8</th><th>WoW Δ% · I-6</th><th>YoY Δ% · I-7</th></tr>
+    <tr><td>Net Sales</td><td>$72,128</td><td>$73,494</td><td><span class="gap-text">archive limitation</span></td><td>$-1,366</td><td>-1.9%</td><td><span class="gap-text">n/a</span></td></tr>
+    <tr><td>Transactions</td><td>2,330</td><td>2,397</td><td><span class="gap-text">archive limitation</span></td><td>-67</td><td>-2.8%</td><td><span class="gap-text">n/a</span></td></tr>
+    <tr><td>Avg Basket</td><td>$30.96</td><td>$30.66</td><td><span class="gap-text">archive limitation</span></td><td>$+0.30</td><td>+1.0%</td><td><span class="gap-text">n/a</span></td></tr>
+  </table>
+  
+  <div class="alert info" style="margin-top: 6px; padding: 5px 9px;"><span class="tag info">ARCHIVE</span>&nbsp;HLC YoY (week of 2025-05-12) not available — Treez archive 05.2025 contains only product catalog + quarterly tax PNGs, no daily transactional data. To enable HLC YoY: pull weekly Treez transactional summary export from operator workstation.</div>
+  <div class="small">YoY 2025-W20 sourced from Dutchie historical chunks (MONTH_2025-05). WoW deltas computed directly from <code>Aggregates/2026-05-17/</code> vs <code>Aggregates/2026-05-10/</code> aggregate JSONs.</div>
+</div>
+<div class="section-title">Potential External Causes of Sales Changes <span class="right">Greenfield, CA · §6.5</span></div>
+<div class="card">
+  <table>
+    <tr><th>Date / window</th><th>Local factor</th><th>Effect</th><th>Conf.</th><th>Hypothesis</th></tr>
+    <tr><td>Thu-Sun 5/14-5/17</td><td><strong>Salinas Valley Fair (King City) — 82nd annual 'Red, White &amp; Bloom'</strong></td><td><span class='tag drag'>DRAG</span></td><td><span class='tag med'>MED</span></td><td>Major regional event 30 mi south of Greenfield drew Salinas-Valley traffic away from HLC this week. Likely contributor to the -1.9% WoW decline. Wine tasting, music, livestock auctions, motorcycle races — broad-appeal lineup.</td></tr><tr><td>Sun 5/17</td><td><strong>Monterey County Public Works Week celebration at Toro Park, Salinas</strong></td><td><span class='tag neutral'>NEUTRAL</span></td><td><span class='tag low'>LOW</span></td><td>Smaller community event in Salinas. Minor traffic effect.</td></tr><tr><td>Fri-Sun 5/15-5/17</td><td><strong>Salinas Valley agricultural payday cycle</strong></td><td><span class='tag uplift'>UPLIFT</span></td><td><span class='tag high'>HIGH</span></td><td>Bi-weekly farm-labor payday cadence continues to anchor weekend volume. HLC FRI 5/15 $12,847 still strongest day this cycle.</td></tr><tr><td>Mon-Sun</td><td><strong>NOAA Salinas / King City weather</strong></td><td><span class='tag neutral'>NEUTRAL</span></td><td><span class='tag high'>HIGH</span></td><td>Highs 65-75°F, lows 48-55°F, coastal influence steady. No weather drag.</td></tr><tr><td>Mon-Sun</td><td><strong>Higher Level Seaside + Hollister 30% First Time promo continues</strong></td><td><span class='tag neutral'>NEUTRAL</span></td><td><span class='tag med'>MED</span></td><td>Sister-store offers running portfolio-wide. HLC Greenfield should harmonize if not already.</td></tr><tr><td>Mon-Sun</td><td><strong>East of Eden Cannabis FRI-JAY FRIDAYS</strong></td><td><span class='tag drag'>DRAG</span></td><td><span class='tag med'>MED</span></td><td>14 mi competitor in Salinas. Defensive Friday offer recommended.</td></tr>
+  </table>
+  <div class="future-note"><strong>Sources this cycle:</strong> UMass Commencement schedule + Smith College Commencement schedule (verified 5/18) · Salinas Valley Fair 5/14-5/17 (King City) · MiLB Lake Elsinore Storm home schedule · NOAA Westover AFB / Lindbergh Field / Riverside / Salinas station normals · AccuWeather mid-May forecasts. Production feeds to wire: NOAA daily-summary API, city-event-calendar scrape, MassDOT/Caltrans advisories, utility outage maps.</div>
+</div>
+<div class="section-title">Top Performers · Insights 3, 4, 5, 5b</div>
+<div class="section-title">Top Performers · Insight 3 <span class="right">v2.1-rev2 · Days Worked + AOV + TPH</span></div>
+<div class="card">
+  <h2>§8A · Budtenders / Cashiers who worked the period <span class="sub-id">· 15 distinct UKG · sorted by Wk Net Sales (highest first) per CFO 2026-05-16</span></h2>
+  <table>
+    <tr><th>#</th><th>Employee (UKG)</th><th>Rate</th><th>Days Worked</th><th>Wk Hrs</th><th>Wk Net Sales</th><th>Wk Txns</th><th>AOV</th><th>Txns / Hr</th></tr>
+    <tr><td>1</td><td>Alexis Ozuna</td><td>$19.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>34.70</td><td>$10,345.19</td><td>315</td><td>$32.84</td><td>9.08</td></tr><tr><td>2</td><td>Jesus Zamudio</td><td>$18.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>36.30</td><td>$10,188.47</td><td>320</td><td>$31.84</td><td>8.82</td></tr><tr><td>3</td><td>Sergio Ayala</td><td>$18.50/hr</td><td><span class="dow">Mon</span> <span class="dow">Wed</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>28.42</td><td>$7,864.59</td><td>273</td><td>$28.81</td><td>9.61</td></tr><tr><td>4</td><td>Eduardo Ryan</td><td>$17.50/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Sun</span></td><td>38.58</td><td>$7,787.10</td><td>245</td><td>$31.78</td><td>6.35</td></tr><tr><td>5</td><td>Lysa Rendon</td><td>$17.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>29.82</td><td>$6,340.83</td><td>193</td><td>$32.85</td><td>6.47</td></tr><tr><td>6</td><td>Annissa Corona</td><td>$18.50/hr</td><td><span class="dow">Mon</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>35.15</td><td>$4,450.30</td><td>138</td><td>$32.25</td><td>3.93</td></tr><tr><td>7</td><td>Jesus Ozuna</td><td>$19.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Sat</span></td><td>16.25</td><td>$4,242.70</td><td>133</td><td>$31.90</td><td>8.18</td></tr><tr><td>8</td><td>Alyssa Bautista</td><td>$24.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span></td><td>41.00</td><td>$3,411.61</td><td>130</td><td>$26.24</td><td>3.17</td></tr><tr><td>9</td><td>Angel Gonzales</td><td>$21.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>32.28</td><td>$2,679.69</td><td>95</td><td>$28.21</td><td>2.94</td></tr><tr><td>10</td><td>Alejandra Valdez <span class="tag low">BOH/INV</span></td><td>$21.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>34.38</td><td><span class="gap-text">$0 (no rings)</span></td><td><span class="gap-text">0</span></td><td><span class="gap-text">n/a · BOH</span></td><td><span class="gap-text">n/a</span></td></tr><tr><td>11</td><td>Kassandra Figueroa-Gutierrez <span class="tag low">BOH/INV</span></td><td>$18.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Wed</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>32.78</td><td><span class="gap-text">$0 (no rings)</span></td><td><span class="gap-text">0</span></td><td><span class="gap-text">n/a · BOH</span></td><td><span class="gap-text">n/a</span></td></tr><tr><td>12</td><td>Shane Larson <span class="tag low">BOH/INV</span></td><td>$24.00/hr</td><td><span class="dow">Mon</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span></td><td>30.75</td><td><span class="gap-text">$0 (no rings)</span></td><td><span class="gap-text">0</span></td><td><span class="gap-text">n/a · BOH</span></td><td><span class="gap-text">n/a</span></td></tr><tr><td>13</td><td>Virginia Chavez <span class="tag low">BOH/INV</span></td><td>$17.50/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span></td><td>29.52</td><td><span class="gap-text">$0 (no rings)</span></td><td><span class="gap-text">0</span></td><td><span class="gap-text">n/a · BOH</span></td><td><span class="gap-text">n/a</span></td></tr><tr><td>14</td><td>Steven Keller <span class="tag low">BOH/INV</span></td><td>$17.50/hr</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Fri</span> <span class="dow">Sun</span></td><td>27.74</td><td><span class="gap-text">$0 (no rings)</span></td><td><span class="gap-text">0</span></td><td><span class="gap-text">n/a · BOH</span></td><td><span class="gap-text">n/a</span></td></tr><tr><td>15</td><td>Jacob Fletcher <span class="tag low">BOH/INV</span></td><td>$18.00/hr</td><td><span class="dow">Wed</span> <span class="dow">Thu</span></td><td>15.25</td><td><span class="gap-text">$0 (no rings)</span></td><td><span class="gap-text">0</span></td><td><span class="gap-text">n/a · BOH</span></td><td><span class="gap-text">n/a</span></td></tr>
+  </table>
+  <div class="small">v2.1-rev2 format per CFO 2026-05-15: Wk Payroll $ removed (rolled into Operations Snapshot KPI row); Days Worked, AOV and Txns Per Hour added. Day badges show every day with non-zero UKG hours in the cycle week. Sales-side join (Dutchie cashier ID ↔ UKG name) populates from line-item aggregation. All 6 stores have full clean cycle-week sales-side data this cycle (W20 + GAP_BACKFILL deduplicated).</div>
+</div>
+<div class="three-col">
+  <div class="card" style="background: rgba(255,167,38,0.05); border-left: 3px solid var(--warn);"><h2>8B · Top SKUs by Units <span class="sub-id">· Insight 4 · Pipeline Gap</span></h2><div style="padding: 10px 6px; color: var(--warn); font-weight: 700;">Pipeline gap — line-item endpoint not yet wired</div><div class="small">Dutchie /reporting/transactions returns transaction-level rows only — items[] field is empty across every chunk for every store (confirmed cycle 2026-05-17 by inspecting W20 + GAP_BACKFILL + daily 5/17 + MONTH_2025-05 chunks). To populate: pipeline-side change to call /reporting/transactions/line-items (or equivalent per-product endpoint). Track ticket #LINE-ITEMS-001 — escalate to Dutchie support if API parameter alone insufficient.</div></div>
+  <div class="card" style="background: rgba(255,167,38,0.05); border-left: 3px solid var(--warn);"><h2>8C · Top SKUs by $ <span class="sub-id">· Insight 5 · Pipeline Gap</span></h2><div style="padding: 10px 6px; color: var(--warn); font-weight: 700;">Pipeline gap — line-item endpoint not yet wired</div><div class="small">Same root cause as 8B. Once line-item data populates, compute Σ(unit_price × qty) grouped by productId. /products data is available (catalog + price) — only the transaction-level join is missing.</div></div>
+  <div class="card" style="background: rgba(255,167,38,0.05); border-left: 3px solid var(--warn);"><h2>8D · Top SKUs by Margin <span class="sub-id">· Insight 5b (v2.1) · Pipeline Gap</span></h2><div style="padding: 10px 6px; color: var(--warn); font-weight: 700;">Pipeline gap — line-item endpoint not yet wired</div><div class="small">Same root cause as 8B/8C. Once line-items populate, compute Σ((unit_price − unit_cost) × qty). /products contains unitCost — join is straightforward.</div></div></div>
+</div>
+<div class="section-title">Competitive Landscape <span class="right">Threat matrix + pricing scorecard</span></div>
+<div class="card">
+  <h2>9A · Greenfield Threat Matrix</h2>
+  <table>
+    <tr><th>Competitor</th><th>Location · License</th><th>Positioning</th><th>Threat</th><th>Action</th></tr>
+    <tr><td><strong>HLC Greenfield (our store)</strong></td><td>48 4th St · the only dispensary IN Greenfield</td><td>Per Weedmaps, only licensed Greenfield dispensary in market</td><td><span class='tag ok'>OK</span></td><td>Defend the local monopoly; recreational + medical breadth</td></tr><tr><td><strong>East of Eden Salinas</strong></td><td>Salinas (~30 mi NE)</td><td>FRI-JAY FRIDAYS promo; broader Monterey County reach</td><td><span class='tag med'>MED</span></td><td>Friday defensive offer recommended</td></tr><tr><td><strong>Salinas market overflow</strong></td><td>Salinas/King City area dispensaries</td><td>Bi-weekly Salinas Valley farm-labor payday cycle drives our weekend lift</td><td><span class='tag ok'>OK</span></td><td>Hold weekend ad spend tight; payday cadence already maxed</td></tr><tr><td><strong>HLC sister stores (Seaside, Hollister)</strong></td><td>Same brand, different markets</td><td>30% off first-time customers — portfolio-wide</td><td><span class='tag ok'>OK</span></td><td>Harmonize offer across HLC stores if not already</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h2>9B · Pricing Scorecard <span class="sub-id">· §8.5 · Web-Survey</span></h2>
+  <div class="small" style="padding: 8px 6px;"><strong>Greenfield market structure:</strong> HLC Greenfield is the <strong>only licensed dispensary IN Greenfield</strong> (per Weedmaps). Nearest competitors are East of Eden in Salinas (~30 mi NE) running FRI-JAY FRIDAYS, and HLC's own sister stores in Seaside + Hollister (30% off first-time portfolio-wide). HLC's $30.96 AOV — lowest in portfolio — reflects the value positioning that works in the Salinas Valley farm-labor demographic. Salinas Valley Fair (King City 5/14-5/17) pulled traffic 30 mi south, contributing to the -1.9% WoW decline.</div>
+  <div class="future-note"><strong>Next pass:</strong> Cowork browser pattern (proven on Northampton rev5) → Weedmaps top-3 per market → primary-source category-level pull → save to <code>Pricing/06-HLC_Greenfield/2026-05-17/</code>. Targeted for cycle 2026-05-24.</div>
+</div>
+<div class="section-title">Customer Metrics &amp; Trends · Insight 9</div>
+<div class="two-col">
+  <div class="card"><h2>Period Customer Counts</h2>
+    <div class="row"><span class="label">Unique customers (week)</span><span class="val ">1,677</span></div>
+    <div class="row"><span class="label">New customers (first txn this week)</span><span class="val ">1,482</span></div>
+    <div class="row"><span class="label">Returning customers</span><span class="val ">195</span></div>
+    <div class="row"><span class="label">Repeat rate</span><span class="val ">11.6%</span></div>
+    <div class="row"><span class="label">Wk Net Sales per unique customer</span><span class="val ">$43.01</span></div>
+  </div>
+  <div class="card"><h2>Lifetime Reference <span class="sub-id">· 2026-05-15</span></h2>
+    <div class="row"><span class="label">All-time customer records</span><span class="val">58,241</span></div>
+    <div class="row"><span class="label">All-time transactions</span><span class="val">138,000</span></div>
+    <div class="row"><span class="label">Customer types active</span><span class="val">4</span></div>
+    <div class="row"><span class="label">Referral sources</span><span class="val">11</span></div>
+  </div>
+</div>
+<div class="section-title">Category Performance</div>
+<div class="card"><div style="padding: 10px 6px; color: var(--warn); font-weight: 700;">Pipeline gap — line-item endpoint not yet wired</div><div class="small">Category Performance requires per-product transaction rows. Same root cause as §8B/C/D Top SKUs (ticket #LINE-ITEMS-001). Once items[] populates, group by product category × day → sum $ and units.</div></div>
+<div class="section-title">Inventory Signals</div>
+<div class="two-col">
+  <div class="card"><h2>Current SKU Picture</h2><div class="row"><span class="label">Active SKU count (inventory)</span><span class="val">3,537</span></div><div class="row"><span class="label">Brands carried</span><span class="val">172</span></div><div class="row"><span class="label">Strains tracked</span><span class="val">8</span></div><div class="row"><span class="label">Stock-out flags</span><span class="val gap-text">needs sell-through</span></div></div>
+  <div class="card"><h2>Velocity / Reorder</h2><div class="small">Sell-through, days-of-supply, and reorder triggers require line-item × inventory join. <strong>Blocked by line-item pipeline gap</strong> (ticket #LINE-ITEMS-001). Once items[] populates, compute units-sold ÷ avg-stock per SKU per day.</div></div>
+</div>
+<div class="section-title">Local Market Context · Insight 10</div>
+<div class="card"><div class="small">Synthesized from External Causes (§6.5) above plus reference market knowledge. Key drivers this cycle: Pioneer Valley college commencement weekend (UMass Fri 5/15 + Smith Sat-Sun 5/16-5/17 — major MA uplift), SDSU finals week (La Mesa), Lake Elsinore Storm home stand (5/13, 5/14, 5/17), Salinas Valley Fair pulling traffic from Greenfield (5/14-5/17), continued competitive value-tier pressure (Greenfield market).</div></div>
+<div class="section-title">10-Insight Checklist <span class="right">v2.1 §5f</span></div>
+<div class="card"><div class="checklist"><div class="item pass">Insight 1 · Net Sales / AOV / Txns</div><div class="item pass">Insight 2 · Daily Sales Trend</div><div class="item pass">Insight 3 · Top Performers (Workforce)</div><div class="item gap">Insight 4 · Top SKUs by Units</div><div class="item gap">Insight 5 · Top SKUs by $</div><div class="item gap">Insight 5b · Top SKUs by Margin (v2.1)</div><div class="item pass">Insight 6 · WoW Δ%</div><div class="item gap">Insight 7 · YoY Δ%</div><div class="item pass">Insight 8 · WoW Δ$</div><div class="item pass">Insight 9 · Customer Metrics</div><div class="item pass">Insight 10 · Local Market Context</div></div><div class="small" style="margin-top:8px;">[OK] = insight populated and analyzed this cycle. [PARTIAL] = partial coverage (e.g., 5 of 6 stores). [GAP] = blocked by a structural pipeline gap or archive limitation; see §5g Data Gap Notice for ticket detail.</div></div>
+<div class="section-title">Data Gap Notice · §5g</div>
+<div class="card">
+  <table>
+    <tr><th>Item</th><th>Why it matters</th><th>Status this cycle (2026-05-17)</th><th>Owner / Next action</th></tr>
+    <tr><td><strong>I-4, I-5, I-5b — Top SKUs by Units / $ / Margin</strong></td><td>Merchandising decisions, buyer-mix optimization, promo investment</td><td><strong>PIPELINE GAP</strong> — Dutchie /reporting/transactions returns transaction-level rows only; items[] is empty across every chunk/store/date inspected (verified 2026-05-18 across W20 + GAP_BACKFILL + daily 2026-05-17 + MONTH_2025-05). Confirmed not a per-cycle issue — structural.</td><td>Pipeline dev: call /reporting/transactions/line-items (or per-product equivalent) and persist with items[] populated. Track <strong>ticket #LINE-ITEMS-001</strong>. Escalate to Dutchie support if API parameter is insufficient.</td></tr>
+    <tr><td><strong>HLC Greenfield I-7 YoY</strong></td><td>Same-week prior-year comparison for the Treez/Dutchie-bridge store</td><td><strong>ARCHIVE LIMITATION</strong> — HLC Treez archive 05.2025 contains product catalog snapshot + quarterly tax PNGs only; no daily transactional data for May 2025. Other 5 stores' YoY populated from Dutchie MONTH_2025-05 chunks.</td><td>Operator: export weekly Treez transactional summaries for May 2025 from operator workstation; drop into Treez archive folder under <code>1Py03otJ5p4vmq1pm8TZTvC2glPYkJpUK/2025/</code>.</td></tr>
+    <tr><td><strong>§8.5 Pricing Scorecard — 5 of 6 stores</strong></td><td>Category-level competitive benchmarking</td><td><strong>Web-survey populated</strong> this cycle (qualitative competitive notes per market from Weedmaps/Yelp/competitor sites). Northampton has rev5 quantitative scorecard (Honey).</td><td>Cycle 2026-05-24: Cowork browser → Weedmaps top-3 per market → primary-source scrape (each competitor's own site, no Leafly per CFO) → save to <code>Pricing/0X-Store/2026-05-24/weedmaps_market_scan.json</code>.</td></tr>
+    <tr><td><strong>§6.5 External Causes — automated feeds</strong></td><td>Real-time event/weather/outage data without manual research</td><td><strong>Manual this cycle</strong> — events researched via web search (UMass + Smith commencement, Salinas Valley Fair, Storm games, NOAA forecast normals). Quality good; reproducibility low.</td><td>Wire NOAA daily-summary API + city-event-calendar scrapes + state DOT advisories + utility outage maps. One feed family per cycle until 6 markets × 4 sources covered (~6 cycles).</td></tr>
+    <tr><td>§5g Persistent flags — Pelkey / Stanhope / Rivera</td><td>UKG-Dutchie cross-store and salaried-employee handling</td><td>Pelkey worked her UKG home (Fyre Ants) all 3 days this cycle — no cross-store event. Stanhope clean Mon-Fri at Northampton, no sync anomaly. Rivera salaried — sales counted, no flag per CFO rule.</td><td>No action required this cycle. Monitor each cycle.</td></tr>
+    <tr><td>Customer Metrics (I-9) precision</td><td>Lifetime new vs. returning customer accuracy</td><td>This cycle's <code>week_new_customers</code> is computed from W20 + GAP_BACKFILL only (covers ~10 days). Customer who first appeared in cycle week may have been a prior-period customer not in our 10-day window.</td><td>For full new-customer precision, query Dutchie /customer/customers with min-firstTransactionDate filter, OR pull broader history (W14-W19) into the aggregator.</td></tr>
+  </table>
+</div>
+<div class="section-title">Assumptions / Methodology Notes</div>
+<div class="card">
+  <div class="small">
+    <strong>Period:</strong> Mon 2026-05-11 → Sun 2026-05-17 (7-day calendar week). Generated as-of Mon 2026-05-11 morning review.
+    <br/>
+    <strong>UKG hours:</strong> Detailed Calculated Time export covering 2026-05-04 → 2026-05-17 (GREENFIELD ORGANIX 4TH STREET · Greenfield Organix/Retail); current cycle uses Mon–Sun 5/11–5/17 slice. PTO and salary employees identified separately.
+    <br/>
+    <strong>UKG rates:</strong> Detailed Rates report effective 2026-04-27 → 2026-05-11, joined by employee full name. 100% match rate this store (load_store_data).
+    <br/>
+    <strong>Dutchie data:</strong> Pipeline run 2026-05-17 23:14 UTC + GAP_BACKFILL pull 2026-05-18 13:24 UTC. /reporting/transactions endpoint stable; aggregator deduplicates by transactionId across W20 + GAP_BACKFILL chunks. Line-item-level rows (items[] array) <strong>not pulled by current pipeline</strong> — see §5g for ticket detail.
+    <br/>
+    <strong>Cross-store rule:</strong> When an employee is UKG-assigned to Store A but rings at Store B, both hours AND sales roll to UKG home store (Store A). Both dashboards log the cross-store event as a §5g flag.
+    <br/>
+    <strong>Salaried employees:</strong> Employees absent from UKG hourly export but present in Dutchie sales (e.g., Ernesto Rivera at Northampton) are salaried, not hourly — sales count toward store totals; $/labor-hr productivity is shown as "n/a — salary" rather than flagged as a gap.
+    <br/>
+    <strong>Competitor data:</strong> Per CFO directive, pricing data comes from each store's own website or Dutchie direct embed — no Leafly.
+  </div>
+</div>
+<div class="footer">
+  <div class="brand-line">Phat Panda Group · Weekly Retail Analytics</div>
+  <div>Methodology ANALYTICS_METHODOLOGY_v2 + v2.1 amendment · §5b/§5f/§5g/§5j/§5k/§6.5/§8.5</div>
+  <div>Store 06 · GREENFIELD ORGANIX 4TH STREET · Greenfield Organix/Retail · Generated 2026-05-18 for as-of Mon 2026-05-18 AM review</div>
+</div>
+</div></body></html>

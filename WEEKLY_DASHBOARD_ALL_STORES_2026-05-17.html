@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>ALL STORES - Weekly Dashboard 2026-05-17 v2.1-rev5</title><style>
+  @page { size: Letter landscape; margin: 0.45in; }
+  :root {
+    --bg: #0C0E13; --surface: #161A22; --card: #1E222D;
+    --border: #2E3340; --border-strong: #3D4452;
+    --ember: #FF6B35; --ember-hi: #FF8F5A;
+    --neon: #4DD0E1; --neon-hi: #7CE2F0;
+    --white: #F5F6F8; --cream: #E0E2E8; --muted: #8A8E99;
+    --leaf: #7CB342; --warn: #FFA726; --alert: #EF5350; --info: #64B5F6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--white); font-family: 'Helvetica Neue','Arial',sans-serif; font-size: 8.5pt; line-height: 1.32; }
+  .header { background: #0C0E13; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
+  .header-row { display: flex; justify-content: space-between; align-items: center; }
+  .brand-block { display: flex; align-items: center; gap: 16px; }
+  .wordmark .word { font-weight: 900; font-size: 24pt; letter-spacing: 4px; color: var(--white); line-height: 0.95; }
+  .wordmark .word .flame { color: var(--ember); }
+  .wordmark .tagline { font-size: 6.5pt; font-weight: 800; color: var(--ember); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 2px; }
+  .wordmark .by { font-size: 6pt; color: var(--cream); font-style: italic; letter-spacing: 0.5px; margin-top: 1px; }
+  .header h1 { font-size: 13pt; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+  .header .subtitle { font-size: 7.5pt; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+  .header .meta { color: var(--muted); font-size: 7.5pt; margin-top: 6px; }
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 14px; font-size: 6.5pt; font-weight: 700; margin-left: 6px; vertical-align: 2px; text-transform: uppercase; letter-spacing: 1px; }
+  .badge-ok { background: rgba(124,179,66,0.18); color: var(--leaf); border: 1px solid rgba(124,179,66,0.5); }
+  .badge-prod { background: rgba(230,57,70,0.18); color: var(--ember-hi); border: 1px solid rgba(230,57,70,0.5); }
+  .right-meta { text-align: right; color: var(--muted); font-size: 7pt; line-height: 1.5; }
+  .right-meta .store-id { color: var(--white); font-weight: 700; font-size: 8pt; }
+  .right-meta .loc-chip { display: inline-block; padding: 3px 12px; border: 1px solid var(--neon); border-radius: 14px; color: var(--neon); font-weight: 800; font-size: 7.5pt; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+  .container { padding: 0 4px; }
+  .grid5 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 7px; margin-bottom: 10px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--neon); border-radius: 3px; padding: 8px 10px; }
+  .kpi-label { font-size: 6.5pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
+  .kpi-val { font-size: 15pt; font-weight: 800; color: var(--white); margin-top: 2px; line-height: 1.05; }
+  .kpi-sub { font-size: 7pt; color: var(--leaf); margin-top: 3px; line-height: 1.25; }
+  .kpi-sub.gap { color: var(--warn); }
+  .kpi-sub.neutral { color: var(--muted); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 12px; margin-bottom: 8px; }
+  .card h2 { font-size: 8.5pt; font-weight: 700; color: var(--neon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border-strong); }
+  .card h2 .sub-id { color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .section-title { font-size: 9.5pt; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 2px; margin: 14px 0 8px; padding-left: 10px; border-left: 4px solid var(--neon); }
+  .section-title .right { float: right; font-weight: 500; font-size: 7.5pt; color: var(--muted); letter-spacing: 0.5px; text-transform: none; }
+  .row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--border); font-size: 8pt; }
+  .row:last-child { border-bottom: none; }
+  .row .label { color: var(--muted); }
+  .row .val { color: var(--white); font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--surface); padding: 5px 7px; text-align: left; font-size: 7pt; color: var(--neon); text-transform: uppercase; letter-spacing: 0.7px; font-weight: 700; border-bottom: 1px solid var(--neon); }
+  td { padding: 4px 7px; border-bottom: 1px solid var(--border); font-size: 8pt; }
+  tr:last-child td { border-bottom: none; }
+  .alert { background: var(--surface); border-left: 3px solid var(--alert); border-radius: 2px; padding: 7px 10px; margin-bottom: 6px; font-size: 8pt; }
+  .alert.warn { border-left-color: var(--warn); } .alert.info { border-left-color: var(--info); }
+  .alert.ok { border-left-color: var(--leaf); } .alert.ember { border-left-color: var(--ember); }
+  .alert.neon { border-left-color: var(--neon); } .alert strong { color: var(--white); }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 2px; font-size: 6.5pt; font-weight: 700; background: var(--surface); color: var(--muted); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag.uplift, .tag.ok { background: rgba(124,179,66,0.18); color: var(--leaf); border-color: rgba(124,179,66,0.5); }
+  .tag.drag, .tag.high, .tag.critical { background: rgba(239,83,80,0.18); color: var(--alert); border-color: rgba(239,83,80,0.5); }
+  .tag.neutral, .tag.info { background: rgba(100,181,246,0.18); color: var(--info); border-color: rgba(100,181,246,0.5); }
+  .tag.med, .tag.warn { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
+  .tag.low { background: rgba(154,149,144,0.18); color: var(--muted); border-color: rgba(154,149,144,0.5); }
+  .tag.gap { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
+  .tag.neon { background: rgba(197,232,71,0.22); color: var(--neon); border-color: rgba(197,232,71,0.6); }
+  .tag.ember { background: rgba(230,57,70,0.18); color: var(--ember-hi); border-color: rgba(230,57,70,0.5); }
+  /* Daily Trend bar: stacked sales + labor with firm-line divider (v2.1-rev2 per CFO 2026-05-15) */
+  .day-bar { display: flex; align-items: flex-end; gap: 5px; height: 140px; padding: 4px 2px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+  .day-bar .day { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .day-bar .bar-wrap { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+  .day-bar .bar { width: 100%; min-height: 2px; border-radius: 2px 2px 0 0; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+  /* Sales-remainder portion (top of stack) — solid, no gradient */
+  .day-bar .bar .sales-portion { width: 100%; background: var(--neon); flex: 1 1 auto; border-radius: 2px 2px 0 0; }
+  /* Labor portion (bottom of stack) — firm-line ember, height = labor as % of sales */
+  .day-bar .bar .labor-portion { width: 100%; background: var(--ember); border-top: 2px solid var(--white); flex: 0 0 auto; }
+  /* No-sales fallback (sales gap-flagged) — show labor-only bar with hatched no-sales pattern above */
+  .day-bar .bar.no-sales .sales-portion { background: repeating-linear-gradient(45deg, var(--border), var(--border) 4px, transparent 4px, transparent 8px); border: 1px dashed var(--warn); opacity: 0.55; }
+  .day-bar .day-label { font-size: 6.5pt; color: var(--muted); margin-top: 3px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.35; }
+  .day-bar .day-label .dow { display: block; font-size: 7pt; color: var(--white); font-weight: 800; letter-spacing: 1px; margin: 0 0 1px 0; padding: 0; background: none; border: none; }
+  .day-bar .day-label .day-date { display: block; color: var(--muted); font-weight: 600; font-size: 6.5pt; margin-bottom: 2px; }
+  .day-bar .day-val { font-size: 7.5pt; color: var(--white); font-weight: 800; margin-bottom: 1px; }
+  .day-bar .day-val.gap { color: var(--warn); font-style: italic; }
+  .day-bar .day-aov { font-size: 6.5pt; color: var(--info); font-weight: 700; margin-bottom: 2px; letter-spacing: 0.3px; }
+  .day-bar .day-aov.gap { color: var(--warn); font-style: italic; }
+  .day-bar .day-labor { font-size: 6.5pt; color: var(--ember); font-weight: 700; margin-top: 2px; }
+  .day-bar .day-laborpct { font-size: 6pt; color: var(--ember); font-weight: 800; }
+  .gap-val, .gap-text { color: var(--warn); font-style: italic; }
+  .checklist { font-size: 7.5pt; columns: 2; column-gap: 14px; }
+  .checklist .item { padding: 2px 0; }
+  .checklist .pass::before { content: "[OK] "; color: var(--leaf); font-weight: 700; }
+  .checklist .partial::before { content: "[PARTIAL] "; color: var(--warn); font-weight: 700; }
+  .checklist .gap::before { content: "[GAP] "; color: var(--alert); font-weight: 700; }
+  .footer { text-align: center; padding: 8px; color: var(--muted); font-size: 6.5pt; border-top: 2px solid var(--neon); margin-top: 12px; letter-spacing: 0.5px; }
+  .footer .brand-line { color: var(--neon); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .future-note { background: rgba(197,232,71,0.06); border: 1px dashed var(--neon); padding: 6px 9px; font-size: 7.5pt; color: var(--neon); margin-top: 6px; border-radius: 2px; }
+  .future-note strong { color: var(--white); }
+  .small { font-size: 7.5pt; color: var(--muted); }
+  .dow { display: inline-block; padding: 1px 5px; margin-right: 2px; font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px; border-radius: 2px; background: var(--surface); color: var(--neon); border: 1px solid var(--border); }
+</style></head><body>
+<div class="header">
+  <div class="header-row">
+    <div class="brand-block">
+      <div class="wordmark"><div class="word">PHAT PANDA</div><div class="tagline">Group Retail Portfolio</div><div class="by">Cross-Store Rollup · §5i</div></div>
+      <div style="border-left: 1px solid var(--border-strong); padding-left: 14px;">
+        <h1>ALL STORES — Weekly Dashboard</h1>
+        <div class="subtitle">Cross-Store Portfolio · 6-Store Retail Operation</div>
+      </div>
+    </div>
+    <div class="right-meta">
+      <div class="store-id">6-Store Retail Operation - Phat Panda Group</div>
+      <div>- · License -</div>
+      <div>POS: Dutchie</div>
+      <div style="margin-top: 4px;"><span class="loc-chip">▼ Cross-Store Portfolio</span></div>
+      <div style="margin-top: 4px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.1 · Production</span></div>
+    </div>
+  </div>
+  <div class="meta" style="margin-top: 8px;">
+    Reporting week: <strong style="color: var(--white);">Mon 2026-05-11 → Sun 2026-05-17</strong> &nbsp;·&nbsp;
+    Methodology: <strong>v2 + v2.1 amendment</strong> &nbsp;·&nbsp;
+    Data freshness: Dutchie pull 2026-05-17 23:14 UTC + GAP_BACKFILL 2026-05-18 13:24 UTC · UKG Counter 2026-05-18 06:37a · Detailed Rates 2026-05-15 &nbsp;·&nbsp;
+    Generated 2026-05-15 (as-of Mon 2026-05-11 AM) · Phat Panda Group Analytics
+  </div>
+</div><div class="container"><div class="alert ok"><strong style="color: var(--leaf);">[CROSS-STORE PORTFOLIO ROLL-UP - section 5i]</strong> 6 retail stores, 4 entities, MA + CA markets. Cross-store rollup: 6 stores, 88 retail employees, 2,916 cycle-week worked hours, $55,056 payroll cost. Same-store cohort: all 6 eligible. Aggregator deduplicates W20 + GAP_BACKFILL by transactionId. YoY populated this cycle for 5 Dutchie stores (HLC YoY: Treez archive limitation — see §5g). SKU detail (Insights 4/5/5b) remains pipeline gap — items[] endpoint not yet wired.</div><div class="section-title">Portfolio Operations Snapshot - Week ending 2026-05-17</div><div class="grid5"><div class="kpi"><div class="kpi-label">Stores in Cohort</div><div class="kpi-val">6 / 6</div><div class="kpi-sub">All eligible - Springfield POS resolved</div></div><div class="kpi"><div class="kpi-label">Retail Employees</div><div class="kpi-val">88</div><div class="kpi-sub neutral">UKG distinct, retail cost centers only</div></div><div class="kpi"><div class="kpi-label">Worked Hours (Wk)</div><div class="kpi-val">2,916</div><div class="kpi-sub neutral">Sum of all 6 stores</div></div><div class="kpi"><div class="kpi-label">Payroll Cost (Wk)</div><div class="kpi-val">$55,056</div><div class="kpi-sub neutral">UKG rates x UKG hours, blended $18.88/hr</div></div><div class="kpi"><div class="kpi-label">Cycle Txns</div><div class="kpi-val">15,732</div><div class="kpi-sub neutral">Deduplicated W20 + GAP_BACKFILL chunks</div></div></div><div class="section-title">Portfolio Daily Trend - Payroll Cost</div><div class="card"><div class="day-bar"><div class="day"><div class="day-val">$7,257</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 74%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">MON</span><span class="day-date">5/11</span><span class="day-labor">$7,257</span><span class="day-laborpct">383 hrs</span></div></div><div class="day"><div class="day-val">$7,532</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 77%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">TUE</span><span class="day-date">5/12</span><span class="day-labor">$7,532</span><span class="day-laborpct">397 hrs</span></div></div><div class="day"><div class="day-val">$8,626</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 88%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">WED</span><span class="day-date">5/13</span><span class="day-labor">$8,626</span><span class="day-laborpct">453 hrs</span></div></div><div class="day"><div class="day-val">$8,100</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 83%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">THU</span><span class="day-date">5/14</span><span class="day-labor">$8,100</span><span class="day-laborpct">426 hrs</span></div></div><div class="day"><div class="day-val">$9,327</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 95%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">FRI</span><span class="day-date">5/15</span><span class="day-labor">$9,327</span><span class="day-laborpct">492 hrs</span></div></div><div class="day"><div class="day-val">$7,868</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 80%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">SAT</span><span class="day-date">5/16</span><span class="day-labor">$7,868</span><span class="day-laborpct">426 hrs</span></div></div><div class="day"><div class="day-val">$6,346</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 65%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">SUN</span><span class="day-date">5/17</span><span class="day-labor">$6,346</span><span class="day-laborpct">338 hrs</span></div></div></div><div class="small">Portfolio daily payroll spans $6,346 to $9,327. Sales totals available per store.</div></div><div class="section-title">Cross-Store Insights</div><div class="card"><table><tr><th>Metric</th><th>Springfield</th><th>Northampton</th><th>Fyre Ants</th><th>La Mesa</th><th>Lake Elsinore</th><th>HLC Greenfield</th><th>Note</th></tr><tr><td>Wk Hours</td><td>1023</td><td>269</td><td>650</td><td>332</td><td>179</td><td>463</td><td>Springfield largest</td></tr><tr><td>Wk Payroll $</td><td>$18,734</td><td>$5,206</td><td>$12,074</td><td>$6,318</td><td>$3,756</td><td>$8,968</td><td>Springfield ~34% of portfolio</td></tr><tr><td>Blended $/hr</td><td>$18.32</td><td>$19.35</td><td>$18.57</td><td>$19.04</td><td>$20.95</td><td>$19.37</td><td>Sample variation</td></tr><tr><td>Emp count</td><td>27</td><td>9</td><td>22</td><td>10</td><td>5</td><td>15</td><td>Lake Elsinore smallest</td></tr><tr><td>Line items</td><td>579,982</td><td>15</td><td>308,882</td><td>331,213</td><td>123,702</td><td>22,973</td><td>Springfield + Fyre Ants drive volume</td></tr></table></div><div class="section-title">Data Gap Notice · §5g</div>
+<div class="card">
+  <table>
+    <tr><th>Item</th><th>Why it matters</th><th>Status this cycle (2026-05-17)</th><th>Owner / Next action</th></tr>
+    <tr><td><strong>I-4, I-5, I-5b — Top SKUs by Units / $ / Margin</strong></td><td>Merchandising decisions, buyer-mix optimization, promo investment</td><td><strong>PIPELINE GAP</strong> — Dutchie /reporting/transactions returns transaction-level rows only; items[] is empty across every chunk/store/date inspected (verified 2026-05-18 across W20 + GAP_BACKFILL + daily 2026-05-17 + MONTH_2025-05). Confirmed not a per-cycle issue — structural.</td><td>Pipeline dev: call /reporting/transactions/line-items (or per-product equivalent) and persist with items[] populated. Track <strong>ticket #LINE-ITEMS-001</strong>. Escalate to Dutchie support if API parameter is insufficient.</td></tr>
+    <tr><td><strong>HLC Greenfield I-7 YoY</strong></td><td>Same-week prior-year comparison for the Treez/Dutchie-bridge store</td><td><strong>ARCHIVE LIMITATION</strong> — HLC Treez archive 05.2025 contains product catalog snapshot + quarterly tax PNGs only; no daily transactional data for May 2025. Other 5 stores' YoY populated from Dutchie MONTH_2025-05 chunks.</td><td>Operator: export weekly Treez transactional summaries for May 2025 from operator workstation; drop into Treez archive folder under <code>1Py03otJ5p4vmq1pm8TZTvC2glPYkJpUK/2025/</code>.</td></tr>
+    <tr><td><strong>§8.5 Pricing Scorecard — 5 of 6 stores</strong></td><td>Category-level competitive benchmarking</td><td><strong>Web-survey populated</strong> this cycle (qualitative competitive notes per market from Weedmaps/Yelp/competitor sites). Northampton has rev5 quantitative scorecard (Honey).</td><td>Cycle 2026-05-24: Cowork browser → Weedmaps top-3 per market → primary-source scrape (each competitor's own site, no Leafly per CFO) → save to <code>Pricing/0X-Store/2026-05-24/weedmaps_market_scan.json</code>.</td></tr>
+    <tr><td><strong>§6.5 External Causes — automated feeds</strong></td><td>Real-time event/weather/outage data without manual research</td><td><strong>Manual this cycle</strong> — events researched via web search (UMass + Smith commencement, Salinas Valley Fair, Storm games, NOAA forecast normals). Quality good; reproducibility low.</td><td>Wire NOAA daily-summary API + city-event-calendar scrapes + state DOT advisories + utility outage maps + utility outage maps. One feed family per cycle until 6 markets × 4 sources covered (~6 cycles).</td></tr>
+    <tr><td>§5g Persistent flags — Pelkey / Stanhope / Rivera</td><td>UKG-Dutchie cross-store and salaried-employee handling</td><td>Pelkey worked her UKG home (Fyre Ants) all 3 days this cycle — no cross-store event. Stanhope clean Mon-Fri at Northampton, no sync anomaly. Rivera salaried — sales counted, no flag per CFO rule.</td><td>No action required this cycle. Monitor each cycle.</td></tr>
+    <tr><td>Customer Metrics (I-9) precision</td><td>Lifetime new vs. returning customer accuracy</td><td>This cycle's <code>week_new_customers</code> is computed from W20 + GAP_BACKFILL only (covers ~10 days). Customer who first appeared in cycle week may have been a prior-period customer not in our 10-day window.</td><td>For full new-customer precision, query Dutchie /customer/customers with min-firstTransactionDate filter, OR pull broader history (W14-W19) into the aggregator.</td></tr>
+  </table>
+</div><div class="section-title">Assumptions / Methodology Notes</div>
+<div class="card">
+  <div class="small">
+    <strong>Period:</strong> Mon 2026-05-11 → Sun 2026-05-17 (7-day calendar week). Generated as-of Mon 2026-05-11 morning review.
+    <br/>
+    <strong>UKG hours:</strong> Detailed Calculated Time export covering 2026-05-04 → 2026-05-17 (Cross-Entity Roll-up); current cycle uses Mon–Sun 5/11-–5/17 slice. PTO and salary employees identified separately.
+    <br/>
+    <strong>UKG rates:</strong> Detailed Rates report effective 2026-04-27 → 2026-05-11, joined by employee full name. 100% match rate this store (load_store_data).
+    <br/>
+    <strong>Dutchie data:</strong> Pipeline run 2026-05-17 23:14 UTC + GAP_BACKFILL pull 2026-05-18 13:24 UTC. /reporting/transactions endpoint stable; aggregator deduplicates by transactionId across W20 + GAP_BACKFILL chunks. Line-item-level rows (items[] array) <strong>not pulled by current pipeline</strong> — see §5g for ticket detail.
+    <br/>
+    <strong>Cross-store rule:</strong> When an employee is UKG-assigned to Store A but rings at Store B, both hours AND sales roll to UKG home store (Store A). Both dashboards log the cross-store event as a §5g flag.
+    <br/>
+    <strong>Salaried employees:</strong> Employees absent from UKG hourly export but present in Dutchie sales (e.g., Ernesto Rivera at Northampton) are salaried, not hourly — sales count toward store totals; $/labor-hr productivity is shown as "n/a — salary" rather than flagged as a gap.
+    <br/>
+    <strong>Competitor data:</strong> Per CFO directive, pricing data comes from each store's own website or Dutchie direct embed — no Leafly.
+  </div>
+</div><div class="footer">
+  <div class="brand-line">Phat Panda Group · Weekly Retail Analytics</div>
+  <div>Methodology ANALYTICS_METHODOLOGY_v2 + v2.1 amendment · §5b/§5f/§5g/§5j/§5k/§6.5/§8.5</div>
+  <div>Store 00 · Cross-Entity Roll-up · Generated 2026-05-18 for as-of Mon 2026-05-18 AM review</div>
+</div></div></body></html>
