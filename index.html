@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Phat Panda Group — Weekly Retail Dashboards — Cycle 2026-05-17</title>
+<title>Phat Panda Group — Weekly Retail Dashboards</title>
 <style>
   :root {
     --bg: #0F0E0C;
-    --panel: #17161300;
     --text: #F5F0E8;
     --muted: #8B847C;
     --rule: #2A2823;
@@ -37,8 +36,9 @@
   .roll .store { font-size: 24px; }
   footer { color: var(--muted); font-size: 12px; margin-top: 48px; border-top: 1px solid var(--rule); padding-top: 20px; }
   .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .cycle-tag { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(232,93,42,0.12);
+    color: #FF8C42; font-size: 12px; font-weight: 600; margin-left: 6px; }
 
-  /* per-card palette overrides */
   .embr   { --accent: #E85D2A; --accent2: #FF8C42; }
   .fyre   { --accent: #F66009; --accent2: #971C1C; }
   .hlc    { --accent: #B5AC7D; --accent2: #988F57; }
@@ -49,67 +49,82 @@
   <div class="wrap">
     <header>
       <div class="eyebrow">Phat Panda Group — Weekly Retail Reporting</div>
-      <h1>Cycle 2026-05-17</h1>
-      <div class="sub">Monday executive review · 6 stores · published 2026-05-20</div>
+      <h1>Weekly Retail Dashboards <span id="cycle-tag" class="cycle-tag" style="display:none"></span></h1>
+      <div class="sub">Updated every Monday morning · 6 stores · executive review</div>
     </header>
 
     <div class="grid">
-      <a class="card roll rollup" href="./WEEKLY_DASHBOARD_ALL_STORES_2026-05-17.html">
+      <a class="card roll rollup" href="./WEEKLY_DASHBOARD_ALL_STORES.html">
         <div class="swatch"></div>
         <div class="brand">All Stores</div>
         <div class="store">Group Roll-Up — All 6 Stores</div>
         <div class="meta">Consolidated KPIs, cross-store comparisons, group payroll &amp; sales</div>
       </a>
 
-      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_NORTHAMPTON_2026-05-17.html">
+      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_NORTHAMPTON.html">
         <div class="swatch"></div>
         <div class="brand">EMBR</div>
         <div class="store">Northampton, MA</div>
         <div class="meta">144 King St · License MR283720</div>
       </a>
 
-      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_SPRINGFIELD_2026-05-17.html">
+      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_SPRINGFIELD.html">
         <div class="swatch"></div>
         <div class="brand">EMBR</div>
         <div class="store">Springfield, MA</div>
-        <div class="meta">POS auth restored 2026-05-15</div>
+        <div class="meta">Dutchie POS</div>
       </a>
 
-      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_LA_MESA_2026-05-17.html">
+      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_LA_MESA.html">
         <div class="swatch"></div>
         <div class="brand">EMBR</div>
         <div class="store">La Mesa, CA</div>
         <div class="meta">Dutchie POS</div>
       </a>
 
-      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_LAKE_ELSINORE_2026-05-17.html">
+      <a class="card embr" href="./WEEKLY_DASHBOARD_EMBR_LAKE_ELSINORE.html">
         <div class="swatch"></div>
         <div class="brand">EMBR</div>
         <div class="store">Lake Elsinore, CA</div>
         <div class="meta">Dutchie POS</div>
       </a>
 
-      <a class="card fyre" href="./WEEKLY_DASHBOARD_FYRE_ANTS_EASTHAMPTON_2026-05-17.html">
+      <a class="card fyre" href="./WEEKLY_DASHBOARD_FYRE_ANTS_EASTHAMPTON.html">
         <div class="swatch"></div>
         <div class="brand">Fyre Ants</div>
         <div class="store">Easthampton, MA</div>
         <div class="meta">MA's top-rated recreational dispensary</div>
       </a>
 
-      <a class="card hlc" href="./WEEKLY_DASHBOARD_HLC_GREENFIELD_2026-05-17.html">
+      <a class="card hlc" href="./WEEKLY_DASHBOARD_HLC_GREENFIELD.html">
         <div class="swatch"></div>
         <div class="brand">Higher Level of Care</div>
         <div class="store">Greenfield, MA</div>
-        <div class="meta">Treez archive pre-05-05 · Dutchie post-cutover</div>
+        <div class="meta">Treez archive pre-cutover · Dutchie post-cutover</div>
       </a>
     </div>
 
     <footer>
       <div class="footer-row">
-        <div>Format: v2.1-rev2 (CFO-approved 2026-05-15) · Methodology: ANALYTICS_METHODOLOGY_v2</div>
+        <div>Format: v2.1-rev2 · Methodology: ANALYTICS_METHODOLOGY_v2</div>
         <div>Phat Panda Group · Internal use only</div>
       </div>
     </footer>
   </div>
+
+  <script>
+    // Pull the current cycle date from the All Stores dashboard so the index always shows it
+    // without the file itself needing to be redeployed.
+    fetch('./WEEKLY_DASHBOARD_ALL_STORES.html').then(r => r.text()).then(html => {
+      const m = html.match(/Reporting week:\s*<strong[^>]*>([^<]+)<\/strong>/i)
+            || html.match(/Cycle\s+(\d{4}-\d{2}-\d{2})/i)
+            || html.match(/Week\s+ending\s+(\d{4}-\d{2}-\d{2})/i);
+      if (m) {
+        const tag = document.getElementById('cycle-tag');
+        tag.textContent = m[1].replace(/&nbsp;/g, ' ').trim();
+        tag.style.display = 'inline-block';
+      }
+    }).catch(() => {});
+  </script>
 </body>
 </html>
