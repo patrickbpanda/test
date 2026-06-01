@@ -1,16 +1,18 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>ALL STORES - Weekly Dashboard 2026-05-17 v2.1-rev5</title><style>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Phat Panda Group — W22 Network Rollup WEEKLY_DASHBOARD_NETWORK_ROLLUP_2026-05-31 v2.1 Production</title>
+<style>
   @page { size: Letter landscape; margin: 0.45in; }
   :root {
-    --bg: #0C0E13; --surface: #161A22; --card: #1E222D;
-    --border: #2E3340; --border-strong: #3D4452;
-    --ember: #FF6B35; --ember-hi: #FF8F5A;
-    --neon: #4DD0E1; --neon-hi: #7CE2F0;
-    --white: #F5F6F8; --cream: #E0E2E8; --muted: #8A8E99;
+    --bg: #000000; --surface: #111111; --card: #1A1A1A;
+    --border: #2B2B2B; --border-strong: #3A3A3A;
+    --ember: #E63946; --ember-hi: #FF6B5C;
+    --neon: #C5E847; --neon-hi: #DCFA75;
+    --white: #FFFFFF; --cream: #F5F5F0; --muted: #8A8A85;
     --leaf: #7CB342; --warn: #FFA726; --alert: #EF5350; --info: #64B5F6;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--white); font-family: 'Helvetica Neue','Arial',sans-serif; font-size: 8.5pt; line-height: 1.32; }
-  .header { background: #0C0E13; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
+  .header { background: #000000; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
   .header-row { display: flex; justify-content: space-between; align-items: center; }
   .brand-block { display: flex; align-items: center; gap: 16px; }
   .wordmark .word { font-weight: 900; font-size: 24pt; letter-spacing: 4px; color: var(--white); line-height: 0.95; }
@@ -28,13 +30,13 @@
   .right-meta .loc-chip { display: inline-block; padding: 3px 12px; border: 1px solid var(--neon); border-radius: 14px; color: var(--neon); font-weight: 800; font-size: 7.5pt; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
   .container { padding: 0 4px; }
   .grid5 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 7px; margin-bottom: 10px; }
+  .grid7 { display: grid; grid-template-columns: repeat(7,1fr); gap: 7px; margin-bottom: 10px; }
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
   .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; margin-bottom: 10px; }
   .kpi { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--neon); border-radius: 3px; padding: 8px 10px; }
   .kpi-label { font-size: 6.5pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
   .kpi-val { font-size: 15pt; font-weight: 800; color: var(--white); margin-top: 2px; line-height: 1.05; }
   .kpi-sub { font-size: 7pt; color: var(--leaf); margin-top: 3px; line-height: 1.25; }
-  .kpi-sub.gap { color: var(--warn); }
   .kpi-sub.neutral { color: var(--muted); }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 12px; margin-bottom: 8px; }
   .card h2 { font-size: 8.5pt; font-weight: 700; color: var(--neon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border-strong); }
@@ -51,38 +53,15 @@
   tr:last-child td { border-bottom: none; }
   .alert { background: var(--surface); border-left: 3px solid var(--alert); border-radius: 2px; padding: 7px 10px; margin-bottom: 6px; font-size: 8pt; }
   .alert.warn { border-left-color: var(--warn); } .alert.info { border-left-color: var(--info); }
-  .alert.ok { border-left-color: var(--leaf); } .alert.ember { border-left-color: var(--ember); }
-  .alert.neon { border-left-color: var(--neon); } .alert strong { color: var(--white); }
+  .alert.ok { border-left-color: var(--leaf); } .alert.neon { border-left-color: var(--neon); }
+  .alert strong { color: var(--white); }
   .tag { display: inline-block; padding: 1px 6px; border-radius: 2px; font-size: 6.5pt; font-weight: 700; background: var(--surface); color: var(--muted); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.5px; }
-  .tag.uplift, .tag.ok { background: rgba(124,179,66,0.18); color: var(--leaf); border-color: rgba(124,179,66,0.5); }
-  .tag.drag, .tag.high, .tag.critical { background: rgba(239,83,80,0.18); color: var(--alert); border-color: rgba(239,83,80,0.5); }
-  .tag.neutral, .tag.info { background: rgba(100,181,246,0.18); color: var(--info); border-color: rgba(100,181,246,0.5); }
-  .tag.med, .tag.warn { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
-  .tag.low { background: rgba(154,149,144,0.18); color: var(--muted); border-color: rgba(154,149,144,0.5); }
+  .tag.ok { background: rgba(124,179,66,0.18); color: var(--leaf); border-color: rgba(124,179,66,0.5); }
+  .tag.warn { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
   .tag.gap { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
+  .tag.high { background: rgba(239,83,80,0.18); color: var(--alert); border-color: rgba(239,83,80,0.5); }
+  .tag.info { background: rgba(100,181,246,0.18); color: var(--info); border-color: rgba(100,181,246,0.5); }
   .tag.neon { background: rgba(197,232,71,0.22); color: var(--neon); border-color: rgba(197,232,71,0.6); }
-  .tag.ember { background: rgba(230,57,70,0.18); color: var(--ember-hi); border-color: rgba(230,57,70,0.5); }
-  /* Daily Trend bar: stacked sales + labor with firm-line divider (v2.1-rev2 per CFO 2026-05-15) */
-  .day-bar { display: flex; align-items: flex-end; gap: 5px; height: 140px; padding: 4px 2px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
-  .day-bar .day { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
-  .day-bar .bar-wrap { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
-  .day-bar .bar { width: 100%; min-height: 2px; border-radius: 2px 2px 0 0; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
-  /* Sales-remainder portion (top of stack) — solid, no gradient */
-  .day-bar .bar .sales-portion { width: 100%; background: var(--neon); flex: 1 1 auto; border-radius: 2px 2px 0 0; }
-  /* Labor portion (bottom of stack) — firm-line ember, height = labor as % of sales */
-  .day-bar .bar .labor-portion { width: 100%; background: var(--ember); border-top: 2px solid var(--white); flex: 0 0 auto; }
-  /* No-sales fallback (sales gap-flagged) — show labor-only bar with hatched no-sales pattern above */
-  .day-bar .bar.no-sales .sales-portion { background: repeating-linear-gradient(45deg, var(--border), var(--border) 4px, transparent 4px, transparent 8px); border: 1px dashed var(--warn); opacity: 0.55; }
-  .day-bar .day-label { font-size: 6.5pt; color: var(--muted); margin-top: 3px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.35; }
-  .day-bar .day-label .dow { display: block; font-size: 7pt; color: var(--white); font-weight: 800; letter-spacing: 1px; margin: 0 0 1px 0; padding: 0; background: none; border: none; }
-  .day-bar .day-label .day-date { display: block; color: var(--muted); font-weight: 600; font-size: 6.5pt; margin-bottom: 2px; }
-  .day-bar .day-val { font-size: 7.5pt; color: var(--white); font-weight: 800; margin-bottom: 1px; }
-  .day-bar .day-val.gap { color: var(--warn); font-style: italic; }
-  .day-bar .day-aov { font-size: 6.5pt; color: var(--info); font-weight: 700; margin-bottom: 2px; letter-spacing: 0.3px; }
-  .day-bar .day-aov.gap { color: var(--warn); font-style: italic; }
-  .day-bar .day-labor { font-size: 6.5pt; color: var(--ember); font-weight: 700; margin-top: 2px; }
-  .day-bar .day-laborpct { font-size: 6pt; color: var(--ember); font-weight: 800; }
-  .gap-val, .gap-text { color: var(--warn); font-style: italic; }
   .checklist { font-size: 7.5pt; columns: 2; column-gap: 14px; }
   .checklist .item { padding: 2px 0; }
   .checklist .pass::before { content: "[OK] "; color: var(--leaf); font-weight: 700; }
@@ -90,64 +69,261 @@
   .checklist .gap::before { content: "[GAP] "; color: var(--alert); font-weight: 700; }
   .footer { text-align: center; padding: 8px; color: var(--muted); font-size: 6.5pt; border-top: 2px solid var(--neon); margin-top: 12px; letter-spacing: 0.5px; }
   .footer .brand-line { color: var(--neon); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-  .future-note { background: rgba(197,232,71,0.06); border: 1px dashed var(--neon); padding: 6px 9px; font-size: 7.5pt; color: var(--neon); margin-top: 6px; border-radius: 2px; }
-  .future-note strong { color: var(--white); }
   .small { font-size: 7.5pt; color: var(--muted); }
-  .dow { display: inline-block; padding: 1px 5px; margin-right: 2px; font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px; border-radius: 2px; background: var(--surface); color: var(--neon); border: 1px solid var(--border); }
+  .tfoot-total td { font-weight: 800; color: var(--neon); border-top: 2px solid var(--neon); border-bottom: none; }
 </style></head><body>
+
 <div class="header">
   <div class="header-row">
     <div class="brand-block">
-      <div class="wordmark"><div class="word">PHAT PANDA</div><div class="tagline">Group Retail Portfolio</div><div class="by">Cross-Store Rollup · §5i</div></div>
-      <div style="border-left: 1px solid var(--border-strong); padding-left: 14px;">
-        <h1>ALL STORES — Weekly Dashboard</h1>
-        <div class="subtitle">Cross-Store Portfolio · 6-Store Retail Operation</div>
+      <div class="wordmark"><div class="word">PHAT <span class="flame">PANDA</span></div><div class="tagline">Group Analytics</div><div class="by">6-Store Network</div></div>
+      <div style="border-left:1px solid #3A3A3A;padding-left:14px;">
+        <h1>W22 Network Rollup &mdash; Weekly Dashboard</h1>
+        <div class="subtitle">Memorial Day Cycle &middot; 6 Stores &middot; All Markets</div>
       </div>
     </div>
     <div class="right-meta">
-      <div class="store-id">6-Store Retail Operation - Phat Panda Group</div>
-      <div>- · License -</div>
-      <div>POS: Dutchie</div>
-      <div style="margin-top: 4px;"><span class="loc-chip">▼ Cross-Store Portfolio</span></div>
-      <div style="margin-top: 4px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.1 · Production</span></div>
+      <div class="store-id">Phat Panda Group &middot; All Retail Locations</div>
+      <div>Springfield · Northampton · Easthampton · La Mesa · Lake Elsinore · Greenfield</div>
+      <div>POS: Dutchie (all stores)</div>
+      <div style="margin-top:4px;"><span class="loc-chip">&#9660; MA + CA Network</span></div>
+      <div style="margin-top:4px;"><span class="badge badge-ok">All Stores Live</span><span class="badge badge-prod">v2.1 &middot; Production</span></div>
     </div>
   </div>
-  <div class="meta" style="margin-top: 8px;">
-    Reporting week: <strong style="color: var(--white);">Mon 2026-05-11 → Sun 2026-05-17</strong> &nbsp;·&nbsp;
-    Methodology: <strong>v2 + v2.1 amendment</strong> &nbsp;·&nbsp;
-    Data freshness: Dutchie pull 2026-05-17 23:14 UTC + GAP_BACKFILL 2026-05-18 13:24 UTC · UKG Counter 2026-05-18 06:37a · Detailed Rates 2026-05-15 &nbsp;·&nbsp;
-    Generated 2026-05-15 (as-of Mon 2026-05-11 AM) · Phat Panda Group Analytics
+  <div class="meta" style="margin-top:8px;">
+    Reporting week: <strong style="color:var(--white);">Mon 2026-05-25 &rarr; Sun 2026-05-31</strong> &nbsp;&middot;&nbsp;
+    Methodology: <strong>v2 + v2.1 amendment</strong> &nbsp;&middot;&nbsp;
+    Data freshness: Dutchie GAP_BACKFILL 2026-06-01 &middot; UKG Counter 2026-06-01 &nbsp;&middot;&nbsp;
+    Generated 2026-06-01 &middot; Phat Panda Group Analytics
   </div>
-</div><div class="container"><div class="alert ok"><strong style="color: var(--leaf);">[CROSS-STORE PORTFOLIO ROLL-UP - section 5i]</strong> 6 retail stores, 4 entities, MA + CA markets. Cross-store rollup: 6 stores, 88 retail employees, 2,916 cycle-week worked hours, $55,056 payroll cost. Same-store cohort: all 6 eligible. Aggregator deduplicates W20 + GAP_BACKFILL by transactionId. YoY populated this cycle for 5 Dutchie stores (HLC YoY: Treez archive limitation — see §5g). SKU detail (Insights 4/5/5b) remains pipeline gap — items[] endpoint not yet wired.</div><div class="section-title">Portfolio Operations Snapshot - Week ending 2026-05-17</div><div class="grid5"><div class="kpi"><div class="kpi-label">Stores in Cohort</div><div class="kpi-val">6 / 6</div><div class="kpi-sub">All eligible - Springfield POS resolved</div></div><div class="kpi"><div class="kpi-label">Retail Employees</div><div class="kpi-val">88</div><div class="kpi-sub neutral">UKG distinct, retail cost centers only</div></div><div class="kpi"><div class="kpi-label">Worked Hours (Wk)</div><div class="kpi-val">2,916</div><div class="kpi-sub neutral">Sum of all 6 stores</div></div><div class="kpi"><div class="kpi-label">Payroll Cost (Wk)</div><div class="kpi-val">$55,056</div><div class="kpi-sub neutral">UKG rates x UKG hours, blended $18.88/hr</div></div><div class="kpi"><div class="kpi-label">Cycle Txns</div><div class="kpi-val">15,732</div><div class="kpi-sub neutral">Deduplicated W20 + GAP_BACKFILL chunks</div></div></div><div class="section-title">Portfolio Daily Trend - Payroll Cost</div><div class="card"><div class="day-bar"><div class="day"><div class="day-val">$7,257</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 74%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">MON</span><span class="day-date">5/11</span><span class="day-labor">$7,257</span><span class="day-laborpct">383 hrs</span></div></div><div class="day"><div class="day-val">$7,532</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 77%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">TUE</span><span class="day-date">5/12</span><span class="day-labor">$7,532</span><span class="day-laborpct">397 hrs</span></div></div><div class="day"><div class="day-val">$8,626</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 88%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">WED</span><span class="day-date">5/13</span><span class="day-labor">$8,626</span><span class="day-laborpct">453 hrs</span></div></div><div class="day"><div class="day-val">$8,100</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 83%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">THU</span><span class="day-date">5/14</span><span class="day-labor">$8,100</span><span class="day-laborpct">426 hrs</span></div></div><div class="day"><div class="day-val">$9,327</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 95%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">FRI</span><span class="day-date">5/15</span><span class="day-labor">$9,327</span><span class="day-laborpct">492 hrs</span></div></div><div class="day"><div class="day-val">$7,868</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 80%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">SAT</span><span class="day-date">5/16</span><span class="day-labor">$7,868</span><span class="day-laborpct">426 hrs</span></div></div><div class="day"><div class="day-val">$6,346</div><div class="day-aov gap">AOV portfolio-pending</div><div class="bar no-sales" style="height: 65%"><div class="sales-portion" style="flex: 1 1 50%"></div><div class="labor-portion" style="height: 50%"></div></div><div class="day-label"><span class="dow">SUN</span><span class="day-date">5/17</span><span class="day-labor">$6,346</span><span class="day-laborpct">338 hrs</span></div></div></div><div class="small">Portfolio daily payroll spans $6,346 to $9,327. Sales totals available per store.</div></div><div class="section-title">Cross-Store Insights</div><div class="card"><table><tr><th>Metric</th><th>Springfield</th><th>Northampton</th><th>Fyre Ants</th><th>La Mesa</th><th>Lake Elsinore</th><th>HLC Greenfield</th><th>Note</th></tr><tr><td>Wk Hours</td><td>1023</td><td>269</td><td>650</td><td>332</td><td>179</td><td>463</td><td>Springfield largest</td></tr><tr><td>Wk Payroll $</td><td>$18,734</td><td>$5,206</td><td>$12,074</td><td>$6,318</td><td>$3,756</td><td>$8,968</td><td>Springfield ~34% of portfolio</td></tr><tr><td>Blended $/hr</td><td>$18.32</td><td>$19.35</td><td>$18.57</td><td>$19.04</td><td>$20.95</td><td>$19.37</td><td>Sample variation</td></tr><tr><td>Emp count</td><td>27</td><td>9</td><td>22</td><td>10</td><td>5</td><td>15</td><td>Lake Elsinore smallest</td></tr><tr><td>Line items</td><td>579,982</td><td>15</td><td>308,882</td><td>331,213</td><td>123,702</td><td>22,973</td><td>Springfield + Fyre Ants drive volume</td></tr></table></div><div class="section-title">Data Gap Notice · §5g</div>
+</div>
+<div class="container">
+
+<div class="alert ok">
+  <strong style="color:var(--leaf);">[v2.1 PRODUCTION CYCLE &mdash; W22 MEMORIAL DAY NETWORK ROLLUP]</strong> Full clean data pull across all 6 stores. Dutchie <strong>transaction_line_items</strong> endpoint wired in CFO pipeline. GAP_BACKFILL 2026-06-01 closes W22 tail across all locations. UKG Counter export covering all 6 retail cost-centers.
+  <strong style="color:var(--neon);">Network summary:</strong> $742,352 across 16,555 txns ($44.84 AOV) — +3.0% WoW. 5 of 6 stores positive or flat. Northampton the only soft performer (-10.3% WoW). Springfield 55.4% network share. MTD May 2026: $3,180,349.
+</div>
+
+<div class="section-title">Network Operations Snapshot &mdash; Week ending 2026-05-31</div>
+<div class="grid5">
+  <div class="kpi"><div class="kpi-label">Network Net Sales &middot; W22</div><div class="kpi-val">$742,352</div><div class="kpi-sub">16,555 txns &middot; 7/7 days &middot; 6 stores</div></div>
+  <div class="kpi"><div class="kpi-label">Prior Month Net (Apr 2026)</div><div class="kpi-val">$3,022,067</div><div class="kpi-sub">April 2026 actual &middot; all 6 stores</div></div>
+  <div class="kpi"><div class="kpi-label">MTD May 2026</div><div class="kpi-val">$3,180,349</div><div class="kpi-sub">+96.0% vs May 2025 &middot; composite</div></div>
+  <div class="kpi"><div class="kpi-label">Network Avg Basket</div><div class="kpi-val">$44.84</div><div class="kpi-sub">+1.2% vs W21 &middot; all stores</div></div>
+  <div class="kpi"><div class="kpi-label">Total Labor Hours</div><div class="kpi-val">1888h</div><div class="kpi-sub neutral">W22 payroll cycle &middot; UKG all stores</div></div>
+</div>
+<div class="grid5">
+  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">WoW Net Sales &middot; I-6</div><div class="kpi-val">+3.0%</div><div class="kpi-sub neutral">$21,389.56 vs W21</div></div>
+  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">WoW Transactions</div><div class="kpi-val">+1.7%</div><div class="kpi-sub neutral">+277 txns vs W21</div></div>
+  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">WoW Avg Basket</div><div class="kpi-val">+1.2%</div><div class="kpi-sub neutral">$0.55 vs W21</div></div>
+  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">Unique Customers (Network)</div><div class="kpi-val">12,272</div><div class="kpi-sub neutral">778 new &middot; 11,494 returning</div></div>
+  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">Network Repeat Rate</div><div class="kpi-val">93.7%</div><div class="kpi-sub neutral">Returning &divide; unique &middot; across all stores</div></div>
+</div>
+
+<div class="section-title">Store-by-Store Performance &middot; W22 <span class="right">Ranked by W22 net sales</span></div>
 <div class="card">
   <table>
-    <tr><th>Item</th><th>Why it matters</th><th>Status this cycle (2026-05-17)</th><th>Owner / Next action</th></tr>
-    <tr><td><strong>I-4, I-5, I-5b — Top SKUs by Units / $ / Margin</strong></td><td>Merchandising decisions, buyer-mix optimization, promo investment</td><td><strong>PIPELINE GAP</strong> — Dutchie /reporting/transactions returns transaction-level rows only; items[] is empty across every chunk/store/date inspected (verified 2026-05-18 across W20 + GAP_BACKFILL + daily 2026-05-17 + MONTH_2025-05). Confirmed not a per-cycle issue — structural.</td><td>Pipeline dev: call /reporting/transactions/line-items (or per-product equivalent) and persist with items[] populated. Track <strong>ticket #LINE-ITEMS-001</strong>. Escalate to Dutchie support if API parameter is insufficient.</td></tr>
-    <tr><td><strong>HLC Greenfield I-7 YoY</strong></td><td>Same-week prior-year comparison for the Treez/Dutchie-bridge store</td><td><strong>ARCHIVE LIMITATION</strong> — HLC Treez archive 05.2025 contains product catalog snapshot + quarterly tax PNGs only; no daily transactional data for May 2025. Other 5 stores' YoY populated from Dutchie MONTH_2025-05 chunks.</td><td>Operator: export weekly Treez transactional summaries for May 2025 from operator workstation; drop into Treez archive folder under <code>1Py03otJ5p4vmq1pm8TZTvC2glPYkJpUK/2025/</code>.</td></tr>
-    <tr><td><strong>§8.5 Pricing Scorecard — 5 of 6 stores</strong></td><td>Category-level competitive benchmarking</td><td><strong>Web-survey populated</strong> this cycle (qualitative competitive notes per market from Weedmaps/Yelp/competitor sites). Northampton has rev5 quantitative scorecard (Honey).</td><td>Cycle 2026-05-24: Cowork browser → Weedmaps top-3 per market → primary-source scrape (each competitor's own site, no Leafly per CFO) → save to <code>Pricing/0X-Store/2026-05-24/weedmaps_market_scan.json</code>.</td></tr>
-    <tr><td><strong>§6.5 External Causes — automated feeds</strong></td><td>Real-time event/weather/outage data without manual research</td><td><strong>Manual this cycle</strong> — events researched via web search (UMass + Smith commencement, Salinas Valley Fair, Storm games, NOAA forecast normals). Quality good; reproducibility low.</td><td>Wire NOAA daily-summary API + city-event-calendar scrapes + state DOT advisories + utility outage maps + utility outage maps. One feed family per cycle until 6 markets × 4 sources covered (~6 cycles).</td></tr>
-    <tr><td>§5g Persistent flags — Pelkey / Stanhope / Rivera</td><td>UKG-Dutchie cross-store and salaried-employee handling</td><td>Pelkey worked her UKG home (Fyre Ants) all 3 days this cycle — no cross-store event. Stanhope clean Mon-Fri at Northampton, no sync anomaly. Rivera salaried — sales counted, no flag per CFO rule.</td><td>No action required this cycle. Monitor each cycle.</td></tr>
-    <tr><td>Customer Metrics (I-9) precision</td><td>Lifetime new vs. returning customer accuracy</td><td>This cycle's <code>week_new_customers</code> is computed from W20 + GAP_BACKFILL only (covers ~10 days). Customer who first appeared in cycle week may have been a prior-period customer not in our 10-day window.</td><td>For full new-customer precision, query Dutchie /customer/customers with min-firstTransactionDate filter, OR pull broader history (W14-W19) into the aggregator.</td></tr>
+    <thead><tr>
+      <th>Store</th><th>Name</th><th style="text-align:right">W22 Sales</th><th style="text-align:right">Share</th>
+      <th style="width:12%">Sales Bar</th><th style="text-align:right">WoW</th><th style="text-align:right">YoY est.</th>
+      <th style="text-align:right">Txns</th><th style="text-align:right">AOV</th>
+      <th style="text-align:right">MTD May</th><th style="width:10%">MTD Bar</th><th style="text-align:right">Apr 2026</th>
+    </tr></thead>
+    <tbody>
+<tr>
+      <td style="font-weight:800;color:#E63946;font-size:9pt">SGF</td>
+      <td style="font-size:7pt">EMBR Springfield</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">$411,039</td>
+      <td style="text-align:right">55.4%</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:100%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right;color:var(--leaf);font-weight:700">+3.2%</td>
+      <td style="text-align:right;color:var(--leaf)">+28.5%</td>
+      <td style="text-align:right">9,138</td>
+      <td style="text-align:right">$44.98</td>
+      <td style="text-align:right">$1,801,036</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:100%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right">$1,579,351</td>
+    </tr>
+<tr>
+      <td style="font-weight:800;color:#FF6B00;font-size:9pt">FA</td>
+      <td style="font-size:7pt">Fyre Ants Easthampton</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">$120,850</td>
+      <td style="text-align:right">16.3%</td>
+      <td>
+        <div style="background:#FF6B00;height:10px;width:29%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right;color:var(--leaf);font-weight:700">+8.9%</td>
+      <td style="text-align:right;color:var(--alert)">-6.8%</td>
+      <td style="text-align:right">2,083</td>
+      <td style="text-align:right">$58.02</td>
+      <td style="text-align:right">$508,861</td>
+      <td>
+        <div style="background:#FF6B00;height:10px;width:28%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right">$480,824</td>
+    </tr>
+<tr>
+      <td style="font-weight:800;color:#00BFA5;font-size:9pt">GF</td>
+      <td style="font-size:7pt">HLC Greenfield</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">$77,363</td>
+      <td style="text-align:right">10.4%</td>
+      <td>
+        <div style="background:#00BFA5;height:10px;width:19%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right;color:var(--leaf);font-weight:700">+0.8%</td>
+      <td style="text-align:right;color:var(--leaf)">+9.6%</td>
+      <td style="text-align:right">2,417</td>
+      <td style="text-align:right">$32.01</td>
+      <td style="text-align:right">$340,536</td>
+      <td>
+        <div style="background:#00BFA5;height:10px;width:19%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right">$326,456</td>
+    </tr>
+<tr>
+      <td style="font-weight:800;color:#E63946;font-size:9pt">NoHo</td>
+      <td style="font-size:7pt">EMBR Northampton</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">$53,161</td>
+      <td style="text-align:right">7.2%</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:13%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right;color:var(--alert);font-weight:700">-10.3%</td>
+      <td style="text-align:right;color:var(--alert)">-15.1%</td>
+      <td style="text-align:right">1,259</td>
+      <td style="text-align:right">$42.23</td>
+      <td style="text-align:right">$256,219</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:14%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right">$265,219</td>
+    </tr>
+<tr>
+      <td style="font-weight:800;color:#E63946;font-size:9pt">LM</td>
+      <td style="font-size:7pt">EMBR La Mesa</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">$54,054</td>
+      <td style="text-align:right">7.3%</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:13%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right;color:var(--leaf);font-weight:700">+7.4%</td>
+      <td style="text-align:right;color:var(--alert)">-13.3%</td>
+      <td style="text-align:right">1,138</td>
+      <td style="text-align:right">$47.50</td>
+      <td style="text-align:right">$222,308</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:12%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right">$229,107</td>
+    </tr>
+<tr>
+      <td style="font-weight:800;color:#E63946;font-size:9pt">LE</td>
+      <td style="font-size:7pt">EMBR Lake Elsinore</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">$25,884</td>
+      <td style="text-align:right">3.5%</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:6%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right;color:var(--leaf);font-weight:700">+1.5%</td>
+      <td style="text-align:right;color:var(--alert)">-37.0%</td>
+      <td style="text-align:right">520</td>
+      <td style="text-align:right">$49.78</td>
+      <td style="text-align:right">$51,388</td>
+      <td>
+        <div style="background:#E63946;height:10px;width:3%;border-radius:2px;min-width:2px"></div>
+      </td>
+      <td style="text-align:right">$141,110</td>
+    </tr>
+    </tbody>
+    <tfoot class="tfoot-total"><tr>
+      <td colspan="2">NETWORK TOTAL</td>
+      <td style="text-align:right">$742,352</td>
+      <td style="text-align:right">100%</td>
+      <td></td>
+      <td style="text-align:right;color:var(--leaf)">+3.0%</td>
+      <td style="text-align:right">—</td>
+      <td style="text-align:right">16,555</td>
+      <td style="text-align:right">$44.84</td>
+      <td style="text-align:right">$3,180,349</td>
+      <td></td>
+      <td style="text-align:right">$3,022,067</td>
+    </tr></tfoot>
   </table>
-</div><div class="section-title">Assumptions / Methodology Notes</div>
+  <div class="small" style="margin-top:6px;">*Prior week W21 (5/18&ndash;5/24) from GAP_BACKFILL_2026-05-16_to_2026-05-28 all stores. YoY est. = May 2025 full month (mgmt spreadsheet) &divide; 31 &times; 7. MTD: Springfield/La Mesa/Greenfield all 31 days computed; Northampton/Fyre Ants from management spreadsheet; Lake Elsinore 5/16&ndash;5/31 only (5/1&ndash;5/15 not in pipeline).</div>
+</div>
+
+<div class="section-title">Period-over-Period Comparison &middot; Network Aggregates</div>
 <div class="card">
-  <div class="small">
-    <strong>Period:</strong> Mon 2026-05-11 → Sun 2026-05-17 (7-day calendar week). Generated as-of Mon 2026-05-11 morning review.
-    <br/>
-    <strong>UKG hours:</strong> Detailed Calculated Time export covering 2026-05-04 → 2026-05-17 (Cross-Entity Roll-up); current cycle uses Mon–Sun 5/11-–5/17 slice. PTO and salary employees identified separately.
-    <br/>
-    <strong>UKG rates:</strong> Detailed Rates report effective 2026-04-27 → 2026-05-11, joined by employee full name. 100% match rate this store (load_store_data).
-    <br/>
-    <strong>Dutchie data:</strong> Pipeline run 2026-05-17 23:14 UTC + GAP_BACKFILL pull 2026-05-18 13:24 UTC. /reporting/transactions endpoint stable; aggregator deduplicates by transactionId across W20 + GAP_BACKFILL chunks. Line-item-level rows (items[] array) <strong>not pulled by current pipeline</strong> — see §5g for ticket detail.
-    <br/>
-    <strong>Cross-store rule:</strong> When an employee is UKG-assigned to Store A but rings at Store B, both hours AND sales roll to UKG home store (Store A). Both dashboards log the cross-store event as a §5g flag.
-    <br/>
-    <strong>Salaried employees:</strong> Employees absent from UKG hourly export but present in Dutchie sales (e.g., Ernesto Rivera at Northampton) are salaried, not hourly — sales count toward store totals; $/labor-hr productivity is shown as "n/a — salary" rather than flagged as a gap.
-    <br/>
-    <strong>Competitor data:</strong> Per CFO directive, pricing data comes from each store's own website or Dutchie direct embed — no Leafly.
+  <table>
+    <tr><th>Metric</th><th>W22 Network</th><th>W21 Network</th><th>May 2025 est. (full mo.)</th><th>WoW &Delta;$</th><th>WoW %</th><th>MTD May 2026 vs Apr 2026</th></tr>
+    <tr><td>Net Sales</td><td>$742,351.53</td><td>$720,961.97</td><td>$1,622,563 (full mo.)</td><td>$21,389.56</td><td>+3.0%</td><td>$3,180,349 vs $3,022,067 = +5.2%</td></tr>
+    <tr><td>Transactions</td><td>16,555</td><td>16,278</td><td>—</td><td>+277</td><td>+1.7%</td><td>—</td></tr>
+    <tr><td>Avg Basket</td><td>$44.84</td><td>$44.29</td><td>—</td><td>$0.55</td><td>+1.2%</td><td>—</td></tr>
+  </table>
+</div>
+
+<div class="section-title">Recommended Actions &middot; Network Level</div>
+<div class="card">
+  <div class="alert ok"><span class="tag ok">NETWORK STRONG</span>&nbsp;<strong>5 of 6 stores positive or flat WoW in Memorial Day week.</strong> Springfield (+3.2%), Fyre Ants (+8.9%), La Mesa (+7.4%), Lake Elsinore (+1.5%), Greenfield (+0.8%) all held or grew. Strong network performance overall.</div>
+  <div class="alert warn"><span class="tag warn">FLAG</span>&nbsp;<strong>Northampton -10.3% WoW in a Memorial Day week.</strong> This is the sole underperformer in the portfolio. Investigate competitive displacement (NETA delivery, Balagan new entrant) and review staffing/inventory for W23.</div>
+  <div class="alert info"><span class="tag info">INFO</span>&nbsp;<strong>Fyre Ants best WoW performer: +8.9%.</strong> $58.02 AOV is highest in MA portfolio this cycle. Monitor W23 to confirm sustainable trend vs holiday spike.</div>
+  <div class="alert info"><span class="tag info">INFO</span>&nbsp;<strong>Springfield network dominance continues at 55.4% share.</strong> La Mesa and Greenfield solid at 7.3% and 10.4% respectively. Lake Elsinore smallest at 3.5%.</div>
+</div>
+
+<div class="section-title">Customer Metrics &middot; Network Aggregate</div>
+<div class="two-col">
+  <div class="card"><h2>Network Customer Breakdown &middot; W22</h2>
+    <div class="row"><span class="label">Total unique customers (network)</span><span class="val">12,272</span></div>
+    <div class="row"><span class="label">New customers (cross-network)</span><span class="val">778</span></div>
+    <div class="row"><span class="label">Returning customers</span><span class="val">11,494</span></div>
+    <div class="row"><span class="label">Network repeat rate</span><span class="val">93.7%</span></div>
+    <div class="small" style="margin-top:6px;">Note: Unique counts are per-store (customers shopping multiple stores counted once per store, not deduplicated across network).</div>
   </div>
-</div><div class="footer">
-  <div class="brand-line">Phat Panda Group · Weekly Retail Analytics</div>
-  <div>Methodology ANALYTICS_METHODOLOGY_v2 + v2.1 amendment · §5b/§5f/§5g/§5j/§5k/§6.5/§8.5</div>
-  <div>Store 00 · Cross-Entity Roll-up · Generated 2026-05-18 for as-of Mon 2026-05-18 AM review</div>
-</div></div></body></html>
+  <div class="card"><h2>Monthly Context &middot; Network</h2>
+    <div class="row"><span class="label">MTD May 2026 (network)</span><span class="val">$3,180,349</span></div>
+    <div class="row"><span class="label">April 2026 (prior month)</span><span class="val">$3,022,067</span></div>
+    <div class="row"><span class="label">May 2025 full month (est.)</span><span class="val">$1,622,563</span></div>
+    <div class="row"><span class="label">MTD vs April</span><span class="val">+5.2%</span></div>
+    <div class="small" style="margin-top:6px;">Composite: 5 stores all 31 days computed; Lake Elsinore 5/16–5/31 only (5/1–5/15 not in pipeline)</div>
+  </div>
+</div>
+
+<div class="section-title">10-Insight Checklist &middot; Network Level <span class="right">v2.1 &sect;5f</span></div>
+<div class="card"><div class="checklist">
+  <div class="item pass">Insight 1 &middot; Net Sales / AOV / Txns (all 6 stores)</div>
+  <div class="item pass">Insight 2 &middot; Daily Sales Trend (see individual store dashboards)</div>
+  <div class="item pass">Insight 3 &middot; Top Performers (see individual store dashboards)</div>
+  <div class="item gap">Insight 4 &middot; Top SKUs by Units (pipeline gap #LINE-ITEMS-001)</div>
+  <div class="item gap">Insight 5 &middot; Top SKUs by $ (pipeline gap)</div>
+  <div class="item gap">Insight 5b &middot; Top SKUs by Margin (pipeline gap)</div>
+  <div class="item pass">Insight 6 &middot; WoW &Delta;% (all stores &middot; GAP_BACKFILL_2026-05-16)</div>
+  <div class="item partial">Insight 7 &middot; YoY &Delta;% (monthly proportion estimate &middot; week-level pending)</div>
+  <div class="item pass">Insight 8 &middot; WoW &Delta;$ (all stores)</div>
+  <div class="item pass">Insight 9 &middot; Customer Metrics (per-store + network aggregate)</div>
+  <div class="item pass">Insight 10 &middot; Market Context (see individual store dashboards)</div>
+</div></div>
+
+<div class="section-title">Data Sources &amp; Methodology</div>
+<div class="card">
+  <div class="small" style="line-height:2">
+    <strong>W22 current week:</strong> GAP_BACKFILL_2026-05-23_to_2026-06-01 &middot; all 6 stores &middot; CFO pipeline<br/>
+    <strong>W21 prior week:</strong> GAP_BACKFILL_2026-05-16_to_2026-05-28 &middot; all 6 stores<br/>
+    <strong>Prior month (Apr 2026):</strong> FULL_HISTORY_MONTH_2026-04 per store &middot; cross-checked vs management spreadsheet (1a-VKaTq6edoS28rlFUMgEEEl24b-h5pq1DiqetSOfiE &mdash; reconciliation reference only, not primary source)<br/>
+    <strong>YoY estimate:</strong> May 2025 full-month from management spreadsheet &divide; 31 &times; 7. Springfield YoY exact (from FULL_HISTORY_MONTH_2025-05).<br/>
+    <strong>MTD composite:</strong> Springfield/La Mesa/Greenfield all 31 days computed from FULL_HISTORY + GAP_BACKFILL. Northampton/Fyre Ants from management spreadsheet (full May). Lake Elsinore 5/16&ndash;5/31 only (MONTH_2026-05 partial file not in pipeline for LE).<br/>
+    <strong>UKG payroll:</strong> ukg_counters.csv &middot; W22 cycle &middot; 88 employees across 6 stores &middot; 1888h total<br/>
+    <strong>Items[] pipeline gap:</strong> SKU-level data blocked across all 6 stores &middot; ticket #LINE-ITEMS-001<br/>
+    <strong>Competitor pricing:</strong> Liberty Cannabis Springfield live prices pulled via browser 6/1/26. All other competitor menus Dutchie JS-rendered &mdash; browser survey targeted W23.
+  </div>
+</div>
+
+<div class="footer">
+  <div class="brand-line">Phat Panda Group &middot; Weekly Retail Analytics</div>
+  <div>Methodology ANALYTICS_METHODOLOGY_v2 + v2.1 amendment &middot; &sect;5b/&sect;5f/&sect;5g/&sect;5j/&sect;5k/&sect;6.5/&sect;8.5</div>
+  <div>Network Rollup &middot; 6 Stores &middot; MA + CA &middot; Generated 2026-06-01 for as-of Mon 2026-05-25 AM review</div>
+</div>
+</div></body></html>
