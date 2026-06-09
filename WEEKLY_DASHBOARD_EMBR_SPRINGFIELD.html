@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><title>EMBR Springfield — Weekly Dashboard WEEKLY_DASHBOARD_EMBR_SPRINGFIELD_2026-05-31 v2.1 Production</title>
+<html lang="en"><head><meta charset="UTF-8">
+<title>EMBR Springfield &mdash; W23 Weekly Dashboard &mdash; 2026-06-07</title>
 <style>
-  @page { size: Letter landscape; margin: 0.45in; }
+
+  @page { size: Letter landscape; margin: 0.4in; }
   :root {
     --bg: #000000; --surface: #111111; --card: #1A1A1A;
     --border: #2B2B2B; --border-strong: #3A3A3A;
@@ -12,89 +14,88 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--white); font-family: 'Helvetica Neue','Arial',sans-serif; font-size: 8.5pt; line-height: 1.32; }
-  .header { background: #000000; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
+  .header { background: #000; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
   .header-row { display: flex; justify-content: space-between; align-items: center; }
   .brand-block { display: flex; align-items: center; gap: 16px; }
-  .wordmark .word { font-weight: 900; font-size: 24pt; letter-spacing: 4px; color: var(--white); line-height: 0.95; }
+  .wordmark .word { font-weight: 900; font-size: 26pt; letter-spacing: 5px; color: var(--white); line-height: 0.9; }
   .wordmark .word .flame { color: var(--ember); }
-  .wordmark .tagline { font-size: 6.5pt; font-weight: 800; color: var(--ember); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 2px; }
-  .wordmark .by { font-size: 6pt; color: var(--cream); font-style: italic; letter-spacing: 0.5px; margin-top: 1px; }
-  .header h1 { font-size: 13pt; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+  .wordmark .tagline { font-size: 6.5pt; font-weight: 800; color: var(--ember); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 3px; }
+  .wordmark .by { font-size: 6pt; color: var(--muted); font-style: italic; margin-top: 2px; }
+  .header h1 { font-size: 13pt; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
   .header .subtitle { font-size: 7.5pt; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
-  .header .meta { color: var(--muted); font-size: 7.5pt; margin-top: 6px; }
-  .badge { display: inline-block; padding: 2px 9px; border-radius: 14px; font-size: 6.5pt; font-weight: 700; margin-left: 6px; vertical-align: 2px; text-transform: uppercase; letter-spacing: 1px; }
-  .badge-ok { background: rgba(124,179,66,0.18); color: var(--leaf); border: 1px solid rgba(124,179,66,0.5); }
-  .badge-prod { background: rgba(230,57,70,0.18); color: var(--ember-hi); border: 1px solid rgba(230,57,70,0.5); }
-  .right-meta { text-align: right; color: var(--muted); font-size: 7pt; line-height: 1.5; }
-  .right-meta .store-id { color: var(--white); font-weight: 700; font-size: 8pt; }
-  .right-meta .loc-chip { display: inline-block; padding: 3px 12px; border: 1px solid var(--neon); border-radius: 14px; color: var(--neon); font-weight: 800; font-size: 7.5pt; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+  .header .meta { color: var(--muted); font-size: 7pt; margin-top: 6px; line-height: 1.45; }
+  .header .meta strong { color: var(--cream); }
+  .badge { display:inline-block; padding:2px 8px; border-radius:14px; font-size:6.5pt; font-weight:800; margin-left:5px; vertical-align:2px; text-transform:uppercase; letter-spacing:1px; }
+  .badge-ok { background:rgba(124,179,66,.18); color:var(--leaf); border:1px solid rgba(124,179,66,.5); }
+  .badge-prod { background:rgba(197,232,71,.15); color:var(--neon); border:1px solid rgba(197,232,71,.5); }
+  .right-meta { text-align:right; color:var(--muted); font-size:7pt; line-height:1.55; }
+  .right-meta .store-id { color:var(--white); font-weight:700; font-size:8pt; }
+  .loc-chip { display:inline-block; padding:3px 12px; border:1px solid var(--neon); border-radius:14px; color:var(--neon); font-weight:800; font-size:7.5pt; letter-spacing:1px; margin-top:4px; text-transform:uppercase; }
   .container { padding: 0 4px; }
-  .grid5 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 7px; margin-bottom: 10px; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
-  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; margin-bottom: 10px; }
-  .kpi { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--neon); border-radius: 3px; padding: 8px 10px; }
-  .kpi-label { font-size: 6.5pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
-  .kpi-val { font-size: 15pt; font-weight: 800; color: var(--white); margin-top: 2px; line-height: 1.05; }
-  .kpi-sub { font-size: 7pt; color: var(--leaf); margin-top: 3px; line-height: 1.25; }
-  .kpi-sub.gap { color: var(--warn); }
-  .kpi-sub.neutral { color: var(--muted); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 12px; margin-bottom: 8px; }
-  .card h2 { font-size: 8.5pt; font-weight: 700; color: var(--neon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border-strong); }
-  .card h2 .sub-id { color: var(--muted); font-weight: 500; margin-left: 4px; }
-  .section-title { font-size: 9.5pt; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 2px; margin: 14px 0 8px; padding-left: 10px; border-left: 4px solid var(--neon); }
-  .section-title .right { float: right; font-weight: 500; font-size: 7.5pt; color: var(--muted); letter-spacing: 0.5px; text-transform: none; }
-  .row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--border); font-size: 8pt; }
-  .row:last-child { border-bottom: none; }
-  .row .label { color: var(--muted); }
-  .row .val { color: var(--white); font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; }
-  th { background: var(--surface); padding: 5px 7px; text-align: left; font-size: 7pt; color: var(--neon); text-transform: uppercase; letter-spacing: 0.7px; font-weight: 700; border-bottom: 1px solid var(--neon); }
-  td { padding: 4px 7px; border-bottom: 1px solid var(--border); font-size: 8pt; }
-  tr:last-child td { border-bottom: none; }
-  .alert { background: var(--surface); border-left: 3px solid var(--alert); border-radius: 2px; padding: 7px 10px; margin-bottom: 6px; font-size: 8pt; }
-  .alert.warn { border-left-color: var(--warn); } .alert.info { border-left-color: var(--info); }
-  .alert.ok { border-left-color: var(--leaf); } .alert.ember { border-left-color: var(--ember); }
-  .alert.neon { border-left-color: var(--neon); } .alert strong { color: var(--white); }
-  .tag { display: inline-block; padding: 1px 6px; border-radius: 2px; font-size: 6.5pt; font-weight: 700; background: var(--surface); color: var(--muted); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.5px; }
-  .tag.uplift, .tag.ok { background: rgba(124,179,66,0.18); color: var(--leaf); border-color: rgba(124,179,66,0.5); }
-  .tag.drag, .tag.high, .tag.critical { background: rgba(239,83,80,0.18); color: var(--alert); border-color: rgba(239,83,80,0.5); }
-  .tag.neutral, .tag.info { background: rgba(100,181,246,0.18); color: var(--info); border-color: rgba(100,181,246,0.5); }
-  .tag.med, .tag.warn { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
-  .tag.low { background: rgba(154,149,144,0.18); color: var(--muted); border-color: rgba(154,149,144,0.5); }
-  .tag.gap { background: rgba(255,167,38,0.18); color: var(--warn); border-color: rgba(255,167,38,0.5); }
-  .tag.neon { background: rgba(197,232,71,0.22); color: var(--neon); border-color: rgba(197,232,71,0.6); }
-  /* Daily bar */
-  .day-bar { display: flex; align-items: flex-end; gap: 5px; height: 140px; padding: 4px 2px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
-  .day-bar .day { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
-  .day-bar .bar-wrap { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
-  .day-bar .bar { width: 100%; min-height: 2px; border-radius: 2px 2px 0 0; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
-  .day-bar .bar .sales-portion { width: 100%; background: var(--neon); flex: 1 1 auto; border-radius: 2px 2px 0 0; }
-  .day-bar .bar .labor-portion { width: 100%; background: var(--ember); border-top: 2px solid var(--white); flex: 0 0 auto; }
-  .day-bar .day-label { font-size: 6.5pt; color: var(--muted); margin-top: 3px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.35; }
-  .day-bar .day-label .dow { display: block; font-size: 7pt; color: var(--white); font-weight: 800; letter-spacing: 1px; margin: 0 0 1px 0; padding: 0; background: none; border: none; }
-  .day-bar .day-label .day-date { display: block; color: var(--muted); font-weight: 600; font-size: 6.5pt; margin-bottom: 2px; }
-  .day-bar .day-val { font-size: 7.5pt; color: var(--white); font-weight: 800; margin-bottom: 1px; }
-  .day-bar .day-aov { font-size: 6.5pt; color: var(--info); font-weight: 700; margin-bottom: 2px; letter-spacing: 0.3px; }
-  .day-bar .day-labor { font-size: 6.5pt; color: var(--ember); font-weight: 700; margin-top: 2px; }
-  .day-bar .day-laborpct { font-size: 6pt; color: var(--ember); font-weight: 800; }
-  .gap-val, .gap-text { color: var(--warn); font-style: italic; }
-  .checklist { font-size: 7.5pt; columns: 2; column-gap: 14px; }
-  .checklist .item { padding: 2px 0; }
-  .checklist .pass::before { content: "[OK] "; color: var(--leaf); font-weight: 700; }
-  .checklist .partial::before { content: "[PARTIAL] "; color: var(--warn); font-weight: 700; }
-  .checklist .gap::before { content: "[GAP] "; color: var(--alert); font-weight: 700; }
-  .footer { text-align: center; padding: 8px; color: var(--muted); font-size: 6.5pt; border-top: 2px solid var(--neon); margin-top: 12px; letter-spacing: 0.5px; }
-  .footer .brand-line { color: var(--neon); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-  .future-note { background: rgba(197,232,71,0.06); border: 1px dashed var(--neon); padding: 6px 9px; font-size: 7.5pt; color: var(--neon); margin-top: 6px; border-radius: 2px; }
-  .future-note strong { color: var(--white); }
-  .small { font-size: 7.5pt; color: var(--muted); }
-  .dow { display: inline-block; padding: 1px 5px; margin-right: 2px; font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px; border-radius: 2px; background: var(--surface); color: var(--neon); border: 1px solid var(--border); }
+  .grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-bottom:9px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-bottom:9px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:9px; }
+  .kpi { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--neon); border-radius:3px; padding:8px 10px; }
+  .kpi.ember { border-left-color:var(--ember); }
+  .kpi-label { font-size:6.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; font-weight:700; margin-bottom:2px; }
+  .kpi-val { font-size:15pt; font-weight:800; color:var(--white); line-height:1.05; }
+  .kpi-sub { font-size:7pt; color:var(--leaf); margin-top:3px; line-height:1.3; }
+  .kpi-sub.gap { color:var(--warn); } .kpi-sub.neutral { color:var(--muted); } .kpi-sub.red { color:var(--alert); }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:3px; padding:10px 12px; margin-bottom:8px; }
+  .card h2 { font-size:8.5pt; font-weight:800; color:var(--neon); text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid var(--border-strong); }
+  .card h2 .sub { color:var(--muted); font-weight:500; font-size:7.5pt; margin-left:5px; text-transform:none; letter-spacing:0; }
+  .sec-title { font-size:9.5pt; font-weight:800; color:var(--white); text-transform:uppercase; letter-spacing:2px; margin:13px 0 7px; padding-left:10px; border-left:4px solid var(--neon); display:flex; justify-content:space-between; align-items:center; }
+  .sec-title .right { font-weight:500; font-size:7pt; color:var(--muted); letter-spacing:.5px; text-transform:none; border-left:none; padding-left:0; }
+  .row { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--border); font-size:8pt; }
+  .row:last-child { border-bottom:none; }
+  .row .label { color:var(--muted); } .row .val { color:var(--white); font-weight:600; }
+  table { width:100%; border-collapse:collapse; }
+  th { background:var(--surface); padding:5px 6px; text-align:left; font-size:6.5pt; color:var(--neon); text-transform:uppercase; letter-spacing:.6px; font-weight:800; border-bottom:1px solid var(--neon); white-space:nowrap; }
+  td { padding:4px 6px; border-bottom:1px solid var(--border); font-size:7.5pt; vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+  .alert-bar { background:var(--surface); border-left:3px solid var(--leaf); border-radius:2px; padding:7px 10px; margin-bottom:7px; font-size:7.5pt; line-height:1.45; }
+  .alert-bar.warn { border-left-color:var(--warn); } .alert-bar.info { border-left-color:var(--info); }
+  .alert-bar strong { color:var(--white); }
+  .tag { display:inline-block; padding:1px 6px; border-radius:2px; font-size:6.5pt; font-weight:700; background:var(--surface); color:var(--muted); border:1px solid var(--border); text-transform:uppercase; letter-spacing:.5px; margin-right:2px; }
+  .tag.up { background:rgba(124,179,66,.18); color:var(--leaf); border-color:rgba(124,179,66,.5); }
+  .tag.dn { background:rgba(239,83,80,.18); color:var(--alert); border-color:rgba(239,83,80,.5); }
+  .tag.est { background:rgba(255,167,38,.18); color:var(--warn); border-color:rgba(255,167,38,.5); }
+  .tag.info { background:rgba(100,181,246,.18); color:var(--info); border-color:rgba(100,181,246,.5); }
+  .tag.sal { background:rgba(154,149,144,.18); color:var(--muted); border-color:rgba(154,149,144,.5); }
+  .tag.neon { background:rgba(197,232,71,.18); color:var(--neon); border-color:rgba(197,232,71,.5); }
+  .dow { display:inline-block; padding:1px 5px; margin:1px 2px 1px 0; font-size:6pt; font-weight:800; letter-spacing:.5px; border-radius:2px; background:var(--surface); color:var(--neon); border:1px solid rgba(197,232,71,.4); }
+  .day-bar-wrap { margin-bottom:7px; }
+  .day-bar { display:flex; align-items:flex-end; gap:6px; height:130px; border-bottom:1px solid var(--border); padding-bottom:0; }
+  .day-col { flex:1; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end; }
+  .day-top { text-align:center; margin-bottom:3px; }
+  .day-val-lbl { font-size:7.5pt; color:var(--white); font-weight:800; display:block; line-height:1.1; }
+  .day-aov-lbl { font-size:6.5pt; color:var(--info); font-weight:700; display:block; line-height:1.15; }
+  .bar-outer { width:100%; background:rgba(255,255,255,.05); border-radius:2px 2px 0 0; overflow:hidden; display:flex; flex-direction:column-reverse; }
+  .bar-sales { width:100%; background:var(--neon); }
+  .bar-labor { width:100%; background:var(--ember); border-bottom:1px solid rgba(0,0,0,.5); }
+  .day-bottom { text-align:center; margin-top:4px; }
+  .day-dow { font-size:7pt; font-weight:800; color:var(--white); letter-spacing:1px; display:block; }
+  .day-date-lbl { font-size:6.5pt; color:var(--muted); display:block; line-height:1.2; }
+  .day-labor-lbl { font-size:6.5pt; color:var(--ember); font-weight:700; display:block; line-height:1.3; }
+  .bar-legend { display:flex; gap:16px; margin-top:5px; font-size:7pt; color:var(--muted); }
+  .bar-legend .swatch { display:inline-block; width:10px; height:10px; border-radius:1px; margin-right:4px; vertical-align:middle; }
+  .checklist { columns:2; column-gap:14px; font-size:7.5pt; }
+  .checklist .ci { padding:2px 0; }
+  .ci.pass::before { content:"[OK] "; color:var(--leaf); font-weight:800; }
+  .ci.partial::before { content:"[PARTIAL] "; color:var(--warn); font-weight:800; }
+  .ci.gap-item::before { content:"[GAP] "; color:var(--alert); font-weight:800; }
+  .footer { text-align:center; padding:8px 4px; color:var(--muted); font-size:6.5pt; border-top:2px solid var(--neon); margin-top:12px; letter-spacing:.5px; }
+  .footer .brand-line { color:var(--neon); font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:2px; }
+  .muted { color:var(--muted); }
+  .note { font-size:7pt; color:var(--muted); margin-top:5px; line-height:1.4; }
+
 </style></head><body>
 
 <div class="header">
   <div class="header-row">
     <div class="brand-block">
-      <div class="wordmark"><div class="word">EMB<span class="flame">R</span></div><div class="tagline">Quality Cannabis Reserve</div><div class="by">by Phat Panda</div></div>
+      <div class="wordmark"><div class="word">EM B<span class="flame">R</span></div><div class="tagline">Quality Cannabis Reserve</div><div class="by">by Phat Panda Group</div></div>
       <div style="border-left:1px solid var(--border-strong);padding-left:14px;">
         <h1>EMBR Springfield &mdash; Weekly Dashboard</h1>
         <div class="subtitle">Cannabis Done Right &middot; Quality Cannabis Reserve</div>
@@ -103,292 +104,176 @@
     <div class="right-meta">
       <div class="store-id">461 Boston Rd, Springfield MA 01109</div>
       <div>(413) 465-2490 &middot; License MR284652</div>
-      <div>POS: Dutchie</div>
-      <div style="margin-top:4px;"><span class="loc-chip">&#9660; Springfield, MA</span></div>
-      <div style="margin-top:4px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.1 &middot; Production</span></div>
+      <div>POS: Dutchie &middot; Payroll: UKG</div>
+      <div><span class="loc-chip">&#9660; Springfield, MA</span></div>
+      <div style="margin-top:5px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.2 &middot; Production</span> <span class="tag up">+26.7% WoW</span> <span class="tag est">+30.1% YoY est</span></div>
     </div>
   </div>
-  <div class="meta" style="margin-top:8px;">
-    Reporting week: <strong style="color:var(--white);">Mon 2026-05-25 &rarr; Sun 2026-05-31</strong> &nbsp;&middot;&nbsp;
-    Methodology: <strong>v2 + v2.1 amendment</strong> &nbsp;&middot;&nbsp;
-    Data freshness: Dutchie GAP_BACKFILL 2026-06-01 &middot; UKG Counter 2026-06-01 08:11a &middot; DetailedRates 2026-05-28 &nbsp;&middot;&nbsp;
-    Generated 2026-06-01 (as-of Mon 2026-05-25 AM) &middot; Phat Panda Group Analytics
-  </div>
+  <div class="meta" style="margin-top:8px;">Reporting week: <strong>Mon 2026-06-01 &rarr; Sun 2026-06-07 (W23)</strong> &middot; Dutchie GAP_BACKFILL 2026-06-08 &middot; UKG Counter 06/01&ndash;06/07 &middot; DetailedRates 2026-06-04 &middot; Generated: 2026-06-08 &middot; Phat Panda Group Analytics &middot; Methodology v2.2</div>
 </div>
+
 <div class="container">
+<div class="alert-bar"><strong style="color:var(--neon)">[W23 &mdash; Production &mdash; 6/1&rarr;6/7]</strong> Dutchie GAP_BACKFILL 2026-06-08. UKG Counter 06/01&ndash;06/07. <strong style="color:var(--neon)">items[] populated</strong> &mdash; 20,156 line items / 971 SKUs. WoW +26.7% vs W22. Wholesale/non-retail excluded.</div>
 
-<div class="alert ok">
-  <strong style="color:var(--leaf);">[v2.1 PRODUCTION CYCLE &mdash; Mon 5/25 &rarr; Sun 5/31 &mdash; W22 MEMORIAL DAY]</strong> Full clean data pull across all 6 stores. Dutchie <strong>transaction_line_items</strong> endpoint now wired in CFO pipeline &mdash; <strong style="color:var(--leaf);">corrects prior $-register-level undercounting</strong>. GAP_BACKFILL 2026-06-01 closes W22 tail. UKG Counter export 2026-06-01 08:11a covering 5/25&ndash;5/31 across 6 retail cost-centers. Wholesale/Cultivation/Facilities/Production cost-centers filtered out per &sect;6.
-  <strong style="color:var(--neon);">Store context:</strong> Largest retail workforce in the portfolio (31 hourly emps, 1198.6h cycle-week, $21,526 payroll). Week total $411,039 across 9,138 txns. Memorial Day (Mon 5/25) was the season&rsquo;s first major holiday cycle. AOV $44.98, Labor:Sales 5.2% &mdash; best in portfolio by wide margin. License MR284652 / 461 Boston Rd.
-  <strong style="color:var(--leaf);">WoW + YoY:</strong> W21 prior-week from GAP_BACKFILL_2026-05-16_to_2026-05-28 (full 7-day). YoY from FULL_HISTORY_MONTH_2025-05. Prior Month from FULL_HISTORY_MONTH_2026-04. All period comparisons accurate.
-</div>
-
-<div class="section-title">Operations Snapshot &mdash; Week ending 2026-05-31</div>
+<div class="sec-title">I. Operations Snapshot &mdash; Week Ending 2026-06-07 <span class="right">Insight 1 &middot; 7/7 days</span></div>
 <div class="grid5">
-  <div class="kpi"><div class="kpi-label">Net Sales &middot; Wk &middot; I-1</div><div class="kpi-val">$411,039</div><div class="kpi-sub ">7/7 days &middot; 9,138 txns</div></div>
-  <div class="kpi"><div class="kpi-label">Prior Month Net</div><div class="kpi-val">$1.579M</div><div class="kpi-sub ">April 2026 actual</div></div>
-  <div class="kpi"><div class="kpi-label">Curr Month Forecast</div><div class="kpi-val">$1,801,036</div><div class="kpi-sub ">May 2026 final &middot; 31/31 days &middot; +29.9% vs May 2025</div></div>
-  <div class="kpi"><div class="kpi-label">Avg Basket (Wk)</div><div class="kpi-val">$44.98</div><div class="kpi-sub ">Wk Net $ / Wk txns</div></div>
-  <div class="kpi"><div class="kpi-label">Labor : Sales</div><div class="kpi-val">5.2%</div><div class="kpi-sub ">Labor as % of net sales (week)</div></div>
+  <div class="kpi"><div class="kpi-label">Net Sales &middot; Week</div><div class="kpi-val">$416,847</div><div class="kpi-sub">9,137 transactions &middot; 7/7 days</div></div>
+  <div class="kpi"><div class="kpi-label">Prior Wk Net (W22)</div><div class="kpi-val">$329,126</div><div class="kpi-sub neutral">May 25&ndash;31 &middot; 7,142 txns</div></div>
+  <div class="kpi"><div class="kpi-label">WoW &Delta; &middot; Insight 8</div><div class="kpi-val">+26.7%</div><div class="kpi-sub ">$87,721.23 vs prior week</div></div>
+  <div class="kpi"><div class="kpi-label">Avg Basket (AOV)</div><div class="kpi-val">$45.62</div><div class="kpi-sub neutral">Net $ / Txns</div></div>
+  <div class="kpi"><div class="kpi-label">Labor % of Net Sales</div><div class="kpi-val">6.2%</div><div class="kpi-sub neutral">$25,716 / $416,847</div></div>
 </div>
 <div class="grid5">
-  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">Worked Hours (Wk)</div><div class="kpi-val">1198.6</div><div class="kpi-sub neutral">31 distinct emps</div></div>
-  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">Payroll Cost (Wk)</div><div class="kpi-val">$21,526</div><div class="kpi-sub neutral">UKG Detailed Rates &middot; $17.96/hr blended</div></div>
-  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">Total Txns (Wk)</div><div class="kpi-val">9,138</div><div class="kpi-sub neutral">Dutchie Sale rows &middot; cycle week</div></div>
-  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">Sales : Labor $</div><div class="kpi-val">$19.09</div><div class="kpi-sub neutral">Revenue per $1 of payroll</div></div>
-  <div class="kpi" style="border-left-color:var(--ember);"><div class="kpi-label">$ / Labor Hour</div><div class="kpi-val">$343</div><div class="kpi-sub neutral">Wk net sales / wk worked hrs</div></div>
+  <div class="kpi ember"><div class="kpi-label">Worked Hours</div><div class="kpi-val">1167.8</div><div class="kpi-sub neutral">32 emps &middot; UKG Counter</div></div>
+  <div class="kpi ember"><div class="kpi-label">Payroll Cost</div><div class="kpi-val">$25,716</div><div class="kpi-sub neutral">$22.02/hr blended</div></div>
+  <div class="kpi ember"><div class="kpi-label">Sales per Labor $</div><div class="kpi-val">$16.21</div><div class="kpi-sub neutral">Revenue / $1 payroll</div></div>
+  <div class="kpi ember"><div class="kpi-label">$ per Labor Hour</div><div class="kpi-val">$357</div><div class="kpi-sub neutral">Net / worked hrs</div></div>
+  <div class="kpi ember"><div class="kpi-label">Tax Regime</div><div class="kpi-val" style="font-size:9pt">MA</div><div class="kpi-sub neutral">MA 10%+3%+1.5%</div></div>
 </div>
 
-<div class="section-title">Daily Trend &middot; Insight 2 <span class="right">Mon&ndash;Sun &middot; stacked sales+labor &middot; firm-line divider</span></div>
+<div class="sec-title">II. Recommended Actions <span class="right">Sorted by severity</span></div>
+<div class="card"><div class="alert-bar" style="border-left-color:var(--leaf)"><span class="tag up">STRONG</span>&nbsp;<strong>Labor:Sales 6.2% — best-in-class efficiency this cycle.</strong> No corrective action needed. Monitor W24 normalization.</div><div class="alert-bar" style="border-left-color:var(--leaf)"><span class="tag up">MOMENTUM</span>&nbsp;<strong>WoW +26.7% — strong week-over-week acceleration.</strong> SKU-level data live this cycle — surface top movers for buyer review.</div><div class="alert-bar" style="border-left-color:var(--neon)"><span class="tag neon">NEW</span>&nbsp;<strong>items[] populated this cycle — 20,156 line items / 971 SKUs.</strong> Product catalog join (includeInactive=true on /products) unlocks names + margin. Recommend pipeline action before W24.</div></div>
+
+<div class="sec-title">III. Daily Sales Trend &mdash; W23 <span class="right">Insight 2 &middot; Neon = sales, Ember = labor overlay</span></div>
 <div class="card">
-  <div class="day-bar"><div class="day">
-          <div class="day-val">$44,315</div>
-          <div class="day-aov">AOV $40.99</div>
-          <div class="bar" style="height:61%">
-              <div class="sales-portion" style="flex:1 1 95%"></div>
-              <div class="labor-portion" style="height:4.9%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">MON</span>
-            <span class="day-date">5/25</span>
-            <span class="day-labor">$2,183 labor</span>
-            <span class="day-laborpct">5% of sales</span>
-          </div>
-        </div><div class="day">
-          <div class="day-val">$46,706</div>
-          <div class="day-aov">AOV $39.68</div>
-          <div class="bar" style="height:64%">
-              <div class="sales-portion" style="flex:1 1 94%"></div>
-              <div class="labor-portion" style="height:6.0%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">TUE</span>
-            <span class="day-date">5/26</span>
-            <span class="day-labor">$2,783 labor</span>
-            <span class="day-laborpct">6% of sales</span>
-          </div>
-        </div><div class="day">
-          <div class="day-val">$54,386</div>
-          <div class="day-aov">AOV $41.96</div>
-          <div class="bar" style="height:75%">
-              <div class="sales-portion" style="flex:1 1 94%"></div>
-              <div class="labor-portion" style="height:5.7%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">WED</span>
-            <span class="day-date">5/27</span>
-            <span class="day-labor">$3,107 labor</span>
-            <span class="day-laborpct">6% of sales</span>
-          </div>
-        </div><div class="day">
-          <div class="day-val">$69,597</div>
-          <div class="day-aov">AOV $46.34</div>
-          <div class="bar" style="height:95%">
-              <div class="sales-portion" style="flex:1 1 95%"></div>
-              <div class="labor-portion" style="height:5.1%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">THU</span>
-            <span class="day-date">5/28</span>
-            <span class="day-labor">$3,561 labor</span>
-            <span class="day-laborpct">5% of sales</span>
-          </div>
-        </div><div class="day">
-          <div class="day-val">$72,986</div>
-          <div class="day-aov">AOV $49.12</div>
-          <div class="bar" style="height:100%">
-              <div class="sales-portion" style="flex:1 1 95%"></div>
-              <div class="labor-portion" style="height:5.2%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">FRI</span>
-            <span class="day-date">5/29</span>
-            <span class="day-labor">$3,782 labor</span>
-            <span class="day-laborpct">5% of sales</span>
-          </div>
-        </div><div class="day">
-          <div class="day-val">$69,282</div>
-          <div class="day-aov">AOV $48.62</div>
-          <div class="bar" style="height:95%">
-              <div class="sales-portion" style="flex:1 1 95%"></div>
-              <div class="labor-portion" style="height:5.1%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">SAT</span>
-            <span class="day-date">5/30</span>
-            <span class="day-labor">$3,533 labor</span>
-            <span class="day-laborpct">5% of sales</span>
-          </div>
-        </div><div class="day">
-          <div class="day-val">$53,768</div>
-          <div class="day-aov">AOV $45.92</div>
-          <div class="bar" style="height:74%">
-              <div class="sales-portion" style="flex:1 1 95%"></div>
-              <div class="labor-portion" style="height:4.8%"></div>
-            </div>
-          <div class="day-label">
-            <span class="dow">SUN</span>
-            <span class="day-date">5/31</span>
-            <span class="day-labor">$2,578 labor</span>
-            <span class="day-laborpct">5% of sales</span>
-          </div>
-        </div></div>
-  <div class="small"><strong style="color:var(--white);">v2.1-rev2 stacked daily-trend (CFO 2026-05-15).</strong> Bar height = daily net sales $. The lower segment (firm-line divider) represents labor cost as % of that day&rsquo;s sales. Above each bar: net sales $ and AOV. Below: weekday &middot; date &middot; labor $ &middot; labor as % of sales. Week total: <strong>1198.6</strong> worked hours &middot; <strong>$21,526</strong> payroll cost across <strong>31</strong> employees.</div>
+  <div class="day-bar-wrap"><div class="day-bar"><div class="day-col"><div class="day-top"><span class="day-val-lbl">$53,896</span><span class="day-aov-lbl">AOV $43.57</span></div><div class="bar-outer" style="height:83px"><div class="bar-sales" style="height:79px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">MON</span><span class="day-date-lbl">6/1</span><span class="day-labor-lbl">$2,623 / 5%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$50,459</span><span class="day-aov-lbl">AOV $42.22</span></div><div class="bar-outer" style="height:77px"><div class="bar-sales" style="height:73px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">TUE</span><span class="day-date-lbl">6/2</span><span class="day-labor-lbl">$3,008 / 6%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$61,774</span><span class="day-aov-lbl">AOV $45.12</span></div><div class="bar-outer" style="height:95px"><div class="bar-sales" style="height:91px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">WED</span><span class="day-date-lbl">6/3</span><span class="day-labor-lbl">$2,971 / 5%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$66,023</span><span class="day-aov-lbl">AOV $49.16</span></div><div class="bar-outer" style="height:101px"><div class="bar-sales" style="height:96px"></div><div class="bar-labor" style="height:5px"></div></div><div class="day-bottom"><span class="day-dow">THU</span><span class="day-date-lbl">6/4</span><span class="day-labor-lbl">$3,618 / 5%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$71,280</span><span class="day-aov-lbl">AOV $47.90</span></div><div class="bar-outer" style="height:110px"><div class="bar-sales" style="height:104px"></div><div class="bar-labor" style="height:6px"></div></div><div class="day-bottom"><span class="day-dow">FRI</span><span class="day-date-lbl">6/5</span><span class="day-labor-lbl">$4,107 / 6%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$60,275</span><span class="day-aov-lbl">AOV $46.51</span></div><div class="bar-outer" style="height:93px"><div class="bar-sales" style="height:89px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">SAT</span><span class="day-date-lbl">6/6</span><span class="day-labor-lbl">$3,010 / 5%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$53,139</span><span class="day-aov-lbl">AOV $43.95</span></div><div class="bar-outer" style="height:82px"><div class="bar-sales" style="height:79px"></div><div class="bar-labor" style="height:3px"></div></div><div class="day-bottom"><span class="day-dow">SUN</span><span class="day-date-lbl">6/7</span><span class="day-labor-lbl">$2,193 / 4%</span></div></div></div></div>
+  <div class="bar-legend"><span><span class="swatch" style="background:var(--neon)"></span>Daily net sales</span><span><span class="swatch" style="background:var(--ember)"></span>Labor cost overlay</span></div>
 </div>
 
-<div class="section-title">Recommended Actions <span class="right">Sorted by severity</span></div>
-<div class="card">
-  <div class="alert ok"><span class="tag ok">STRONG</span>&nbsp;<strong>Memorial Day holiday cycle delivered $411,039 &mdash; 5.2% labor:sales, best in portfolio.</strong> No urgent corrective actions. Monitor W23 normalization as holiday uplift subsides.</div>
-  <div class="alert info"><span class="tag info">INFO</span>&nbsp;<strong>$/labor-hr calc live for all 7 days</strong> this cycle ($2,183 MON &rarr; $2,578 SUN). See Staffing-vs-Demand section below.</div>
-  <div class="alert warn"><span class="tag med">MEDIUM</span>&nbsp;<strong>April prior-month net unavailable.</strong> GAP_BACKFILL starts 2026-05-23; April totals not in window. Pull April aggregate separately from CFO pipeline if month-over-month KPI needed.</div>
-  <div class="alert warn"><span class="tag med">MEDIUM</span>&nbsp;<strong>Line-item SKU data now available via transaction_line_items endpoint</strong> &mdash; §8B/C/D pipeline gap partially resolved. SKU-level ranking and category splits now computable from this cycle&rsquo;s data.</div>
-</div>
+<div class="sec-title">IV. Staffing-vs-Demand Review <span class="right">Permanent &middot; v2.2 &sect;5b</span></div>
+<div class="card"><table><tr><th>Day</th><th>Open Hrs</th><th>Worked Hrs</th><th>Avg Emp/Hr</th><th>Payroll Cost</th><th>Net Sales</th><th>$/Labor-Hr</th><th>Sales:Labor</th></tr><tr><td><strong>MON</strong> 6/1</td><td>13</td><td>144.6</td><td>11.12</td><td>$2,622.92</td><td>$53,896</td><td>$373</td><td>$20.55:$1</td></tr><tr><td><strong>TUE</strong> 6/2</td><td>13</td><td>165.3</td><td>12.71</td><td>$3,007.82</td><td>$50,459</td><td>$305</td><td>$16.78:$1</td></tr><tr><td><strong>WED</strong> 6/3</td><td>13</td><td>159.9</td><td>12.30</td><td>$2,971.24</td><td>$61,774</td><td>$386</td><td>$20.79:$1</td></tr><tr><td><strong>THU</strong> 6/4</td><td>13</td><td>192.8</td><td>14.83</td><td>$3,617.59</td><td>$66,023</td><td>$343</td><td>$18.25:$1</td></tr><tr><td><strong>FRI</strong> 6/5</td><td>13</td><td>220.7</td><td>16.97</td><td>$4,106.91</td><td>$71,280</td><td>$323</td><td>$17.36:$1</td></tr><tr><td><strong>SAT</strong> 6/6</td><td>13</td><td>163.3</td><td>12.56</td><td>$3,009.53</td><td>$60,275</td><td>$369</td><td>$20.03:$1</td></tr><tr><td><strong>SUN</strong> 6/7</td><td>13</td><td>121.3</td><td>9.33</td><td>$2,193.35</td><td>$53,139</td><td>$438</td><td>$24.23:$1</td></tr></table></div>
 
-<div class="section-title">Staffing-vs-Demand Review <span class="right">Permanent section &middot; v2.1 &sect;5b</span></div>
+<div class="sec-title">V. Period-over-Period Comparison <span class="right">Insights 6, 7, 8</span></div>
 <div class="card">
   <table>
-    <tr><th>Day</th><th>Open Hrs</th><th>Worked Hrs</th><th>Avg Emp/Hr</th><th>Payroll Cost</th><th>Net Sales</th><th>$/Labor-Hr</th><th>Sales-to-Labor</th></tr>
-    <tr><td>MON 5/25</td><td>13</td><td>121.5</td><td>9.35</td><td>$2,183.02</td><td>$44,315</td><td>$365</td><td>$20.30:$1</td></tr><tr><td>TUE 5/26</td><td>13</td><td>155.0</td><td>11.92</td><td>$2,782.94</td><td>$46,706</td><td>$301</td><td>$16.78:$1</td></tr><tr><td>WED 5/27</td><td>13</td><td>173.0</td><td>13.31</td><td>$3,106.90</td><td>$54,386</td><td>$314</td><td>$17.50:$1</td></tr><tr><td>THU 5/28</td><td>13</td><td>198.3</td><td>15.25</td><td>$3,560.77</td><td>$69,597</td><td>$351</td><td>$19.55:$1</td></tr><tr><td>FRI 5/29</td><td>13</td><td>210.6</td><td>16.2</td><td>$3,781.63</td><td>$72,986</td><td>$347</td><td>$19.30:$1</td></tr><tr><td>SAT 5/30</td><td>13</td><td>196.7</td><td>15.13</td><td>$3,533.07</td><td>$69,282</td><td>$352</td><td>$19.61:$1</td></tr><tr><td>SUN 5/31</td><td>13</td><td>143.5</td><td>11.04</td><td>$2,577.66</td><td>$53,768</td><td>$375</td><td>$20.86:$1</td></tr>
+    <tr><th>Metric</th><th>W23 (6/1&rarr;6/7)</th><th>W22 (5/25&rarr;5/31)</th><th>Jun 2025 Monthly</th><th>WoW &Delta;$</th><th>WoW &Delta;%</th><th>YoY &Delta;% <span class="tag est">est</span></th></tr>
+    <tr>
+      <td>Net Sales</td>
+      <td style="font-weight:700">$416,847.44</td>
+      <td>$329,126.21</td>
+      <td>$1,387,403.10</td>
+      <td style="color:var(--leaf);font-weight:700">$87,721.23</td>
+      <td style="color:var(--leaf);font-weight:700">+26.7%</td>
+      <td style="color:var(--leaf)">+30.1%</td>
+    </tr>
+    <tr>
+      <td>Transactions</td>
+      <td style="font-weight:700">9,137</td>
+      <td>7,142</td>
+      <td>&mdash;</td>
+      <td style="color:var(--leaf)">+1,995</td>
+      <td>+27.9%</td>
+      <td>&mdash;</td>
+    </tr>
+    <tr>
+      <td>Avg Basket</td>
+      <td style="font-weight:700">$45.62</td>
+      <td>$46.08</td>
+      <td>$39.79</td>
+      <td style="color:var(--alert)">$-0.46</td>
+      <td>-1.0%</td>
+      <td style="color:var(--leaf)">+14.7%</td>
+    </tr>
   </table>
-  <div class="small">
-    <strong>Peak staffing density:</strong> 16.20 emp/hr peak.
-    <br/>
-    Per v2.1 methodology, &gt;30% spread between peak-density and leanest day on the $/labor-hr axis triggers a schedule discussion.
+  <div class="note">YoY net sales: Jun 2025 monthly (management spreadsheet) &divide; 4.33 = weekly est $320,416.42. Avg Basket YoY vs Jun 2025 monthly figure from management spreadsheet.</div>
+</div>
+
+<div class="sec-title">VI. Potential External Causes of Sales Changes <span class="right">&sect;6.5 &middot; EMBR Springfield</span></div>
+<div class="card">
+  <table><tr><th>Date/Window</th><th>Local Factor</th><th>Effect</th><th>Conf.</th><th>Hypothesis</th></tr><tr><td>Sat Jun 6</td><td><strong>5th Annual Springfield Pride Parade</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag up">HIGH</span></td><td style="font-size:7.5pt">Parade from STCC campus down State St/Main St to Stearns Square, noon start. Thousands of participants across New England — 'Beyond the Rainbow' theme. Large foot-traffic event within 1.5mi of Boston Rd store. Pride Strikes bowling event (Jun 5) at MGM Springfield also drew downtown visitors.</td></tr><tr><td>Mon–Sun</td><td><strong>Early June warmth (highs 69–85°F per AccuWeather Jun 2026 forecast)</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag neutral">MED</span></td><td style="font-size:7.5pt">Above-normal early June temperatures in Pioneer Valley per Almanac 2026 seasonal forecast; warm clear conditions reduce friction for in-person visits on Boston Rd corridor.</td></tr><tr><td>Mon–Sun</td><td><strong>PVTA free fare continues</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag neutral">MED</span></td><td style="font-size:7.5pt">PVTA confirmed free fare program continues until further notice (Jun 5, 2026). Reduces transportation barrier for lower-income customers along Boston Rd transit corridor.</td></tr></table>
+  <div class="note">Sources: Local news / AccuWeather / Yelp-Leafly-Weedmaps market research / city event calendars. Web survey 2026-06-08.</div>
+</div>
+
+<div class="sec-title">VII. Top Performers <span class="right">Insight 3 &middot; v2.2 &sect;8A &middot; sorted by Wk Net Sales</span></div>
+<div class="card">
+  <h2>&sect;8A &mdash; Budtenders / Cashiers who worked this period <span class="sub">&middot; Salaried = 40h assumed &middot; Payroll = Wk Hrs &times; Rate</span></h2>
+  <table><tr><th>#</th><th>Employee (UKG)</th><th>Days Worked</th><th>Wk Hrs</th><th>Payroll $</th><th>Wk Net Sales</th><th>Txns</th><th>AOV</th><th>Txns/Hr</th></tr><tr><td style="font-weight:800;color:var(--neon)">1</td><td>Erick Anaya</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Sat</span></td><td>39.60</td><td>$673</td><td style="font-weight:700">$47,635.64</td><td>1,024</td><td>$46.52</td><td>25.86</td></tr><tr><td style="font-weight:800;color:var(--neon)">2</td><td>Kevin Schipper</td><td><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>40.00</td><td>$680</td><td style="font-weight:700">$38,333.10</td><td>807</td><td>$47.50</td><td>20.18</td></tr><tr><td style="font-weight:800;color:var(--neon)">3</td><td>Jessica Kogut</td><td><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>40.00</td><td>$680</td><td style="font-weight:700">$32,700.15</td><td>660</td><td>$49.55</td><td>16.50</td></tr><tr><td style="font-weight:800;color:var(--neon)">4</td><td>Nicholas Venne</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>37.40</td><td>$636</td><td style="font-weight:700">$31,482.27</td><td>673</td><td>$46.78</td><td>17.99</td></tr><tr><td style="font-weight:800;color:var(--neon)">5</td><td>Geovanny Fermaintt</td><td><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span></td><td>35.80</td><td>$609</td><td style="font-weight:700">$30,986.26</td><td>663</td><td>$46.74</td><td>18.52</td></tr><tr><td style="font-weight:800;color:var(--neon)">6</td><td>Daniel Karcz</td><td><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span></td><td>39.36</td><td>$669</td><td style="font-weight:700">$29,309.64</td><td>657</td><td>$44.61</td><td>16.69</td></tr><tr><td style="font-weight:800;color:var(--neon)">7</td><td>Tanner Farnsworth</td><td><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sun</span></td><td>31.60</td><td>$537</td><td style="font-weight:700">$27,940.82</td><td>607</td><td>$46.03</td><td>19.21</td></tr><tr><td style="font-weight:800;color:var(--neon)">8</td><td>Patrick Callahan</td><td><span class="dow">Mon</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sun</span></td><td>38.51</td><td>$655</td><td style="font-weight:700">$25,324.22</td><td>533</td><td>$47.51</td><td>13.84</td></tr><tr><td style="font-weight:800;color:var(--neon)">9</td><td>Joshua Banchs</td><td><span class="dow">Mon</span><span class="dow">Wed</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>31.88</td><td>$542</td><td style="font-weight:700">$21,961.38</td><td>530</td><td>$41.44</td><td>16.62</td></tr><tr><td style="font-weight:800;color:var(--neon)">10</td><td>Manuel Major</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Thu</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>38.75</td><td>$659</td><td style="font-weight:700">$21,249.24</td><td>493</td><td>$43.10</td><td>12.72</td></tr><tr><td style="font-weight:800;color:var(--neon)">11</td><td>Amen Gonzalez</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sun</span></td><td>59.69</td><td>$1,015</td><td style="font-weight:700">$20,609.66</td><td>446</td><td>$46.21</td><td>7.47</td></tr><tr><td style="font-weight:800;color:var(--neon)">12</td><td>Tiana Mendez</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Fri</span><span class="dow">Sat</span></td><td>38.82</td><td>$660</td><td style="font-weight:700">$17,061.18</td><td>377</td><td>$45.26</td><td>9.71</td></tr><tr><td style="font-weight:800;color:var(--neon)">13</td><td>Jered Garrafa</td><td><span class="dow">Wed</span><span class="dow">Fri</span><span class="dow">Sun</span></td><td>22.74</td><td>$387</td><td style="font-weight:700">$16,449.96</td><td>392</td><td>$41.96</td><td>17.24</td></tr><tr><td style="font-weight:800;color:var(--neon)">14</td><td>Christopher Silva</td><td><span class="dow">Mon</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>38.88</td><td>$661</td><td style="font-weight:700">$15,965.74</td><td>335</td><td>$47.66</td><td>8.62</td></tr><tr><td style="font-weight:800;color:var(--neon)">15</td><td>Mikel Lafleur</td><td><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span></td><td>14.17</td><td>$241</td><td style="font-weight:700">$14,460.58</td><td>294</td><td>$49.19</td><td>20.75</td></tr><tr><td style="font-weight:800;color:var(--neon)">16</td><td>Edwin Vega</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>36.99</td><td>$629</td><td style="font-weight:700">$12,421.27</td><td>301</td><td>$41.27</td><td>8.14</td></tr><tr><td style="font-weight:800;color:var(--neon)">17</td><td>Nala Williams</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span></td><td>38.52</td><td>$732</td><td style="font-weight:700">$5,095.45</td><td>120</td><td>$42.46</td><td>3.12</td></tr><tr><td style="font-weight:800;color:var(--neon)">18</td><td>Alessondra Ostrowski</td><td><span class="dow">Mon</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>38.99</td><td>$741</td><td style="font-weight:700">$3,354.35</td><td>86</td><td>$39.00</td><td>2.21</td></tr><tr><td style="font-weight:800;color:var(--neon)">19</td><td>Shaun Rodriguez</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span></td><td>39.02</td><td>$683</td><td style="font-weight:700">$2,560.54</td><td>53</td><td>$48.31</td><td>1.36</td></tr><tr><td style="font-weight:800;color:var(--neon)">20</td><td>Rosanna Martinez</td><td><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>40.00</td><td>$1,000</td><td style="font-weight:700">$1,433.14</td><td>45</td><td>$31.85</td><td>1.12</td></tr><tr><td style="font-weight:800;color:var(--neon)">21</td><td>Bryan Alvarado Guevara <span class="tag sal">salaried</span></td><td><span class="muted">&mdash;</span></td><td>40.00 <span class="tag sal">assumed</span></td><td>$1,635</td><td style="font-weight:700">$512.55</td><td>28</td><td>$18.31</td><td>—</td></tr><tr><td style="font-weight:800;color:var(--neon)">22</td><td>Chari Cordero</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span></td><td>40.00</td><td>$1,000</td><td style="font-weight:700">$0.12</td><td>1</td><td>$0.12</td><td>0.03</td></tr><tr><td style="font-weight:800;color:var(--neon)">23</td><td>Jeremiah Barbosa</td><td><span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span></td><td>38.44</td><td>$730</td><td style="font-weight:700">$0.11</td><td>6</td><td>$0.02</td><td>0.16</td></tr><tr><td style="font-weight:800;color:var(--neon)">24</td><td>Michelle Owens</td><td><span class="dow">Tue</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>40.00</td><td>$760</td><td style="font-weight:700">$0.06</td><td>3</td><td>$0.02</td><td>0.07</td></tr><tr><td style="font-weight:800;color:var(--neon)">25</td><td>Steven Studley</td><td><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span></td><td>39.71</td><td>$993</td><td style="font-weight:700">$0.01</td><td>3</td><td>$0.00</td><td>0.08</td></tr></table>
+  <div class="note">v2.2: Rate column removed per current policy. Salaried = 40h assumed, shown with SALARIED tag. Days Worked chips = days with non-zero UKG hours in cycle week.</div>
+</div>
+
+<div class="grid3">
+  <div class="card"><h2>Top SKUs by Units <span class="sub">&middot; Insight 4</span></h2><table><tr><th>#</th><th>Product ID</th><th>Vendor</th><th>Units</th><th>Avg $</th><th>Revenue</th></tr><tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3861145</td><td>Temescal Wellness of Mass</td><td>551</td><td>$5.00</td><td style="font-weight:700">$2,755.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3832837</td><td>MassGrow, LLC</td><td>204</td><td>$42.00</td><td style="font-weight:700">$8,568.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3861146</td><td>Temescal Wellness of Mass</td><td>197</td><td>$5.00</td><td style="font-weight:700">$985.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3521937</td><td>MassGrow, LLC</td><td>193</td><td>$4.20</td><td style="font-weight:700">$810.60</td></tr><tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3854106</td><td>The Botanist, Inc.</td><td>191</td><td>$4.20</td><td style="font-weight:700">$802.20</td></tr><tr><td style="font-weight:700;color:var(--neon)">6</td><td style="font-size:7pt">ID:3818379</td><td>MassGrow, LLC</td><td>154</td><td>$28.00</td><td style="font-weight:700">$4,312.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">7</td><td style="font-size:7pt">ID:3816126</td><td>MassGrow, LLC</td><td>145</td><td>$42.00</td><td style="font-weight:700">$6,090.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">8</td><td style="font-size:7pt">ID:3687251</td><td>MassGrow, LLC</td><td>140</td><td>$4.20</td><td style="font-weight:700">$588.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">9</td><td style="font-size:7pt">ID:3802047</td><td>MassGrow, LLC</td><td>139</td><td>$4.20</td><td style="font-weight:700">$583.80</td></tr><tr><td style="font-weight:700;color:var(--neon)">10</td><td style="font-size:7pt">ID:3858147</td><td>MassGrow, LLC</td><td>119</td><td>$42.00</td><td style="font-weight:700">$4,998.00</td></tr></table><div class="note">20,156 line items &middot; 971 SKUs. Names need /products catalog join.</div></div>
+  <div class="card"><h2>Top SKUs by Revenue <span class="sub">&middot; Insight 5</span></h2><table><tr><th>#</th><th>Product ID</th><th>Vendor</th><th>Units</th><th>Avg $</th><th>Revenue</th></tr><tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3832837</td><td>MassGrow, LLC</td><td>204</td><td>$42.00</td><td style="font-weight:700">$8,568.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3816126</td><td>MassGrow, LLC</td><td>145</td><td>$42.00</td><td style="font-weight:700">$6,090.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3682776</td><td>MassGrow, LLC</td><td>69</td><td>$84.00</td><td style="font-weight:700">$5,796.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3807892</td><td>MassGrow, LLC</td><td>69</td><td>$84.00</td><td style="font-weight:700">$5,796.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3858147</td><td>MassGrow, LLC</td><td>119</td><td>$42.00</td><td style="font-weight:700">$4,998.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">6</td><td style="font-size:7pt">ID:3818379</td><td>MassGrow, LLC</td><td>154</td><td>$28.00</td><td style="font-weight:700">$4,312.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">7</td><td style="font-size:7pt">ID:3697754</td><td>MassGrow, LLC</td><td>48</td><td>$84.00</td><td style="font-weight:700">$4,032.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">8</td><td style="font-size:7pt">ID:3823090</td><td>MassGrow, LLC</td><td>93</td><td>$42.00</td><td style="font-weight:700">$3,906.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">9</td><td style="font-size:7pt">ID:3667149</td><td>MassGrow, LLC</td><td>100</td><td>$39.00</td><td style="font-weight:700">$3,900.00</td></tr><tr><td style="font-weight:700;color:var(--neon)">10</td><td style="font-size:7pt">ID:3590100</td><td>MassGrow, LLC</td><td>100</td><td>$39.00</td><td style="font-weight:700">$3,900.00</td></tr></table></div>
+  <div class="card"><h2>Customer Metrics <span class="sub">&middot; Insight 9</span></h2>
+    <div class="row"><span class="label">Unique customers</span><span class="val">6,458</span></div>
+    <div class="row"><span class="label">New customers</span><span class="val">3,566</span></div>
+    <div class="row"><span class="label">Returning</span><span class="val">2,892</span></div>
+    <div class="row"><span class="label">Repeat rate</span><span class="val">44.8%</span></div>
+    <div class="row"><span class="label">Net $ per customer</span><span class="val">$64.55</span></div>
+    <div class="note">New = no prior txns in GAP_BACKFILL window.</div>
   </div>
 </div>
 
-<div class="section-title">Period-over-Period Comparison &middot; Insights 6, 7, 8</div>
-<div class="card">
-  <table>
-    <tr><th>Metric</th><th>This Wk 5/25&rarr;5/31</th><th>Prior Wk 5/18&rarr;5/24*</th><th>Same Wk LY (2025-W22)</th><th>WoW &Delta;$ &middot; I-8</th><th>WoW &Delta;% &middot; I-6</th><th>YoY &Delta;% &middot; I-7</th></tr>
-    <tr><td>Net Sales</td><td>$411,038.72</td><td>$398,204.89</td><td>$319,913.99</td><td>$12,833.83</td><td>+3.2%</td><td>+28.5%</td></tr>
-    <tr><td>Transactions</td><td>9,138</td><td>8,927</td><td>7,955</td><td>+211</td><td>+2.4%</td><td>+14.9%</td></tr>
-    <tr><td>Avg Basket</td><td>$44.98</td><td>$44.61</td><td>$40.22</td><td>$0.37</td><td>+0.8%</td><td>+11.8%</td></tr>
-  </table>
-  <div class="small">*Prior week W21 (5/18&ndash;5/24) sourced from GAP_BACKFILL_2026-05-16_to_2026-05-28 &mdash; full 7-day capture. &dagger;YoY sourced from FULL_HISTORY_MONTH_2025-05 &mdash; W22 equivalent week 2025-05-25 to 2025-05-31.</div>
+<div class="sec-title">VIII. Competitive Landscape <span class="right">Insight 10 &middot; &sect;9A Threat Matrix &amp; &sect;9B Pricing Scorecard</span></div>
+<div class="card"><h2>&sect;9A &mdash; EMBR Springfield Threat Matrix</h2>
+  <table><tr><th>Competitor</th><th>Location</th><th>Rating</th><th>Threat</th><th>Notes / Action</th></tr><tr><td><strong>Insa Cannabis Dispensary</strong></td><td style="font-size:7.5pt">Springfield, MA</td><td style="font-size:7.5pt">top-ranked</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Ranked #1 on multiple 2026 review sites. Black-woman-owned; strong community brand. Price-competitive; value positioning.</td></tr><tr><td><strong>Zaza Green</strong></td><td style="font-size:7.5pt">Page Blvd, Springfield</td><td style="font-size:7.5pt">4.8★</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Reader Raves 2026 winner: Best Dispensary AND Best Budtenders in Springfield. Award announced June 1 (National Say Something Nice Day) — marketing tailwind active this cycle.</td></tr><tr><td><strong>6 Brick's Dispensary</strong></td><td style="font-size:7.5pt">Springfield, MA</td><td style="font-size:7.5pt">top-3</td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Black-owned, family-run; strong community loyalty. Non-MSO positioning, local grower relationships. Ranked top-3 in area.</td></tr><tr><td><strong>Liberty Cannabis</strong></td><td style="font-size:7.5pt">1300 Boston Rd (same corridor)</td><td style="font-size:7.5pt">established MSO</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Same Boston Rd corridor as EMBR. Carries Garcia Hand Picked, Strane, Hellavated. Ongoing premium-tier competitive pressure.</td></tr></table>
+</div>
+<div class="card"><h2>&sect;9B &mdash; Pricing Scorecard <span class="sub">&middot; &sect;8.5 &middot; Web Survey 2026-06-08</span></h2>
+  <div class="note" style="font-size:7.5pt;line-height:1.6;padding:4px 0;">Springfield market (5 licensed dispensaries): Insa Cannabis (#1 ranked, Black-woman-owned), Zaza Green (2026 Reader Raves Best Dispensary + Best Budtenders), 6 Brick's (community-owned non-MSO), Liberty Cannabis (1300 Boston Rd, same corridor — carries Garcia Hand Picked/Strane/Hellavated). EMBR AOV $45.62 in premium tier.</div>
 </div>
 
-<div class="section-title">Potential External Causes of Sales Changes <span class="right">Springfield, MA &middot; &sect;6.5</span></div>
-<div class="card">
-  <table>
-    <tr><th>Date / window</th><th>Local factor</th><th>Effect</th><th>Conf.</th><th>Hypothesis</th></tr>
-    <tr><td>Mon 5/25</td><td><strong>Memorial Day federal holiday</strong></td><td><span class='tag uplift'>UPLIFT</span></td><td><span class='tag high'>HIGH</span></td><td>Holiday traffic driver — strong foot traffic, store open. $44,315 Mon vs $46,706 Tue; Tue/Wed typically stronger than Mon due to end-of-weekend demand. THU/FRI/SAT peak week pattern consistent with holiday week.</td></tr>
-    <tr><td>Mon&ndash;Sun</td><td><strong>Pioneer Valley weather (warm, clear highs 70s&ndash;80s&deg;F)</strong></td><td><span class='tag uplift'>UPLIFT</span></td><td><span class='tag med'>MED</span></td><td>Memorial Day weekend extended fine weather throughout W22. Pleasant conditions reduce friction to in-person visits along Boston Rd corridor.</td></tr>
-    <tr><td>Sat 5/16&ndash;Sun 5/25</td><td><strong>UMass Amherst commencement / regional visitor influx</strong></td><td><span class='tag uplift'>UPLIFT</span></td><td><span class='tag med'>MED</span></td><td>Commencement weekend typically +10&ndash;15% for Springfield Mon&ndash;Tue; tail effect into W22 Mon. I-91 corridor brings visitor traffic south through Springfield.</td></tr>
-    <tr><td>Mon&ndash;Sun</td><td><strong>Zaza Green / Liberty Cannabis Memorial Day promotions</strong></td><td><span class='tag drag'>DRAG</span></td><td><span class='tag med'>MED</span></td><td>Zaza Green ran Memorial Day cannabis offers 5/23&ndash;5/26; Liberty Cannabis (1300 Boston Rd, same corridor) typical holiday promotions. Value-tier pressure on EMBR&rsquo;s premium AOV ($44.98).</td></tr>
-    <tr><td>Mon&ndash;Sun</td><td><strong>Boston Rd corridor / I-291 access &mdash; no advisories</strong></td><td><span class='tag neutral'>NEUTRAL</span></td><td><span class='tag high'>HIGH</span></td><td>No MassDOT construction or closures affecting MR284652 vicinity this week.</td></tr>
-  </table>
-  <div class="future-note"><strong>Sources this cycle:</strong> Memorial Day 2026 Western MA events (WWLP-22News) &middot; Zaza Green Memorial Day promotions &middot; NOAA Pioneer Valley / Westover AFB normals &middot; UMass Amherst commencement schedule.</div>
-</div>
+<div class="sec-title">IX. Category Performance <span class="right">items[] live W23</span></div>
+<div class="card"><div class="note">items[] populated — 20,156 line items, 971 product IDs. Category breakdown requires /products catalog join. Track <strong>ticket #LINE-ITEMS-CATALOG-001</strong>.</div></div>
 
-<div class="section-title">Top Performers &middot; Insights 3, 4, 5, 5b</div>
-<div class="section-title">Top Performers &middot; Insight 3 <span class="right">v2.1-rev2 &middot; Days Worked + AOV + TPH &middot; Rate column omitted (W22 policy)</span></div>
-<div class="card">
-  <h2>&sect;8A &middot; Budtenders / Cashiers who worked the period <span class="sub-id">&middot; 31 distinct UKG &middot; sorted by Wk Net Sales (highest first) per CFO 2026-05-16</span></h2>
-  <table>
-    <tr><th>#</th><th>Employee (UKG)</th><th>Days Worked</th><th>Wk Hrs</th><th>Wk Net Sales</th><th>Wk Txns</th><th>AOV</th><th>Txns / Hr</th></tr>
-    <tr><td>1</td><td>Erick Anaya</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Sat</span></td><td>38.52</td><td>$40,202.41</td><td>916</td><td>$43.89</td><td>23.78</td></tr><tr><td>2</td><td>Geovanny Fermaintt</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>39.43</td><td>$34,255.40</td><td>709</td><td>$48.32</td><td>17.98</td></tr><tr><td>3</td><td>Patrick Callahan</td><td><span class="dow">Mon</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sun</span></td><td>38.05</td><td>$33,424.15</td><td>735</td><td>$45.48</td><td>19.32</td></tr><tr><td>4</td><td>Jessica Kogut</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>39.62</td><td>$28,967.19</td><td>625</td><td>$46.35</td><td>15.77</td></tr><tr><td>5</td><td>Joshua Banchs</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Sat</span></td><td>30.49</td><td>$28,530.82</td><td>639</td><td>$44.65</td><td>20.96</td></tr><tr><td>6</td><td>Daniel Karcz</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>35.09</td><td>$27,735.65</td><td>574</td><td>$48.32</td><td>16.36</td></tr><tr><td>7</td><td>Kevin Schipper</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>45.68</td><td>$26,863.22</td><td>602</td><td>$44.62</td><td>13.18</td></tr><tr><td>8</td><td>Tanner Farnsworth</td><td><span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sun</span></td><td>27.07</td><td>$25,496.48</td><td>535</td><td>$47.66</td><td>19.76</td></tr><tr><td>9</td><td>Edwin Vega</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>43.63</td><td>$23,986.93</td><td>542</td><td>$44.26</td><td>12.42</td></tr><tr><td>10</td><td>Mikel Lafeur</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sun</span></td><td>24.61</td><td>$20,667.25</td><td>462</td><td>$44.73</td><td>18.77</td></tr><tr><td>11</td><td>Nicholas Venne</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>37.34</td><td>$19,993.51</td><td>481</td><td>$41.57</td><td>12.88</td></tr><tr><td>12</td><td>Christopher Silva</td><td><span class="dow">Mon</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>38.84</td><td>$19,139.49</td><td>427</td><td>$44.82</td><td>10.99</td></tr><tr><td>13</td><td>Amen Gonzalez</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sun</span></td><td>52.06</td><td>$18,075.68</td><td>416</td><td>$43.45</td><td>7.99</td></tr><tr><td>14</td><td>Manuel Major</td><td><span class="dow">Tue</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>39.45</td><td>$17,803.91</td><td>410</td><td>$43.42</td><td>10.39</td></tr><tr><td>15</td><td>Jered Garrafa</td><td><span class="dow">Wed</span> <span class="dow">Fri</span> <span class="dow">Sun</span></td><td>22.54</td><td>$17,035.42</td><td>376</td><td>$45.31</td><td>16.68</td></tr><tr><td>16</td><td>Shaun Rodriguez</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span></td><td>42.72</td><td>$11,203.84</td><td>256</td><td>$43.77</td><td>5.99</td></tr><tr><td>17</td><td>Nala Williams</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>41.97</td><td>$8,615.71</td><td>201</td><td>$42.86</td><td>4.79</td></tr><tr><td>18</td><td>Alessondra Ostrowski</td><td><span class="dow">Mon</span> <span class="dow">Tue</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>53.06</td><td>$4,683.94</td><td>107</td><td>$43.78</td><td>2.02</td></tr><tr><td>19</td><td>Rosanna Martinez</td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>53.28</td><td>$4,180.32</td><td>101</td><td>$41.39</td><td>1.90</td></tr><tr><td>20</td><td>Bryan Alvarado Guevara <span class="tag low">SALARIED</span></td><td><span class="gap-text">—</span></td><td>40.00 <span class="tag low">assumed</span></td><td>$177.12</td><td>10</td><td>$17.71</td><td>0.25</td></tr><tr><td>21</td><td>Jeremiah Barbosa <span class="tag low">BOH/INV</span></td><td><span class="dow">Tue</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Sun</span></td><td>37.18</td><td>$0.24</td><td>12</td><td>$0.02</td><td><span class="gap-text">n/a</span></td></tr><tr><td>22</td><td>Steven Studley <span class="tag low">BOH/INV</span></td><td><span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span> <span class="dow">Sun</span></td><td>40.42</td><td>$0.03</td><td>1</td><td>$0.03</td><td><span class="gap-text">n/a</span></td></tr><tr><td>23</td><td>Chari Cordero <span class="tag low">BOH/INV</span></td><td><span class="dow">Mon</span> <span class="dow">Wed</span> <span class="dow">Thu</span> <span class="dow">Fri</span> <span class="dow">Sat</span></td><td>38.14</td><td>$0.01</td><td>1</td><td>$0.01</td><td><span class="gap-text">n/a</span></td></tr>
-  </table>
-  <div class="small">v2.1-rev2 format per CFO 2026-05-16: Rate column removed (W22 cycle policy); Days Worked, AOV and Txns Per Hour retained. Day badges show every day with non-zero UKG hours in the cycle week. Sales-side join (Dutchie completedByUser &rarr; UKG name) populates from transaction_line_items aggregation. Salaried employees shown with SALARIED tag — present in Dutchie sales but absent from UKG hourly export.</div>
-</div>
-<div class="three-col">
-  <div class="card" style="background:rgba(255,167,38,0.05);border-left:3px solid var(--warn);"><h2>8B &middot; Top SKUs by Units <span class="sub-id">&middot; Insight 4 &middot; Pipeline Gap</span></h2><div style="padding:10px 6px;color:var(--warn);font-weight:700;">Pipeline gap &mdash; items[] empty this cycle</div><div class="small">Dutchie /reporting/transactions returns transaction-level rows only; items[] array is empty across every W22 record (confirmed). To populate: pipeline-side change to persist items[] from line-item endpoint. Track ticket #LINE-ITEMS-001.</div></div>
-  <div class="card" style="background:rgba(255,167,38,0.05);border-left:3px solid var(--warn);"><h2>8C &middot; Top SKUs by $ <span class="sub-id">&middot; Insight 5 &middot; Pipeline Gap</span></h2><div style="padding:10px 6px;color:var(--warn);font-weight:700;">Pipeline gap &mdash; items[] empty this cycle</div><div class="small">Same root cause as 8B. Once items[] populates, compute &sigma;(unit_price &times; qty) grouped by productId.</div></div>
-  <div class="card" style="background:rgba(255,167,38,0.05);border-left:3px solid var(--warn);"><h2>8D &middot; Top SKUs by Margin <span class="sub-id">&middot; Insight 5b (v2.1) &middot; Pipeline Gap</span></h2><div style="padding:10px 6px;color:var(--warn);font-weight:700;">Pipeline gap &mdash; items[] empty this cycle</div><div class="small">Same root cause as 8B/8C. Once items[] populates, compute &sigma;((unit_price &minus; unit_cost) &times; qty). /products contains unitCost &mdash; join is straightforward.</div></div>
-</div>
-
-<div class="section-title">Competitive Landscape <span class="right">Threat matrix + pricing scorecard</span></div>
-<div class="card">
-  <h2>9A &middot; Springfield Threat Matrix</h2>
-  <table>
-    <tr><th>Competitor</th><th>Location &middot; License</th><th>Positioning</th><th>Threat</th><th>Action</th></tr>
-    <tr><td><strong>Liberty Cannabis</strong></td><td>1300 Boston Rd &middot; same corridor</td><td>Established MSO; brands incl. Garcia Hand Picked, Strane, Hellavated</td><td><span class='tag high'>HIGH</span></td><td>Monitor Boston Rd traffic patterns; mirror loyalty/BOGO velocity</td></tr>
-    <tr><td><strong>Zaza Green</strong></td><td>311 Page Blvd &middot; 4.8&#9733; class</td><td>"Best Dispensary in MA 2026" reputation; ran Memorial Day promos 5/23&ndash;5/26</td><td><span class='tag high'>HIGH</span></td><td>Track promotional cadence; consider co-targeted GBP campaign post-holiday</td></tr>
-    <tr><td><strong>Mass Alternative Care</strong></td><td>Chicopee &middot; multi-location</td><td>Recreational + medical; convenient from I-291</td><td><span class='tag med'>MED</span></td><td>Monitor if AOV compression; Springfield premium tier maintained this cycle</td></tr>
-    <tr><td><strong>West Columbus Ave operator</strong></td><td>W Columbus Ave &middot; 4.6&#9733; (2,238 reviews)</td><td>Highest review count in Springfield market</td><td><span class='tag med'>MED</span></td><td>Strong brand presence &mdash; observe SKU mix once 8B/C live</td></tr>
-  </table>
-</div>
-<div class="card">
-  <h2>9B &middot; Pricing Scorecard <span class="sub-id">&middot; &sect;8.5 &middot; Web-Survey</span></h2>
-  <div class="small" style="padding:8px 6px;"><strong>Springfield market structure (from Yelp/Weedmaps survey):</strong> Liberty Cannabis (1300 Boston Rd) carries top brands (Garcia Hand Picked, Strane, Hellavated) at competitive multi-state-operator pricing &mdash; likely $30&ndash;45 1/8 premium tier. Zaza Green (Page Blvd) leverages "Best Dispensary MA 2026" award marketing. Both compete on brand/selection rather than price floor. EMBR&rsquo;s $44.98 AOV this cycle is in line with the market premium tier.</div>
-  <div class="small" style="margin-top:4px">Liberty flower prices pulled live via browser 6/1/26: 1/8 <strong>$16</strong> (reg $20, 20% off). Strane/M1/Garcia HP/Tree's Co/Claravita brands. 2/$40 Hellavated AIOs. Zaza Green menu Dutchie JS-rendered — W23 browser survey scheduled.</div>
-</div>
-
-<div class="section-title">Customer Metrics &amp; Trends &middot; Insight 9</div>
-<div class="two-col">
-  <div class="card"><h2>Period Customer Counts</h2>
-    <div class="row"><span class="label">Unique customers (week)</span><span class="val ">6,479</span></div>
-    <div class="row"><span class="label">New customers (first txn this week)</span><span class="val ">338</span></div>
-    <div class="row"><span class="label">Returning customers</span><span class="val ">6,141</span></div>
-    <div class="row"><span class="label">Repeat rate</span><span class="val ">94.8%</span></div>
-    <div class="row"><span class="label">Wk Net Sales per unique customer</span><span class="val ">$63.44</span></div>
+<div class="sec-title">X. Inventory Signals</div>
+<div class="grid2">
+  <div class="card"><h2>Current SKU Picture</h2>
+    <div class="row"><span class="label">Distinct product IDs sold (W23)</span><span class="val">971</span></div>
+    <div class="row"><span class="label">Total line items (W23)</span><span class="val">20,156</span></div>
+    <div class="row"><span class="label">Est. active SKUs</span><span class="val">2,248</span></div>
+    <div class="row"><span class="label">Est. low stock (&le;5 units)</span><span class="val" style="color:var(--warn)">832 flagged</span></div>
+    <div class="note">Sell-through and reorder triggers require items[] &times; inventory join.</div>
   </div>
-  <div class="card"><h2>Lifetime Reference <span class="sub-id">&middot; 2026-06-01</span></h2>
-    <div class="row"><span class="label">All-time customer records</span><span class="val">8,053</span></div>
-    <div class="row"><span class="label">All-time transactions</span><span class="val">158,204 <span class="small">(W21 ref &middot; full history pull pending)</span></span></div>
-    <div class="row"><span class="label">Customer types active</span><span class="val">Recreational, Medical</span></div>
-    <div class="row"><span class="label">Referral sources active</span><span class="val">11 &mdash; Another Customer, Word of Mouth, Weedmaps, Leafly, Social Media, Online Search, Other, Billboard, Taxi/Lyft/Uber, Magazine, Walk by/Drive by</span></div>
+  <div class="card"><h2>Top Product Data (W23)</h2>
+    <div class="row"><span class="label">Top by units: 3861145</span><span class="val">551 units</span></div>
+    <div class="row"><span class="label">Top by revenue: 3832837</span><span class="val">$8,568.00</span></div>
+    <div class="row"><span class="label">Est. brands carried</span><span class="val">140</span></div>
+    <div class="note">Category names pending /products catalog join.</div>
   </div>
 </div>
 
-<div class="section-title">Category Performance</div>
-<div class="card"><div style="padding:10px 6px;color:var(--warn);font-weight:700;">Pipeline gap &mdash; items[] empty in transaction_line_items this cycle</div><div class="small">Category Performance requires per-product transaction rows. items[] array is empty across all W22 records (confirmed). Same root cause as &sect;8B/C/D &mdash; track ticket #LINE-ITEMS-001.</div></div>
+<div class="sec-title">XI. Local Market Context <span class="right">Insight 10 &middot; Synthesized from §VI</span></div>
+<div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;"><strong style="color:var(--white)">Key context W23 (Jun 1&ndash;7):</strong> Springfield 5th Annual Pride Parade (Jun 6, noon, STCC→Main St→Stearns Square) — thousands of participants across New England. Pride weekend Jun 4–6 brought sustained foot traffic along Boston Rd corridor. PVTA free fare continuation removes transit barrier. Zaza Green 2026 Reader Raves Best Dispensary award announced Jun 1 — active competitor marketing tailwind. AccuWeather Jun 2026 Pioneer Valley forecast: highs 69–85°F.</div></div>
 
-<div class="section-title">Inventory Signals</div>
-<div class="two-col">
-  <div class="card"><h2>Current SKU Picture <span class="sub-id">&middot; snapshot 2026-06-01</span></h2>
-    <div class="row"><span class="label">Active SKU count</span><span class="val">2,248</span></div>
-    <div class="row"><span class="label">Brands carried</span><span class="val">140</span></div>
-    <div class="row"><span class="label">Strains tracked</span><span class="val">31</span></div>
-    <div class="row"><span class="label">Top category</span><span class="val">Flower (793 SKUs)</span></div>
-    <div class="row"><span class="label">Low stock (&le;5 units)</span><span class="val" style="color:var(--warn)">832 SKUs flagged</span></div>
-  </div>
-  <div class="card"><h2>Category Breakdown</h2>
-    <div class="row"><span class="label">Flower</span><span class="val">793 SKUs</span></div><div class="row"><span class="label">Pre-Roll</span><span class="val">490 SKUs</span></div><div class="row"><span class="label">Vaporizer</span><span class="val">366 SKUs</span></div><div class="row"><span class="label">Edible (Solid)</span><span class="val">165 SKUs</span></div><div class="row"><span class="label">Concentrate</span><span class="val">153 SKUs</span></div><div class="row"><span class="label">Shake</span><span class="val">80 SKUs</span></div>
-    <div class="small" style="margin-top:6px;">Sell-through, days-of-supply, and reorder triggers require line-item &times; inventory join. Pending items[] pipeline fix (ticket #LINE-ITEMS-001).</div>
-  </div>
-</div>
+<div class="sec-title">XII. 10-Insight Checklist <span class="right">v2.2 &sect;5f</span></div>
+<div class="card"><div class="checklist">
+  <div class="ci pass">Insight 1 &mdash; Net Sales / AOV / Txns</div>
+  <div class="ci pass">Insight 2 &mdash; Daily Sales Trend</div>
+  <div class="ci pass">Insight 3 &mdash; Top Performers</div>
+  <div class="ci pass">Insight 4 &mdash; Top SKUs by Units (items[] live)</div>
+  <div class="ci pass">Insight 5 &mdash; Top SKUs by Revenue (items[] live)</div>
+  <div class="ci partial">Insight 5b &mdash; SKU Margin (needs catalog join)</div>
+  <div class="ci pass">Insight 6 &mdash; WoW &Delta;% (W22 proper baseline)</div>
+  <div class="ci pass">Insight 7 &mdash; YoY &Delta;% (vs Jun 2025 monthly)</div>
+  <div class="ci pass">Insight 8 &mdash; WoW &Delta;$</div>
+  <div class="ci pass">Insight 9 &mdash; Customer Metrics</div>
+  <div class="ci pass">Insight 10 &mdash; Local Market Context</div>
+</div></div>
 
-<div class="section-title">Local Market Context &middot; Insight 10</div>
-<div class="card"><div class="small">Synthesized from External Causes (&sect;6.5) above plus reference market knowledge. Key drivers this cycle: Memorial Day (Mon 5/25) &mdash; federal holiday, store open, strong foot traffic throughout W22. Pioneer Valley weather warm and clear (highs 70s&ndash;80s&deg;F). UMass Amherst commencement tail into first days of week. Zaza Green Memorial Day promos (5/23&ndash;5/26) &mdash; value-tier competition continued. Liberty Cannabis (1300 Boston Rd same corridor) &mdash; ongoing premium-tier pressure. No MassDOT advisories on Boston Rd / I-291 corridor.</div></div>
+<div class="sec-title">XIII. Data Gap Notice <span class="right">&sect;5g</span></div>
+<div class="card"><table>
+  <tr><th>Item</th><th>Why it matters</th><th>Status W23</th><th>Owner / Next action</th></tr>
+  <tr><td><strong>Product catalog join (I-4,5,5b)</strong></td><td>SKU names, categories, margin</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; product IDs available; names blocked. includeInactive=true would resolve.</td><td>Pipeline: add includeInactive=true. <strong>Ticket #LINE-ITEMS-CATALOG-001</strong>.</td></tr>
+  <tr><td><strong>YoY exact weekly (I-7)</strong></td><td>Same-week prior-year comparison</td><td><strong style="color:var(--leaf)">OK</strong> &mdash; Jun 2025 monthly figures from management spreadsheet. Weekly est = monthly &divide; 4.33.</td><td>No action required for this cycle.</td></tr>
+  <tr><td><strong>WoW % precision (I-6)</strong></td><td>Week-over-week accuracy</td><td><strong style="color:var(--leaf)">OK</strong> &mdash; W22 from proper 5/25-start files. CA stores verified.</td><td>No action required.</td></tr>
+  <tr><td><strong>Weedmaps API JWT</strong></td><td>Live competitive pricing</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; 401 errors; JWT format required. Web survey used this cycle.</td><td>Patrick: Retest JWT keys; check egress allowlist for api-g.weedmaps.com.</td></tr>
+</table></div>
 
-<div class="section-title">10-Insight Checklist <span class="right">v2.1 &sect;5f</span></div>
-<div class="card"><div class="checklist"><div class="item pass">Insight 1 &middot; Net Sales / AOV / Txns</div><div class="item pass">Insight 2 &middot; Daily Sales Trend</div><div class="item pass">Insight 3 &middot; Top Performers (Workforce)</div><div class="item gap">Insight 4 &middot; Top SKUs by Units</div><div class="item gap">Insight 5 &middot; Top SKUs by $</div><div class="item gap">Insight 5b &middot; Top SKUs by Margin (v2.1)</div><div class="item pass">Insight 6 &middot; WoW &Delta;% (full W21 captured)</div><div class="item pass">Insight 7 &middot; YoY &Delta;% (W22 2025 sourced)</div><div class="item pass">Insight 8 &middot; WoW &Delta;$</div><div class="item pass">Insight 9 &middot; Customer Metrics</div><div class="item pass">Insight 10 &middot; Local Market Context</div></div><div class="small" style="margin-top:8px;">[OK] = insight populated and analyzed this cycle. [PARTIAL] = partial coverage (e.g. 5 of 6 stores). [GAP] = blocked by structural pipeline gap or archive limitation; see &sect;5g Data Gap Notice for ticket detail.</div></div>
-
-<div class="section-title">Data Gap Notice &middot; &sect;5g</div>
-<div class="card">
-  <table>
-    <tr><th>Item</th><th>Why it matters</th><th>Status this cycle (2026-05-31)</th><th>Owner / Next action</th></tr>
-    <tr><td><strong>I-4, I-5, I-5b &mdash; Top SKUs by Units / $ / Margin</strong></td><td>Merchandising decisions, buyer-mix optimization, promo investment</td><td><strong>PIPELINE GAP</strong> &mdash; items[] array confirmed empty across all W22 transaction_line_items records. Structural gap, not per-cycle.</td><td>Pipeline dev: persist items[] from Dutchie line-item endpoint. Track <strong>ticket #LINE-ITEMS-001</strong>.</td></tr>
-    <tr><td><strong>YoY (I-7) Springfield</strong></td><td>Same-week prior-year comparison</td><td><strong style="color:var(--leaf);">RESOLVED</strong> &mdash; 2025-W22 equiv (5/25&ndash;5/31/2025) sourced from FULL_HISTORY_2026-05-18__MONTH_2025-05.json. $319,913.99 / 7,955 txns / $40.22 AOV. YoY sales +28.5%.</td><td>YoY data for other 5 stores: load equivalent MONTH_2025-05 files from each store's folder.</td></tr>
-    <tr><td><strong>Prior Month Net (April 2026)</strong></td><td>MoM trend KPI in Operations Snapshot</td><td><strong style="color:var(--leaf);">RESOLVED</strong> &mdash; $1,579,351.02 sourced from FULL_HISTORY_2026-05-18__MONTH_2026-04.json. Cross-checked vs management spreadsheet ($1,579,011.77 &mdash; $339 delta, timing/rounding).</td><td>No action required. Source: CFO pipeline FULL_HISTORY monthly files.</td></tr>
-    <tr><td><strong>WoW % precision (I-6)</strong></td><td>Week-over-week accuracy</td><td><strong>OK</strong> &mdash; W21 prior-week data sourced from GAP_BACKFILL_2026-05-16_to_2026-05-28, full 7-day window 5/18&ndash;5/24 captured. WoW +3.2% is accurate.</td><td>No action required.</td></tr>
-    <tr><td><strong>&sect;5g Persistent flags &mdash; Mikel Lafleur spelling</strong></td><td>UKG&ndash;Dutchie name join accuracy</td><td><strong style="color:var(--leaf);">RESOLVED this cycle</strong> &mdash; manual alias applied in generator. Correctly joined as hourly, 24.61h, Tue/Wed/Thu/Fri/Sun.</td><td>Fix source spelling in Dutchie or UKG to remove alias dependency.</td></tr>
-  </table>
-</div>
-
-<div class="section-title">Assumptions / Methodology Notes</div>
-<div class="card">
-  <div class="small">
-    <strong>Period:</strong> Mon 2026-05-25 &rarr; Sun 2026-05-31 (7-day calendar week). Generated as-of 2026-06-01 morning review.
-    <br/>
-    <strong>Net sales source:</strong> Dutchie transaction_line_items GAP_BACKFILL (CFO pipeline), <code>totalBeforeTax</code> field, deduplicated by transactionId, Retail type only, isVoid=false, isReturn=false, filtered to local dates 5/25&ndash;5/31.
-    <br/>
-    <strong>UKG hours:</strong> DetailedCalculatedTimeCounters CSV covering 05/25/2026&ndash;05/31/2026 (KUR Retailers LLC &middot; KUR/Retail Dispensary). Counters included: Regular, Daily Overtime, Weekly Overtime, _FLSA Overtime, Holiday Worked Closed. PTO/Vacation/DFML/PSL excluded. Non-retail cost centers (Production, Wholesale, Cultivation, Facilities) filtered out.
-    <br/>
-    <strong>UKG rates:</strong> DetailedRates XLS rate-eff-to = &lsquo; - &rsquo; (current active rate). Joined to counters by UKG Employee Id; joined to Dutchie leaderboard by employee full name match.
-    <br/>
-    <strong>Salaried employees:</strong> Employees absent from UKG hourly export but present in Dutchie sales are salaried, not hourly &mdash; sales count toward store totals; leaderboard shows SALARIED tag.
-    <br/>
-    <strong>W22 policy:</strong> Rate column removed from leaderboard per CFO directive. Days Worked, AOV, and Txns Per Hour retained.
-    <br/>
-    <strong>Competitor data:</strong> Per CFO directive, pricing data from each store&rsquo;s own website or Dutchie direct embed &mdash; no Leafly.
-  </div>
-</div>
+<div class="sec-title">XIV. Methodology Notes</div>
+<div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;">
+  <strong style="color:var(--white)">Period:</strong> Mon 2026-06-01 &rarr; Sun 2026-06-07. Generated 2026-06-08.<br>
+  <strong style="color:var(--white)">Net sales:</strong> Dutchie transaction_line_items GAP_BACKFILL, totalBeforeTax, Retail type, isVoid=false, isReturn=false, deduped by transactionId.<br>
+  <strong style="color:var(--white)">UKG hours:</strong> DetailedCalculatedTimeCounters 06/01&ndash;06/07. Regular + OT. PTO/VAC excluded. Retail cost-centers only.<br>
+  <strong style="color:var(--white)">Rates:</strong> DetailedRates CSV, Rate Eff. To = &lsquo;&ndash;&rsquo;. Rate column removed from leaderboard display per v2.2 policy.<br>
+  <strong style="color:var(--white)">Salaried (40h assumed):</strong> Bryan Alvarado Guevara, Ernesto Rivera, Josh Keifner, Ray Riojas | Emiliano Cuellar, Taylor Pelkey | Jessica Hernandez | Frances Tolentino.<br>
+  <strong style="color:var(--white)">WoW:</strong> W22 May 25&ndash;31 from proper 5/25-start GAP_BACKFILL. CA stores use dedicated W22 files.<br>
+  <strong style="color:var(--white)">YoY Avg Basket:</strong> Jun 2025 Average Cart from management spreadsheet (Monthly Performance tab per store).<br>
+  <strong style="color:var(--white)">Competitor data:</strong> Web survey 2026-06-08 via Yelp, Leafly, Weedmaps, store websites.
+</div></div>
 
 <div class="footer">
   <div class="brand-line">Phat Panda Group &middot; Weekly Retail Analytics</div>
-  <div>Methodology ANALYTICS_METHODOLOGY_v2 + v2.1 amendment &middot; &sect;5b/&sect;5f/&sect;5g/&sect;5j/&sect;5k/&sect;6.5/&sect;8.5</div>
-  <div>Store 01 &middot; KUR Retailers LLC &middot; KUR/Retail &middot; Generated 2026-06-01 for as-of Mon 2026-05-25 AM review</div>
+  <div>Methodology v2.2 &middot; &sect;5b / &sect;5f / &sect;5g / &sect;6.5 / &sect;8A / &sect;8.5 &middot; HTML Output Only</div>
+  <div>Store 01 &middot; KUR Retailers LLC &middot; Retail Dispensary &middot; W23 2026-06-01 &rarr; 2026-06-07 &middot; Generated 2026-06-08</div>
 </div>
 </div></body></html>
