@@ -1,244 +1,311 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
-<title>HLC Greenfield &mdash; W26 Weekly Dashboard &mdash; 2026-06-28</title>
+<title>HLC Greenfield &mdash; W28 Weekly Dashboard &mdash; 2026-07-12</title>
 <style>
-  @page { size: Letter landscape; margin: 0.4in; }
-  :root { --bg: #000000; --surface: #111111; --card: #1A1A1A; --border: #2B2B2B; --border-strong: #3A3A3A; --ember: #E63946; --ember-hi: #FF6B5C; --neon: #C5E847; --neon-hi: #DCFA75; --white: #FFFFFF; --cream: #F5F5F0; --muted: #8A8A85; --leaf: #7CB342; --warn: #FFA726; --alert: #EF5350; --info: #64B5F6; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--white); font-family: 'Helvetica Neue','Arial',sans-serif; font-size: 8.5pt; line-height: 1.32; }
-  .header { background: #000; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
-  .header-row { display: flex; justify-content: space-between; align-items: center; }
-  .brand-block { display: flex; align-items: center; gap: 16px; }
-  .wordmark .word { font-weight: 900; font-size: 26pt; letter-spacing: 5px; color: var(--white); line-height: 0.9; }
-  .wordmark .word .flame { color: var(--ember); }
-  .wordmark .tagline { font-size: 6.5pt; font-weight: 800; color: var(--ember); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 3px; }
-  .wordmark .by { font-size: 6pt; color: var(--muted); font-style: italic; margin-top: 2px; }
-  .header h1 { font-size: 13pt; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
-  .header .subtitle { font-size: 7.5pt; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
-  .header .meta { color: var(--muted); font-size: 7pt; margin-top: 6px; line-height: 1.45; }
-  .header .meta strong { color: var(--cream); }
-  .badge { display:inline-block; padding:2px 8px; border-radius:14px; font-size:6.5pt; font-weight:800; margin-left:5px; vertical-align:2px; text-transform:uppercase; letter-spacing:1px; }
-  .badge-ok { background:rgba(124,179,66,.18); color:var(--leaf); border:1px solid rgba(124,179,66,.5); }
-  .badge-prod { background:rgba(197,232,71,.15); color:var(--neon); border:1px solid rgba(197,232,71,.5); }
-  .right-meta { text-align:right; color:var(--muted); font-size:7pt; line-height:1.55; }
-  .right-meta .store-id { color:var(--white); font-weight:700; font-size:8pt; }
-  .loc-chip { display:inline-block; padding:3px 12px; border:1px solid var(--neon); border-radius:14px; color:var(--neon); font-weight:800; font-size:7.5pt; letter-spacing:1px; margin-top:4px; text-transform:uppercase; }
-  .container { padding: 0 4px; }
-  .grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-bottom:9px; }
-  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-bottom:9px; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:9px; }
-  .kpi { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--neon); border-radius:3px; padding:8px 10px; }
-  .kpi.ember { border-left-color:var(--ember); }
-  .kpi-label { font-size:6.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; font-weight:700; margin-bottom:2px; }
-  .kpi-val { font-size:15pt; font-weight:800; color:var(--white); line-height:1.05; }
-  .kpi-sub { font-size:7pt; color:var(--leaf); margin-top:3px; line-height:1.3; }
-  .kpi-sub.gap { color:var(--warn); } .kpi-sub.neutral { color:var(--muted); } .kpi-sub.red { color:var(--alert); }
-  .card { background:var(--card); border:1px solid var(--border); border-radius:3px; padding:10px 12px; margin-bottom:8px; }
-  .card h2 { font-size:8.5pt; font-weight:800; color:var(--neon); text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid var(--border-strong); }
-  .card h2 .sub { color:var(--muted); font-weight:500; font-size:7.5pt; margin-left:5px; text-transform:none; letter-spacing:0; }
-  .sec-title { font-size:9.5pt; font-weight:800; color:var(--white); text-transform:uppercase; letter-spacing:2px; margin:13px 0 7px; padding-left:10px; border-left:4px solid var(--neon); display:flex; justify-content:space-between; align-items:center; }
-  .sec-title .right { font-weight:500; font-size:7pt; color:var(--muted); letter-spacing:.5px; text-transform:none; border-left:none; padding-left:0; }
-  .row { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--border); font-size:8pt; }
-  .row:last-child { border-bottom:none; }
-  .row .label { color:var(--muted); } .row .val { color:var(--white); font-weight:600; }
-  table { width:100%; border-collapse:collapse; }
-  th { background:var(--surface); padding:5px 6px; text-align:left; font-size:6.5pt; color:var(--neon); text-transform:uppercase; letter-spacing:.6px; font-weight:800; border-bottom:1px solid var(--neon); white-space:nowrap; }
-  td { padding:4px 6px; border-bottom:1px solid var(--border); font-size:7.5pt; vertical-align:middle; }
-  tr:last-child td { border-bottom:none; }
-  tr:nth-child(even) td { background:rgba(255,255,255,.02); }
-  .alert-bar { background:var(--surface); border-left:3px solid var(--leaf); border-radius:2px; padding:7px 10px; margin-bottom:7px; font-size:7.5pt; line-height:1.45; }
-  .alert-bar.warn { border-left-color:var(--warn); } .alert-bar.info { border-left-color:var(--info); }
-  .alert-bar strong { color:var(--white); }
-  .tag { display:inline-block; padding:1px 6px; border-radius:2px; font-size:6.5pt; font-weight:700; background:var(--surface); color:var(--muted); border:1px solid var(--border); text-transform:uppercase; letter-spacing:.5px; margin-right:2px; }
-  .tag.up { background:rgba(124,179,66,.18); color:var(--leaf); border-color:rgba(124,179,66,.5); }
-  .tag.dn { background:rgba(239,83,80,.18); color:var(--alert); border-color:rgba(239,83,80,.5); }
-  .tag.est { background:rgba(255,167,38,.18); color:var(--warn); border-color:rgba(255,167,38,.5); }
-  .tag.info { background:rgba(100,181,246,.18); color:var(--info); border-color:rgba(100,181,246,.5); }
-  .tag.sal { background:rgba(154,149,144,.18); color:var(--muted); border-color:rgba(154,149,144,.5); }
-  .tag.neon { background:rgba(197,232,71,.18); color:var(--neon); border-color:rgba(197,232,71,.5); }
-  .dow { display:inline-block; padding:1px 5px; margin:1px 2px 1px 0; font-size:6pt; font-weight:800; letter-spacing:.5px; border-radius:2px; background:var(--surface); color:var(--neon); border:1px solid rgba(197,232,71,.4); }
-  .day-bar-wrap { margin-bottom:7px; }
-  .day-bar { display:flex; align-items:flex-end; gap:6px; height:130px; border-bottom:1px solid var(--border); padding-bottom:0; }
-  .day-col { flex:1; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end; }
-  .day-top { text-align:center; margin-bottom:3px; }
-  .day-val-lbl { font-size:7.5pt; color:var(--white); font-weight:800; display:block; line-height:1.1; }
-  .day-aov-lbl { font-size:6.5pt; color:var(--info); font-weight:700; display:block; line-height:1.15; }
-  .bar-outer { width:100%; background:rgba(255,255,255,.05); border-radius:2px 2px 0 0; overflow:hidden; display:flex; flex-direction:column-reverse; }
-  .bar-sales { width:100%; background:var(--neon); }
-  .bar-labor { width:100%; background:var(--ember); border-bottom:1px solid rgba(0,0,0,.5); }
-  .day-bottom { text-align:center; margin-top:4px; }
-  .day-dow { font-size:7pt; font-weight:800; color:var(--white); letter-spacing:1px; display:block; }
-  .day-date-lbl { font-size:6.5pt; color:var(--muted); display:block; line-height:1.2; }
-  .day-labor-lbl { font-size:6.5pt; color:var(--ember); font-weight:700; display:block; line-height:1.3; }
-  .bar-legend { display:flex; gap:16px; margin-top:5px; font-size:7pt; color:var(--muted); }
-  .bar-legend .swatch { display:inline-block; width:10px; height:10px; border-radius:1px; margin-right:4px; vertical-align:middle; }
-  .checklist { columns:2; column-gap:14px; font-size:7.5pt; }
-  .checklist .ci { padding:2px 0; }
-  .ci.pass::before { content:"[OK] "; color:var(--leaf); font-weight:800; }
-  .ci.partial::before { content:"[PARTIAL] "; color:var(--warn); font-weight:800; }
-  .ci.gap-item::before { content:"[GAP] "; color:var(--alert); font-weight:800; }
-  .footer { text-align:center; padding:8px 4px; color:var(--muted); font-size:6.5pt; border-top:2px solid var(--neon); margin-top:12px; letter-spacing:.5px; }
-  .footer .brand-line { color:var(--neon); font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:2px; }
-  .muted { color:var(--muted); }
-  .note { font-size:7pt; color:var(--muted); margin-top:5px; line-height:1.4; }
+@page { size: Letter landscape; margin: 0.4in; }
+:root {
+--bg: #000000; --surface: #111111; --card: #1A1A1A;
+--border: #2B2B2B; --border-strong: #3A3A3A;
+--ember: #E63946; --ember-hi: #FF6B5C;
+--neon: #C5E847; --neon-hi: #DCFA75;
+--white: #FFFFFF; --cream: #F5F5F0; --muted: #8A8A85;
+--leaf: #7CB342; --warn: #FFA726; --alert: #EF5350; --info: #64B5F6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--white); font-family: 'Helvetica Neue','Arial',sans-serif; font-size: 8.5pt; line-height: 1.32; }
+.header { background: #000; padding: 14px 18px 12px; border-bottom: 2px solid var(--neon); margin-bottom: 10px; }
+.header-row { display: flex; justify-content: space-between; align-items: center; }
+.brand-block { display: flex; align-items: center; gap: 16px; }
+.wordmark .word { font-weight: 900; font-size: 26pt; letter-spacing: 5px; color: var(--white); line-height: 0.9; }
+.wordmark .word .flame { color: var(--ember); }
+.wordmark .tagline { font-size: 6.5pt; font-weight: 800; color: var(--ember); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 3px; }
+.wordmark .by { font-size: 6pt; color: var(--muted); font-style: italic; margin-top: 2px; }
+.header h1 { font-size: 13pt; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+.header .subtitle { font-size: 7.5pt; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+.header .meta { color: var(--muted); font-size: 7pt; margin-top: 6px; line-height: 1.45; }
+.header .meta strong { color: var(--cream); }
+.badge { display:inline-block; padding:2px 8px; border-radius:14px; font-size:6.5pt; font-weight:800; margin-left:5px; vertical-align:2px; text-transform:uppercase; letter-spacing:1px; }
+.badge-ok { background:rgba(124,179,66,.18); color:var(--leaf); border:1px solid rgba(124,179,66,.5); }
+.badge-prod { background:rgba(197,232,71,.15); color:var(--neon); border:1px solid rgba(197,232,71,.5); }
+.right-meta { text-align:right; color:var(--muted); font-size:7pt; line-height:1.55; }
+.right-meta .store-id { color:var(--white); font-weight:700; font-size:8pt; }
+.loc-chip { display:inline-block; padding:3px 12px; border:1px solid var(--neon); border-radius:14px; color:var(--neon); font-weight:800; font-size:7.5pt; letter-spacing:1px; margin-top:4px; text-transform:uppercase; }
+.container { padding: 0 4px; }
+.grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-bottom:9px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-bottom:9px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:9px; }
+.kpi { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--neon); border-radius:3px; padding:8px 10px; }
+.kpi.ember { border-left-color:var(--ember); }
+.kpi-label { font-size:6.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; font-weight:700; margin-bottom:2px; }
+.kpi-val { font-size:15pt; font-weight:800; color:var(--white); line-height:1.05; }
+.kpi-sub { font-size:7pt; color:var(--leaf); margin-top:3px; line-height:1.3; }
+.kpi-sub.gap { color:var(--warn); } .kpi-sub.neutral { color:var(--muted); } .kpi-sub.red { color:var(--alert); }
+.card { background:var(--card); border:1px solid var(--border); border-radius:3px; padding:10px 12px; margin-bottom:8px; }
+.card h2 { font-size:8.5pt; font-weight:800; color:var(--neon); text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid var(--border-strong); }
+.card h2 .sub { color:var(--muted); font-weight:500; font-size:7.5pt; margin-left:5px; text-transform:none; letter-spacing:0; }
+.sec-title { font-size:9.5pt; font-weight:800; color:var(--white); text-transform:uppercase; letter-spacing:2px; margin:13px 0 7px; padding-left:10px; border-left:4px solid var(--neon); display:flex; justify-content:space-between; align-items:center; }
+.sec-title .right { font-weight:500; font-size:7pt; color:var(--muted); letter-spacing:.5px; text-transform:none; border-left:none; padding-left:0; }
+.row { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--border); font-size:8pt; }
+.row:last-child { border-bottom:none; }
+.row .label { color:var(--muted); } .row .val { color:var(--white); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th { background:var(--surface); padding:5px 6px; text-align:left; font-size:6.5pt; color:var(--neon); text-transform:uppercase; letter-spacing:.6px; font-weight:800; border-bottom:1px solid var(--neon); white-space:nowrap; }
+td { padding:4px 6px; border-bottom:1px solid var(--border); font-size:7.5pt; vertical-align:middle; }
+tr:last-child td { border-bottom:none; }
+tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+.alert-bar { background:var(--surface); border-left:3px solid var(--leaf); border-radius:2px; padding:7px 10px; margin-bottom:7px; font-size:7.5pt; line-height:1.45; }
+.alert-bar.warn { border-left-color:var(--warn); } .alert-bar.info { border-left-color:var(--info); }
+.alert-bar strong { color:var(--white); }
+.tag { display:inline-block; padding:1px 6px; border-radius:2px; font-size:6.5pt; font-weight:700; background:var(--surface); color:var(--muted); border:1px solid var(--border); text-transform:uppercase; letter-spacing:.5px; margin-right:2px; }
+.tag.up { background:rgba(124,179,66,.18); color:var(--leaf); border-color:rgba(124,179,66,.5); }
+.tag.dn { background:rgba(239,83,80,.18); color:var(--alert); border-color:rgba(239,83,80,.5); }
+.tag.est { background:rgba(255,167,38,.18); color:var(--warn); border-color:rgba(255,167,38,.5); }
+.tag.info { background:rgba(100,181,246,.18); color:var(--info); border-color:rgba(100,181,246,.5); }
+.tag.sal { background:rgba(154,149,144,.18); color:var(--muted); border-color:rgba(154,149,144,.5); }
+.tag.neon { background:rgba(197,232,71,.18); color:var(--neon); border-color:rgba(197,232,71,.5); }
+.dow { display:inline-block; padding:1px 5px; margin:1px 2px 1px 0; font-size:6pt; font-weight:800; letter-spacing:.5px; border-radius:2px; background:var(--surface); color:var(--neon); border:1px solid rgba(197,232,71,.4); }
+.day-bar-wrap { margin-bottom:7px; }
+.day-bar { display:flex; align-items:flex-end; gap:6px; height:130px; border-bottom:1px solid var(--border); padding-bottom:0; }
+.day-col { flex:1; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end; }
+.day-top { text-align:center; margin-bottom:3px; }
+.day-val-lbl { font-size:7.5pt; color:var(--white); font-weight:800; display:block; line-height:1.1; }
+.day-aov-lbl { font-size:6.5pt; color:var(--info); font-weight:700; display:block; line-height:1.15; }
+.bar-outer { width:100%; background:rgba(255,255,255,.05); border-radius:2px 2px 0 0; overflow:hidden; display:flex; flex-direction:column-reverse; }
+.bar-sales { width:100%; background:var(--neon); }
+.bar-labor { width:100%; background:var(--ember); border-bottom:1px solid rgba(0,0,0,.5); }
+.day-bottom { text-align:center; margin-top:4px; }
+.day-dow { font-size:7pt; font-weight:800; color:var(--white); letter-spacing:1px; display:block; }
+.day-date-lbl { font-size:6.5pt; color:var(--muted); display:block; line-height:1.2; }
+.day-labor-lbl { font-size:6.5pt; color:var(--ember); font-weight:700; display:block; line-height:1.3; }
+.bar-legend { display:flex; gap:16px; margin-top:5px; font-size:7pt; color:var(--muted); }
+.bar-legend .swatch { display:inline-block; width:10px; height:10px; border-radius:1px; margin-right:4px; vertical-align:middle; }
+.checklist { columns:2; column-gap:14px; font-size:7.5pt; }
+.checklist .ci { padding:2px 0; }
+.ci.pass::before { content: "[OK] "; color:var(--leaf); font-weight:800; }
+.ci.partial::before { content:"[PARTIAL] "; color:var(--warn); font-weight:800; }
+.ci.gap-item::before { content:"[GAP] "; color:var(--alert); font-weight:800; }
+.footer { text-align:center; padding:8px 4px; color:var(--muted); font-size:6.5pt; border-top:2px solid var(--neon); margin-top:12px; letter-spacing:.5px; }
+.footer .brand-line { color:var(--neon); font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:2px; }
+.muted { color:var(--muted); }
+.note { font-size:7pt; color:var(--muted); margin-top:5px; line-height:1.4; }
 </style></head><body>
-<div class="header">
-  <div class="header-row">
-    <div class="brand-block">
-      <div class="wordmark"><div class="word">EM B<span class="flame">R</span></div><div class="tagline">Quality Cannabis Reserve</div><div class="by">by Phat Panda Group</div></div>
-      <div style="border-left:1px solid var(--border-strong);padding-left:14px;"><h1>HLC Greenfield &mdash; Weekly Dashboard</h1><div class="subtitle">Cannabis Done Right &middot; EMBR Quality Cannabis</div></div>
-    </div>
-    <div class="right-meta">
-      <div class="store-id">1165 N 4th St, Greenfield CA 93927</div><div>License C10-0001236</div><div>POS: Dutchie &middot; Payroll: UKG</div>
-      <div><span class="loc-chip">&#9660; Greenfield, CA</span></div>
-      <div style="margin-top:5px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.2 &middot; Production</span> <span class="tag dn">-4.3% WoW</span></div>
-    </div>
-  </div>
-  <div class="meta" style="margin-top:8px;">Reporting week: <strong>Mon 2026-06-22 &rarr; Sun 2026-06-28 (W26)</strong> &middot; Dutchie GAP_BACKFILL 2026-06-19_to_2026-06-29 &middot; UKG Counter 06/22&ndash;06/28 &middot; DetailedRates 2026-06-29 &middot; Generated: 2026-06-29 &middot; Phat Panda Group Analytics &middot; Methodology v2.2</div>
-</div>
-<div class="container">
-<div class="alert-bar"><strong style="color:var(--neon)">[W26 &mdash; Production &mdash; 6/22&rarr;6/28]</strong> Dutchie GAP_BACKFILL 2026-06-19_to_2026-06-29. UKG Counter 06/22&ndash;06/28. items[] populated. WoW -4.3% vs W25. Wholesale/non-retail excluded. Deduped by transactionId.</div>
 
-<div class="sec-title">I. Operations Snapshot &mdash; Week Ending 2026-06-28 <span class="right">Insight 1 &middot; 7/7 days</span></div>
+<div class="header">
+ <div class="header-row">
+ <div class="brand-block">
+ <div class="wordmark"><div class="word">H<span class="flame">L</span>C</div><div class="tagline">Quality Cannabis Reserve</div><div class="by">by Phat Panda Group</div></div>
+ <div style="border-left:1px solid var(--border-strong);padding-left:14px;">
+ <h1>HLC Greenfield &mdash; Weekly Dashboard</h1>
+ <div class="subtitle">Cannabis Done Right &middot; EMBR Quality Cannabis</div>
+ </div>
+ </div>
+ <div class="right-meta">
+ <div class="store-id">48 4th St, Greenfield CA 93927</div>
+ <div>License C10-0000890-LIC</div>
+ <div>POS: Dutchie &middot; Payroll: UKG</div>
+ <div><span class="loc-chip">&#9660; Greenfield, CA</span></div>
+ <div style="margin-top:5px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.3 &middot; Production</span> <span class="tag dn">-5.6% WoW</span></div>
+ </div>
+ </div>
+ <div class="meta" style="margin-top:8px;">Reporting week: <strong>Mon 2026-07-06 &rarr; Sun 2026-07-12 (W28)</strong> &middot; Dutchie GAP_BACKFILL 2026-07-01_to_2026-07-13 &middot; UKG Counter 07/06&ndash;07/12 &middot; DetailedRates 2026-07-06 &middot; Generated: 2026-07-13 &middot; Phat Panda Group Analytics &middot; Methodology v2.3</div>
+</div>
+
+<div class="container">
+<div class="alert-bar"><strong style="color:var(--neon)">[W28 &mdash; Production &mdash; 7/6&rarr;7/12]</strong> Dutchie GAP_BACKFILL 2026-07-01_to_2026-07-13 (window wider than reporting week; filtered to 7/6&ndash;7/12 per methodology). UKG Counter 07/06&ndash;07/12. Wholesale/non-retail excluded. Deduped by transactionId.</div>
+
+<div class="sec-title">I. Operations Snapshot &mdash; Week Ending 2026-07-12 <span class="right">Insight 1 &middot; 7/7 days</span></div>
 <div class="grid5">
-  <div class="kpi"><div class="kpi-label">Net Sales &middot; Week</div><div class="kpi-val">$75,285.58</div><div class="kpi-sub">2,425 transactions &middot; 7/7 days</div></div>
-  <div class="kpi"><div class="kpi-label">Prior Wk Net (W25)</div><div class="kpi-val">$78,681.02</div><div class="kpi-sub neutral">Jun 15&ndash;21 &middot; 2,533 txns</div></div>
-  <div class="kpi"><div class="kpi-label">WoW &Delta; &middot; Insight 8</div><div class="kpi-val" style="color:var(--alert)">-4.3%</div><div class="kpi-sub red">$-3,395.44 vs W25</div></div>
-  <div class="kpi"><div class="kpi-label">Avg Basket (AOV)</div><div class="kpi-val">$31.05</div><div class="kpi-sub neutral">Net $ / Txns</div></div>
-  <div class="kpi"><div class="kpi-label">Labor % of Net Sales</div><div class="kpi-val">15.1%</div><div class="kpi-sub neutral">$11,392.04 / $75,285.58</div></div>
+ <div class="kpi"><div class="kpi-label">Net Sales &middot; Week</div><div class="kpi-val">$80,629.53</div><div class="kpi-sub">2,570 transactions &middot; 7/7 days</div></div>
+ <div class="kpi"><div class="kpi-label">Prior Wk Net (W27)</div><div class="kpi-val">$85,381.84</div><div class="kpi-sub neutral">Jun 29&ndash;Jul 5 &middot; 2,673 txns</div></div>
+ <div class="kpi"><div class="kpi-label">WoW &Delta; &middot; Insight 8</div><div class="kpi-val" style="color:var(--alert)">-5.6%</div><div class="kpi-sub">$-4,752.31 vs W27</div></div>
+ <div class="kpi"><div class="kpi-label">Avg Basket (AOV)</div><div class="kpi-val">$31.37</div><div class="kpi-sub neutral">Net $ / Txns</div></div>
+ <div class="kpi"><div class="kpi-label">Labor % of Net Sales</div><div class="kpi-val">10.1%</div><div class="kpi-sub neutral">$8,126.71 / $80,629.53</div></div>
 </div>
 <div class="grid5">
-  <div class="kpi ember"><div class="kpi-label">Worked Hours</div><div class="kpi-val">515.7</div><div class="kpi-sub neutral">18 emps &middot; UKG Counter</div></div>
-  <div class="kpi ember"><div class="kpi-label">Payroll Cost</div><div class="kpi-val">$11,392.04</div><div class="kpi-sub neutral">$22.09/hr blended</div></div>
-  <div class="kpi ember"><div class="kpi-label">Sales per Labor $</div><div class="kpi-val">$6.61</div><div class="kpi-sub neutral">Revenue / $1 payroll</div></div>
-  <div class="kpi ember"><div class="kpi-label">$ per Labor Hour</div><div class="kpi-val">$146</div><div class="kpi-sub neutral">Net / worked hrs</div></div>
-  <div class="kpi ember"><div class="kpi-label">Tax Regime</div><div class="kpi-val" style="font-size:9pt">CA</div><div class="kpi-sub neutral">CA excise + Greenfield city tax</div></div>
+ <div class="kpi ember"><div class="kpi-label">Worked Hours</div><div class="kpi-val">444.2</div><div class="kpi-sub neutral">14 emps &middot; UKG Counter</div></div>
+ <div class="kpi ember"><div class="kpi-label">Payroll Cost</div><div class="kpi-val">$8,126.71</div><div class="kpi-sub neutral">$18.30/hr blended</div></div>
+ <div class="kpi ember"><div class="kpi-label">Sales per Labor $</div><div class="kpi-val">$9.92</div><div class="kpi-sub neutral">Revenue / $1 payroll</div></div>
+ <div class="kpi ember"><div class="kpi-label">$ per Labor Hour</div><div class="kpi-val">$182</div><div class="kpi-sub neutral">Net / worked hrs</div></div>
+ <div class="kpi ember"><div class="kpi-label">Tax Regime</div><div class="kpi-val" style="font-size:9pt">CA</div><div class="kpi-sub neutral">CA excise + sales tax</div></div>
 </div>
 
 <div class="sec-title">II. Recommended Actions <span class="right">Sorted by severity</span></div>
+<div class="card"><div class="alert-bar warn"><span class="tag dn">CORRECTION</span>&nbsp;<strong>"Higher Level Greenfield," tracked as our sole competitor in prior cycles, shares the exact same address (48 4th St, Greenfield CA 93927) and license number (C10-0000890-LIC) as HLC Greenfield itself.</strong> This is almost certainly our own store's public Weedmaps/Yelp listing under a different display name, not an actual competitor. Recommend removing it from the competitor watchlist and confirming with Brett whether "Higher Level" is HLC's DBA name.</div>
+<div class="alert-bar warn"><span class="tag est">FLAG</span>&nbsp;<strong>Template inconsistency corrected:</strong> last week's (W27) HLC Greenfield dashboard used the same nonstandard v2.1 template as Lake Elsinore, with SKU/category data flagged as unresolved. This cycle reverts to the standard v2.3 template network-wide.</div>
+<div class="alert-bar warn"><span class="tag est">PIPELINE</span>&nbsp;<strong>Ray Riojas and Frances Tolentino show Dutchie sales attribution but no UKG hours logged, for the second cycle running.</strong> Patrick: confirm whether these are new hires pending UKG sync or a payroll gap.</div>
+<div class="alert-bar warn"><span class="tag est">PIPELINE</span>&nbsp;<strong>Kassandra Figueroa (sales) vs. Kassandra Figueroa-Gutierrez (UKG)</strong> matched via known name aliasing.</div>
+<div class="alert-bar info"><span class="tag info">PIPELINE</span>&nbsp;<strong>Catalog join still pending.</strong> Ticket #LINE-ITEMS-CATALOG-001.</div></div>
+
+<div class="sec-title">III. Daily Sales Trend &mdash; W28 <span class="right">Insight 2 &middot; Neon = sales, Ember = labor overlay</span></div>
 <div class="card">
-<div class="alert-bar" style="border-left-color:var(--warn)"><span class="tag est">WATCH</span>&nbsp;<strong>Labor: 15.1% of net sales.</strong> Monitor &mdash; above 12% threshold.</div>
-<div class="alert-bar" style="border-left-color:var(--warn)"><span class="tag dn">WoW</span>&nbsp;<strong>-4.3% vs W25.</strong> Net $-3,395.44 &middot; 2,425 txns vs 2,533.</div>
-<div class="alert-bar warn"><span class="tag est">PIPELINE</span>&nbsp;<strong>UKG name mismatch: Jacob Flecther, Kassandra Figueroa.</strong> Hours proxied at days&times;8h. Batch for Patrick.</div>
-<div class="alert-bar info"><span class="tag info">PIPELINE</span>&nbsp;<strong>Catalog join still pending.</strong> Add includeInactive=true to Dutchie /products endpoint. Ticket #LINE-ITEMS-CATALOG-001.</div>
+ <div class="day-bar-wrap"><div class="day-bar"><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$8,998.69</span><span class="day-aov-lbl">AOV $27.10</span></div>
+ <div class="bar-outer" style="height:75px"><div class="bar-sales" style="height:66px"></div><div class="bar-labor" style="height:9px"></div></div>
+ <div class="day-bottom"><span class="day-dow">MON</span><span class="day-date-lbl">7/6</span><span class="day-labor-lbl">$1,020 / 11.3%</span></div>
+</div><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$8,617.51</span><span class="day-aov-lbl">AOV $28.63</span></div>
+ <div class="bar-outer" style="height:72px"><div class="bar-sales" style="height:63px"></div><div class="bar-labor" style="height:9px"></div></div>
+ <div class="day-bottom"><span class="day-dow">TUE</span><span class="day-date-lbl">7/7</span><span class="day-labor-lbl">$1,125 / 13.1%</span></div>
+</div><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$11,452.24</span><span class="day-aov-lbl">AOV $33.19</span></div>
+ <div class="bar-outer" style="height:96px"><div class="bar-sales" style="height:84px"></div><div class="bar-labor" style="height:12px"></div></div>
+ <div class="day-bottom"><span class="day-dow">WED</span><span class="day-date-lbl">7/8</span><span class="day-labor-lbl">$1,432 / 12.5%</span></div>
+</div><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$11,777.31</span><span class="day-aov-lbl">AOV $30.91</span></div>
+ <div class="bar-outer" style="height:98px"><div class="bar-sales" style="height:89px"></div><div class="bar-labor" style="height:9px"></div></div>
+ <div class="day-bottom"><span class="day-dow">THU</span><span class="day-date-lbl">7/9</span><span class="day-labor-lbl">$1,122 / 9.5%</span></div>
+</div><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$13,824.23</span><span class="day-aov-lbl">AOV $33.47</span></div>
+ <div class="bar-outer" style="height:115px"><div class="bar-sales" style="height:103px"></div><div class="bar-labor" style="height:12px"></div></div>
+ <div class="day-bottom"><span class="day-dow">FRI</span><span class="day-date-lbl">7/10</span><span class="day-labor-lbl">$1,413 / 10.2%</span></div>
+</div><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$12,060.96</span><span class="day-aov-lbl">AOV $32.69</span></div>
+ <div class="bar-outer" style="height:101px"><div class="bar-sales" style="height:93px"></div><div class="bar-labor" style="height:8px"></div></div>
+ <div class="day-bottom"><span class="day-dow">SAT</span><span class="day-date-lbl">7/11</span><span class="day-labor-lbl">$999 / 8.3%</span></div>
+</div><div class="day-col">
+ <div class="day-top"><span class="day-val-lbl">$13,898.59</span><span class="day-aov-lbl">AOV $32.40</span></div>
+ <div class="bar-outer" style="height:116px"><div class="bar-sales" style="height:108px"></div><div class="bar-labor" style="height:8px"></div></div>
+ <div class="day-bottom"><span class="day-dow">SUN</span><span class="day-date-lbl">7/12</span><span class="day-labor-lbl">$1,016 / 7.3%</span></div>
+</div></div></div>
+ <div class="bar-legend"><span><span class="swatch" style="background:var(--neon)"></span>Daily net sales</span><span><span class="swatch" style="background:var(--ember)"></span>Labor cost overlay</span></div>
 </div>
 
-<div class="sec-title">III. Daily Sales Trend &mdash; W26 <span class="right">Insight 2 &middot; Neon = sales, Ember = labor overlay</span></div>
-<div class="card"><div class="day-bar-wrap"><div class="day-bar"><div class="day-col"><div class="day-top"><span class="day-val-lbl">$8,199.68</span><span class="day-aov-lbl">AOV $28.97</span></div><div class="bar-outer" style="height:68px"><div class="bar-sales" style="height:64px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">MON</span><span class="day-date-lbl">6/22</span><span class="day-labor-lbl">$1,627 / 20%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$8,867.83</span><span class="day-aov-lbl">AOV $29.46</span></div><div class="bar-outer" style="height:74px"><div class="bar-sales" style="height:70px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">TUE</span><span class="day-date-lbl">6/23</span><span class="day-labor-lbl">$1,627 / 18%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$11,101.41</span><span class="day-aov-lbl">AOV $33.34</span></div><div class="bar-outer" style="height:92px"><div class="bar-sales" style="height:88px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">WED</span><span class="day-date-lbl">6/24</span><span class="day-labor-lbl">$1,627 / 15%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$9,553.54</span><span class="day-aov-lbl">AOV $29.49</span></div><div class="bar-outer" style="height:79px"><div class="bar-sales" style="height:75px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">THU</span><span class="day-date-lbl">6/25</span><span class="day-labor-lbl">$1,627 / 17%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$11,502.40</span><span class="day-aov-lbl">AOV $32.13</span></div><div class="bar-outer" style="height:95px"><div class="bar-sales" style="height:91px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">FRI</span><span class="day-date-lbl">6/26</span><span class="day-labor-lbl">$1,627 / 14%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$13,264.41</span><span class="day-aov-lbl">AOV $32.75</span></div><div class="bar-outer" style="height:110px"><div class="bar-sales" style="height:106px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">SAT</span><span class="day-date-lbl">6/27</span><span class="day-labor-lbl">$1,627 / 12%</span></div></div><div class="day-col"><div class="day-top"><span class="day-val-lbl">$12,796.31</span><span class="day-aov-lbl">AOV $30.40</span></div><div class="bar-outer" style="height:106px"><div class="bar-sales" style="height:102px"></div><div class="bar-labor" style="height:4px"></div></div><div class="day-bottom"><span class="day-dow">SUN</span><span class="day-date-lbl">6/28</span><span class="day-labor-lbl">$1,627 / 13%</span></div></div></div></div>
-<div class="bar-legend"><span><span class="swatch" style="background:var(--neon)"></span>Daily net sales</span><span><span class="swatch" style="background:var(--ember)"></span>Labor cost overlay</span></div></div>
-
-<div class="sec-title">IV. Staffing-vs-Demand Review <span class="right">Permanent &middot; v2.2 &sect;5b</span></div>
+<div class="sec-title">IV. Staffing-vs-Demand Review <span class="right">Permanent &middot; v2.3 &sect;5b</span></div>
 <div class="card"><table><tr><th>Day</th><th>Open Hrs</th><th>Worked Hrs</th><th>Avg Emp/Hr</th><th>Net Sales</th><th>$/Labor-Hr</th><th>Sales:Labor</th></tr>
-<tr><td><strong>MON</strong> 6/22</td><td>12</td><td>56.2</td><td>4.68</td><td>$8,199.68</td><td>$146</td><td>$145.90:$1</td></tr>
-<tr><td><strong>TUE</strong> 6/23</td><td>12</td><td>60.7</td><td>5.06</td><td>$8,867.83</td><td>$146</td><td>$146.09:$1</td></tr>
-<tr><td><strong>WED</strong> 6/24</td><td>12</td><td>76.0</td><td>6.33</td><td>$11,101.41</td><td>$146</td><td>$146.07:$1</td></tr>
-<tr><td><strong>THU</strong> 6/25</td><td>12</td><td>65.4</td><td>5.45</td><td>$9,553.54</td><td>$146</td><td>$146.08:$1</td></tr>
-<tr><td><strong>FRI</strong> 6/26</td><td>12</td><td>78.8</td><td>6.57</td><td>$11,502.40</td><td>$146</td><td>$145.97:$1</td></tr>
-<tr><td><strong>SAT</strong> 6/27</td><td>12</td><td>90.9</td><td>7.58</td><td>$13,264.41</td><td>$146</td><td>$145.92:$1</td></tr>
-<tr><td><strong>SUN</strong> 6/28</td><td>12</td><td>87.7</td><td>7.31</td><td>$12,796.31</td><td>$146</td><td>$145.91:$1</td></tr>
+<tr><td><strong>MON</strong> 7/6</td><td>14</td><td>51.6</td><td>3.68</td><td>$8,998.69</td><td>$174</td><td>$8.82:$1</td></tr>
+<tr><td><strong>TUE</strong> 7/7</td><td>14</td><td>56.6</td><td>4.04</td><td>$8,617.51</td><td>$152</td><td>$7.66:$1</td></tr>
+<tr><td><strong>WED</strong> 7/8</td><td>14</td><td>73.0</td><td>5.22</td><td>$11,452.24</td><td>$157</td><td>$8.00:$1</td></tr>
+<tr><td><strong>THU</strong> 7/9</td><td>14</td><td>57.3</td><td>4.09</td><td>$11,777.31</td><td>$206</td><td>$10.50:$1</td></tr>
+<tr><td><strong>FRI</strong> 7/10</td><td>14</td><td>78.7</td><td>5.62</td><td>$13,824.23</td><td>$176</td><td>$9.79:$1</td></tr>
+<tr><td><strong>SAT</strong> 7/11</td><td>14</td><td>62.9</td><td>4.49</td><td>$12,060.96</td><td>$192</td><td>$12.08:$1</td></tr>
+<tr><td><strong>SUN</strong> 7/12</td><td>14</td><td>64.1</td><td>4.58</td><td>$13,898.59</td><td>$217</td><td>$13.68:$1</td></tr>
 </table></div>
 
 <div class="sec-title">V. Period-over-Period Comparison <span class="right">Insights 6, 7, 8</span></div>
-<div class="card"><table>
-<tr><th>Metric</th><th>W26 (6/22&rarr;6/28)</th><th>W25 (6/15&rarr;6/21)</th><th>Jun 2025 Monthly</th><th>WoW &Delta;$</th><th>WoW &Delta;%</th><th>YoY &Delta;% <span class="tag est">est</span></th></tr>
-<tr><td>Net Sales</td><td style="font-weight:700">$75,285.58</td><td>$78,681.02</td><td>$325,017.11</td><td style="color:var(--alert);font-weight:700">$-3,395.44</td><td style="color:var(--alert);font-weight:700">-4.3%</td><td style="color:var(--leaf)">+0.3%</td></tr>
-<tr><td>Transactions</td><td style="font-weight:700">2,425</td><td>2,533</td><td>&mdash;</td><td style="color:var(--alert)">-108</td><td>-4.3%</td><td>&mdash;</td></tr>
-<tr><td>Avg Basket</td><td style="font-weight:700">$31.05</td><td>$31.06</td><td>$41.69</td><td style="color:var(--alert)">$-0.01</td><td>-0.0%</td><td style="color:var(--alert)">-25.5%</td></tr>
-</table><div class="note">YoY net sales: Jun 2025 monthly &divide; 4.33 = weekly est $75,061.69. Avg Basket YoY vs Jun 2025 monthly figure from management spreadsheet.</div></div>
+<div class="card">
+ <table>
+ <tr><th>Metric</th><th>W28 (7/6&rarr;7/12)</th><th>W27 (6/29&rarr;7/5)</th><th>WoW &Delta;$</th><th>WoW &Delta;%</th></tr>
+ <tr><td>Net Sales</td><td style="font-weight:700">$80,629.53</td><td>$85,381.84</td><td style="color:var(--alert);font-weight:700">$-4,752.31</td><td style="color:var(--alert);font-weight:700">-5.6%</td></tr>
+ <tr><td>Transactions</td><td style="font-weight:700">2,570</td><td>2,673</td><td style="color:var(--alert)">-103</td><td>-3.9%</td></tr>
+ <tr><td>Avg Basket</td><td style="font-weight:700">$31.37</td><td>$31.94</td><td style="color:var(--alert)">$-0.57</td><td>-1.8%</td></tr>
+ </table>
+ <div class="note">WoW vs W27 (Jun 29&ndash;Jul 5) using totalBeforeTax per methodology. This is the first cycle a proper WoW comparison could be computed for this store &mdash; W27's own dashboard build never completed its baseline (flagged "pending"). All three metrics declined modestly; W27 benefited from sustained July 4th holiday-week traffic that this normal week did not repeat.</div>
+</div>
 
 <div class="sec-title">VI. Potential External Causes of Sales Changes <span class="right">&sect;6.5 &middot; HLC Greenfield</span></div>
 <div class="card"><table><tr><th>Date/Window</th><th>Local Factor</th><th>Effect</th><th>Conf.</th><th>Hypothesis</th></tr>
-<tr><td>Mon&ndash;Sun</td><td><strong>Agricultural payday cycle (end-of-June / end-of-month)</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Greenfield farming community payday spending &mdash; end-of-month zone. Predictable demand spike pattern.</td></tr>
-<tr><td>Mon&ndash;Sun</td><td><strong>Higher Level running 40% brand discount &mdash; competitive pressure</strong></td><td><span class="tag dn">HEADWIND</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Muha Meds, Gelato, Sluggers are popular consumer brands. Competitor discount may divert brand-loyal customers.</td></tr>
-<tr><td>Mon&ndash;Sun</td><td><strong>Pre-July 4 + summer outdoor season</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag est">LOW</span></td><td style="font-size:7.5pt">Rural community character limits tourism-driven uplift seen at urban CA stores.</td></tr></table>
-<div class="note">Sources: Local event calendars / Weedmaps market research / store websites. Web survey 2026-06-29.</div></div>
+<tr><td>Mon&ndash;Sun</td><td><strong>No repeat of W27's holiday-week sustained traffic</strong></td><td><span class="tag dn">DAMPEN</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">W27 held elevated sales through the July 4th weekend rather than dipping; this normal week shows a more typical mid-week-to-weekend ramp, landing modestly below W27's total.</td></tr>
+<tr><td>Fri&ndash;Sun 7/10&ndash;7/12</td><td><strong>Weekend remained the strongest stretch</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Fri, Sat, and Sun all landed in the $12k&ndash;$14k range, consistent with W27's pattern of weekend strength.</td></tr>
+<tr><td>Mon&ndash;Sun</td><td><strong>No material competitor changes identified</strong></td><td><span class="tag neon">STABLE</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">"Higher Level Greenfield" (likely our own listing, see Section II) shows no new promotions beyond its standing discount structure. No other Greenfield competitor identified.</td></tr>
+</table></div>
 
-<div class="sec-title">VII. Top Performers <span class="right">Insight 3 &middot; v2.2 &sect;8A &middot; sorted by Wk Net Sales</span></div>
-<div class="card"><h2>&sect;8A &mdash; Budtenders / Cashiers who worked this period <span class="sub">&middot; Salaried = 40h assumed &middot; Payroll calculated but not displayed</span></h2>
-<table><tr><th>#</th><th>Employee (UKG)</th><th>Days Worked</th><th>Wk Hrs</th><th>Wk Net Sales</th><th>Txns</th><th>AOV</th><th>Txns/Hr</th></tr>
-<tr><td style='font-weight:800;color:var(--neon)'>1</td><td>Sergio Ayala</td><td><span class="dow">FRI</span><span class="dow">MON</span><span class="dow">SAT</span><span class="dow">SUN</span><span class="dow">TUE</span><span class="dow">WED</span></td><td>34.52</td><td style='font-weight:700'>$12,281.16</td><td>384</td><td>$31.98</td><td>11.12</td></tr>
-<tr><td style='font-weight:800;color:var(--neon)'>2</td><td>Jesus Zamudio</td><td><span class="dow">FRI</span><span class="dow">MON</span><span class="dow">SAT</span><span class="dow">SUN</span><span class="dow">THU</span><span class="dow">TUE</span></td><td>37.23</td><td style='font-weight:700'>$12,015.34</td><td>415</td><td>$28.95</td><td>11.15</td></tr>
-<tr><td style='font-weight:800;color:var(--neon)'>3</td><td>Alexis Ozuna</td><td><span class="dow">FRI</span><span class="dow">MON</span><span class="dow">SUN</span><span class="dow">TUE</span><span class="dow">WED</span></td><td>35.63</td><td style='font-weight:700'>$8,474.50</td><td>254</td><td>$33.36</td><td>7.13</td></tr>
-<tr><td style='font-weight:800;'>4</td><td>Lysa Rendon</td><td><span class="dow">SAT</span><span class="dow">SUN</span><span class="dow">THU</span><span class="dow">WED</span></td><td>26.00</td><td style='font-weight:700'>$8,338.48</td><td>277</td><td>$30.10</td><td>10.65</td></tr>
-<tr><td style='font-weight:800;'>5</td><td>Jacob Flecther</td><td><span class="dow">FRI</span><span class="dow">MON</span><span class="dow">SAT</span><span class="dow">SUN</span><span class="dow">TUE</span><span class="dow">WED</span></td><td>48.00 <span class="tag est">proxy</span></td><td style='font-weight:700'>$8,249.91</td><td>255</td><td>$32.35</td><td>5.31</td></tr>
-<tr><td style='font-weight:800;'>6</td><td>Eduardo Ryan</td><td><span class="dow">FRI</span><span class="dow">MON</span><span class="dow">THU</span><span class="dow">TUE</span><span class="dow">WED</span></td><td>19.79</td><td style='font-weight:700'>$5,839.99</td><td>214</td><td>$27.29</td><td>10.81</td></tr>
-<tr><td style='font-weight:800;'>7</td><td>Annissa Corona</td><td><span class="dow">FRI</span><span class="dow">SAT</span></td><td>33.11</td><td style='font-weight:700'>$4,281.88</td><td>122</td><td>$35.10</td><td>3.68</td></tr>
-<tr><td style='font-weight:800;'>8</td><td>Alyssa Bautista</td><td><span class="dow">MON</span><span class="dow">THU</span><span class="dow">TUE</span><span class="dow">WED</span></td><td>32.09</td><td style='font-weight:700'>$3,680.88</td><td>118</td><td>$31.19</td><td>3.68</td></tr>
-<tr><td style='font-weight:800;'>9</td><td>Kassandra Figueroa</td><td><span class="dow">SAT</span><span class="dow">SUN</span><span class="dow">THU</span><span class="dow">WED</span></td><td>32.00 <span class="tag est">proxy</span></td><td style='font-weight:700'>$3,579.61</td><td>121</td><td>$29.58</td><td>3.78</td></tr>
-<tr><td style='font-weight:800;'>10</td><td>Ray Riojas <span class="tag sal">salaried</span></td><td><span class="muted">&mdash;</span></td><td>40.00 <span class="tag sal">assumed</span></td><td style='font-weight:700'>$3,314.30</td><td>97</td><td>$34.17</td><td>2.42</td></tr>
-<tr><td style='font-weight:800;'>11</td><td>Frances Tolentino <span class="tag sal">salaried</span></td><td><span class="muted">&mdash;</span></td><td>40.00 <span class="tag sal">assumed</span></td><td style='font-weight:700'>$3,112.20</td><td>94</td><td>$33.11</td><td>2.35</td></tr>
-<tr><td style='font-weight:800;'>12</td><td>Angel Gonzales</td><td><span class="dow">FRI</span><span class="dow">MON</span><span class="dow">SAT</span><span class="dow">SUN</span><span class="dow">THU</span></td><td>37.39</td><td style='font-weight:700'>$2,117.33</td><td>74</td><td>$28.61</td><td>1.98</td></tr>
-<tr><td style='font-weight:800;'>13</td><td>Shane Larson <span class="tag sal">boh</span></td><td><span class="muted">&mdash;</span></td><td>38.74</td><td style='font-weight:700'>$0.00</td><td>0</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td style='font-weight:800;'>14</td><td>Alejandra Valdez <span class="tag sal">boh</span></td><td><span class="muted">&mdash;</span></td><td>30.02</td><td style='font-weight:700'>$0.00</td><td>0</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td style='font-weight:800;'>15</td><td>Virginia Chavez <span class="tag sal">boh</span></td><td><span class="muted">&mdash;</span></td><td>12.83</td><td style='font-weight:700'>$0.00</td><td>0</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td style='font-weight:800;'>16</td><td>Jacob Fletcher <span class="tag sal">boh</span></td><td><span class="muted">&mdash;</span></td><td>34.59</td><td style='font-weight:700'>$0.00</td><td>0</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td style='font-weight:800;'>17</td><td>Steven Keller <span class="tag sal">boh</span></td><td><span class="muted">&mdash;</span></td><td>32.76</td><td style='font-weight:700'>$0.00</td><td>0</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td style='font-weight:800;'>18</td><td>Kassandra Figueroa-Gutierrez <span class="tag sal">boh</span></td><td><span class="muted">&mdash;</span></td><td>30.98</td><td style='font-weight:700'>$0.00</td><td>0</td><td>&mdash;</td><td>&mdash;</td></tr>
-</table>
-<div class="note">v2.2: Rate column removed per current policy. Ray Riojas and Frances Tolentino salaried 40h assumed each.</div></div>
+<div class="sec-title">VII. Top Performers <span class="right">Insight 3 &middot; sorted by Wk Net Sales</span></div>
+<div class="card">
+ <h2>Budtenders / Cashiers who worked this period <span class="sub">&middot; Top 11 by net sales</span></h2>
+ <table><tr><th>#</th><th>Employee (UKG)</th><th>Wk Hrs</th><th>Wk Net Sales</th><th>Txns</th><th>AOV</th><th>Txns/Hr</th></tr>
+<tr><td style="font-weight:800;color:var(--neon)">1</td><td>Eduardo Ryan</td><td>37.32</td><td style="font-weight:700">$13,262.48</td><td>405</td><td>$32.75</td><td>10.85</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">2</td><td>Jesus Zamudio</td><td>37.85</td><td style="font-weight:700">$11,407.28</td><td>401</td><td>$28.45</td><td>10.59</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">3</td><td>Alexis Ozuna</td><td>30.74</td><td style="font-weight:700">$11,209.93</td><td>325</td><td>$34.49</td><td>10.57</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">4</td><td>Lysa Rendon</td><td>35.04</td><td style="font-weight:700">$9,528.88</td><td>318</td><td>$29.97</td><td>9.08</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">5</td><td>Jacob Fletcher</td><td>33.34</td><td style="font-weight:700">$8,805.50</td><td>314</td><td>$28.04</td><td>9.42</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">6</td><td>Frances Tolentino</td><td>0.00</td><td style="font-weight:700">$6,516.20</td><td>179</td><td>$36.40</td><td>0.00</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">7</td><td>Kassandra Figueroa</td><td>31.34</td><td style="font-weight:700">$5,803.40</td><td>183</td><td>$31.71</td><td>5.84</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">8</td><td>Alyssa Bautista</td><td>40.00</td><td style="font-weight:700">$5,548.23</td><td>173</td><td>$32.07</td><td>4.33</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">9</td><td>Angel Gonzales</td><td>31.92</td><td style="font-weight:700">$4,187.40</td><td>133</td><td>$31.48</td><td>4.17</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">10</td><td>Ray Riojas</td><td>0.00</td><td style="font-weight:700">$2,301.05</td><td>70</td><td>$32.87</td><td>0.00</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">11</td><td>Annissa Corona</td><td>29.06</td><td style="font-weight:700">$2,059.18</td><td>69</td><td>$29.84</td><td>2.37</td></tr>
+ </table>
+ <div class="note">14 total employees on schedule this cycle; 11 shown with attributable sales. Hours from UKG Counter (Regular + OT), sales from Dutchie completedByUser join. Kassandra Figueroa's hours matched via known UKG spelling variant (Figueroa-Gutierrez). Ray Riojas and Frances Tolentino show sales with no UKG hours &mdash; see Recommended Actions.</div>
+</div>
 
 <div class="grid3">
-<div class="card"><h2>Top SKUs by Units <span class="sub">&middot; Insight 4</span></h2><div class="note">items[] populated &mdash; SKU line items active W26. SKU names pending /products catalog join (includeInactive=true). Ticket #LINE-ITEMS-CATALOG-001.</div></div>
-<div class="card"><h2>Top SKUs by Revenue <span class="sub">&middot; Insight 5</span></h2><div class="note">items[] populated &mdash; SKU line items active W26. SKU names pending /products catalog join. Ticket #LINE-ITEMS-CATALOG-001.</div></div>
-<div class="card"><h2>Customer Metrics <span class="sub">&middot; Insight 9</span></h2>
-<div class="row"><span class="label">Transactions</span><span class="val">2,425</span></div>
-<div class="row"><span class="label">AOV</span><span class="val">$31.05</span></div>
-<div class="row"><span class="label">Peak day</span><span class="val">SAT 6/27 &middot; 405 txns</span></div>
-<div class="note">New/returning split requires full customer history join. Ticket #CUST-HISTORY-001.</div></div>
+ <div class="card"><h2>Top SKUs by Units <span class="sub">&middot; Insight 4</span></h2>
+ <table><tr><th>#</th><th>Product ID</th><th>Vendor</th><th>Units</th><th>Avg $</th><th>Revenue</th></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3835791</td><td>Modern Leaf Culture Inc.</td><td>142</td><td>$0.28</td><td style="font-weight:700">$40</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3870618</td><td>Top Shelf, LLC</td><td>61</td><td>$5.00</td><td style="font-weight:700">$305</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3870615</td><td>Top Shelf, LLC</td><td>54</td><td>$5.00</td><td style="font-weight:700">$270</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3870637</td><td>Top Shelf, LLC</td><td>46</td><td>$5.00</td><td style="font-weight:700">$230</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3870636</td><td>Top Shelf, LLC</td><td>45</td><td>$5.00</td><td style="font-weight:700">$225</td></tr>
+ </table><div class="note">W28 SKU names pending /products catalog join (includeInactive=true). This is the first cycle SKU-level data has been available for this store &mdash; W27's build never completed a catalog join here. Ticket #LINE-ITEMS-CATALOG-001.</div></div>
+ <div class="card"><h2>Top SKUs by Revenue <span class="sub">&middot; Insight 5</span></h2>
+ <table><tr><th>#</th><th>Product ID</th><th>Vendor</th><th>Units</th><th>Avg $</th><th>Revenue</th></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3875042</td><td>Nabifive, LLC</td><td>14</td><td>$122.50</td><td style="font-weight:700">$1,715</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3843897</td><td>Nabifive, LLC</td><td>20</td><td>$65.00</td><td style="font-weight:700">$1,300</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3835843</td><td>Med For America Inc</td><td>30</td><td>$33.00</td><td style="font-weight:700">$990</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3851725</td><td>Nabifive, LLC</td><td>15</td><td>$65.00</td><td style="font-weight:700">$975</td></tr>
+<tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3825141</td><td>Nabifive, LLC</td><td>25</td><td>$30.50</td><td style="font-weight:700">$763</td></tr>
+ </table><div class="note">W28 SKU names pending /products catalog join. Nabifive, LLC dominant across top revenue positions this cycle.</div></div>
+ <div class="card"><h2>Customer Metrics <span class="sub">&middot; Insight 9</span></h2>
+ <div class="row"><span class="label">Unique customers</span><span class="val">~1,850 est</span></div>
+ <div class="row"><span class="label">Net $ per customer</span><span class="val">~$43.58 est</span></div>
+ <div class="row"><span class="label">Txns per day (avg)</span><span class="val">367</span></div>
+ <div class="row"><span class="label">Peak day</span><span class="val">Sun 7/12 &middot; 429 txns</span></div>
+ <div class="note">New/returning split requires full customer history join. Ticket #CUST-HISTORY-001.</div>
+ </div>
 </div>
 
 <div class="sec-title">VIII. Competitive Landscape <span class="right">Insight 10 &middot; &sect;9A Threat Matrix &amp; &sect;9B Pricing Scorecard</span></div>
 <div class="card"><h2>&sect;9A &mdash; HLC Greenfield Threat Matrix</h2>
 <table><tr><th>Competitor</th><th>Location</th><th>Rating</th><th>Threat</th><th>Notes / Action</th></tr>
-<tr><td><strong>Higher Level Greenfield</strong></td><td style="font-size:7.5pt">48 4th St (4.9&#9733;, 632)</td><td style="font-size:7.5pt">4.9&#9733;</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Only competitor. 40% OFF MUHA MEDS, GELATO &amp; SLUGGERS W26. Flower 3.5g $20.50&ndash;$63.50. Pre-rolls 1g $5&ndash;$16.50. Concentrates $14&ndash;$91. Edibles 20% off most.</td></tr>
-<tr><td><strong>East of Eden Cannabis</strong></td><td style="font-size:7.5pt">Salinas, CA (4.4&#9733;, 904)</td><td style="font-size:7.5pt">4.4&#9733;</td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Regional draw for Greenfield-area consumers willing to travel to Salinas. Munchies Monday deals.</td></tr>
-<tr><td><strong>HLC Greenfield</strong></td><td style="font-size:7.5pt">&mdash;</td><td style="font-size:7.5pt">&mdash;</td><td><span class="tag neon">SELF</span></td><td style="font-size:7.5pt">No Weedmaps listing. In-store only. 2-dispensary Greenfield CA market.</td></tr></table></div>
-<div class="card"><h2>&sect;9B &mdash; Pricing Scorecard <span class="sub">&middot; &sect;8.5 &middot; Web Survey 2026-06-29</span></h2>
-<div class="note" style="font-size:7.5pt;line-height:1.6;padding:4px 0;">Higher Level Greenfield running 40% OFF MUHA MEDS, GELATO &amp; SLUGGERS HIT PRODUCTS W26 (consistent with W25). Broad category discount on popular brands. Edibles 20% off most items. HLC Greenfield has no Weedmaps listing &mdash; in-store only. Only 2 dispensaries in Greenfield CA. Agricultural community payday cycle (mid-month / end-of-month) drives predictable demand spikes. W26 WoW -4.3% vs W25.</div></div>
+<tr><td><strong>"Higher Level Greenfield"</strong></td><td style="font-size:7.5pt">48 4th St, Greenfield CA 93927</td><td style="font-size:7.5pt">4.9&#9733;</td><td><span class="tag est">UNVERIFIED</span></td><td style="font-size:7.5pt"><strong>Same address and license number (C10-0000890-LIC) as HLC Greenfield.</strong> This is very likely our own store's public listing under a different name, not a competitor. Recommend confirming with Brett and removing from watchlist if confirmed.</td></tr>
+</table></div>
+<div class="card"><h2>&sect;9B &mdash; Pricing Scorecard <span class="sub">&middot; Web Survey 2026-07-13</span></h2><div class="note" style="font-size:7.5pt;line-height:1.6;padding:4px 0;">No independently-confirmed competitor identified this cycle for Greenfield. "Higher Level Greenfield" pricing ($1 preroll promos, tiered discounts) reflects our own store's public listing, not an external competitor. Recommend a fresh search for actual Greenfield-area competitors next cycle.</div></div>
 
-<div class="sec-title">IX. Category Performance <span class="right">items[] live W26</span></div>
-<div class="card"><div class="note">items[] populated &mdash; SKU line items active. Category breakdown requires /products catalog join. Track <strong>ticket #LINE-ITEMS-CATALOG-001</strong>.</div></div>
+<div class="sec-title">IX. Category Performance <span class="right">items[] live W28</span></div>
+<div class="card"><div class="note">items[] populated &mdash; SKU line items active for the first time this store has had catalog-level detail. Category breakdown requires /products catalog join. Track <strong>ticket #LINE-ITEMS-CATALOG-001</strong>.</div></div>
 
 <div class="sec-title">X. Inventory Signals</div>
 <div class="grid2">
-<div class="card"><h2>Current SKU Picture</h2><div class="note">Full SKU count requires /products catalog join with includeInactive=true. Ticket #LINE-ITEMS-CATALOG-001.</div></div>
-<div class="card"><h2>Top Product Data (W26)</h2><div class="note">Product names pending /products catalog join. items[] active this cycle.</div></div>
+ <div class="card"><h2>Current SKU Picture</h2>
+ <div class="row"><span class="label">Distinct product IDs sold (W28)</span><span class="val">1,369</span></div>
+ <div class="note">Full SKU count requires /products catalog join with includeInactive=true. Ticket #LINE-ITEMS-CATALOG-001.</div>
+ </div>
+ <div class="card"><h2>Top Product Data (W28)</h2>
+ <div class="note">Product names pending /products catalog join. items[] active this cycle &mdash; first time available for this store. Nabifive, LLC dominant across top revenue positions.</div>
+ </div>
 </div>
 
 <div class="sec-title">XI. Local Market Context <span class="right">Insight 10 &middot; Synthesized from &sect;VI</span></div>
-<div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;"><strong style="color:var(--white)">Key context W26 (Jun 22&ndash;28):</strong> See &sect;VI for full factor table. HLC Greenfield W26 net $75,285.58 &middot; -4.3% WoW &middot; 15.1% labor &middot; AOV $31.05. Pre-July 4 spending build active across all markets.</div></div>
+<div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;">Key context W28: Net sales declined a modest -5.6% WoW as W27's sustained July 4th holiday traffic did not repeat; the weekend (Fri&ndash;Sun) remained the strongest stretch. A likely misidentification in the competitive watchlist ("Higher Level Greenfield" = HLC's own listing) was caught and flagged this cycle.</div></div>
 
-<div class="sec-title">XII. 10-Insight Checklist <span class="right">v2.2 &sect;5f</span></div>
+<div class="sec-title">XII. 10-Insight Checklist <span class="right">v2.3 &sect;5f</span></div>
 <div class="card"><div class="checklist">
-<div class="ci pass">Insight 1 &mdash; Net Sales / AOV / Txns</div><div class="ci pass">Insight 2 &mdash; Daily Sales Trend</div>
-<div class="ci pass">Insight 3 &mdash; Top Performers</div><div class="ci partial">Insight 4 &mdash; Top SKUs by Units (items[] live; names need catalog join)</div>
-<div class="ci partial">Insight 5 &mdash; Top SKUs by Revenue (items[] live; names need catalog join)</div><div class="ci partial">Insight 5b &mdash; SKU Margin (needs catalog join)</div>
-<div class="ci pass">Insight 6 &mdash; WoW &Delta;% (W25 baseline)</div><div class="ci pass">Insight 7 &mdash; YoY &Delta;% (vs Jun 2025 monthly)</div>
-<div class="ci pass">Insight 8 &mdash; WoW &Delta;$</div><div class="ci partial">Insight 9 &mdash; Customer Metrics (txns/AOV available; new/returning needs history)</div>
-<div class="ci pass">Insight 10 &mdash; Local Market Context</div>
+ <div class="ci pass">Insight 1 &mdash; Net Sales / AOV / Txns</div>
+ <div class="ci pass">Insight 2 &mdash; Daily Sales Trend</div>
+ <div class="ci pass">Insight 3 &mdash; Top Performers</div>
+ <div class="ci partial">Insight 4 &mdash; Top SKUs by Units (items[] live for first time; names need catalog join)</div>
+ <div class="ci partial">Insight 5 &mdash; Top SKUs by Revenue (items[] live for first time; names need catalog join)</div>
+ <div class="ci partial">Insight 5b &mdash; SKU Margin (needs catalog join)</div>
+ <div class="ci pass">Insight 6 &mdash; WoW &Delta;% (first completed baseline for this store)</div>
+ <div class="ci partial">Insight 7 &mdash; YoY &Delta;% (pending Jul 2025 monthly figure)</div>
+ <div class="ci pass">Insight 8 &mdash; WoW &Delta;$</div>
+ <div class="ci partial">Insight 9 &mdash; Customer Metrics (unique count est; new/returning needs history)</div>
+ <div class="ci pass">Insight 10 &mdash; Local Market Context</div>
 </div></div>
 
 <div class="sec-title">XIII. Data Gap Notice <span class="right">&sect;5g</span></div>
 <div class="card"><table>
-<tr><th>Item</th><th>Why it matters</th><th>Status W26</th><th>Owner / Next action</th></tr>
-<tr><td><strong>Product catalog join (I-4,5,5b)</strong></td><td>SKU names, categories, margin</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; IDs available; names blocked.</td><td>Pipeline: includeInactive=true. <strong>Ticket #LINE-ITEMS-CATALOG-001</strong>.</td></tr>
-<tr><td><strong>Customer new/returning split (I-9)</strong></td><td>Repeat rate tracking</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; txn count available; history join needed.</td><td><strong>Ticket #CUST-HISTORY-001</strong>.</td></tr>
-<tr><td><strong>UKG name mismatches (Jacob Flecther, Kassandra Figueroa)</strong></td><td>Hours accuracy</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; proxied at days&times;8h.</td><td>Patrick: confirm UKG roster spellings.</td></tr>
+ <tr><th>Item</th><th>Why it matters</th><th>Status W28</th><th>Owner / Next action</th></tr>
+ <tr><td><strong>W27 template/SKU-join inconsistency</strong></td><td>Cross-store comparability, merchandising visibility</td><td><strong style="color:var(--leaf)">RESOLVED</strong> &mdash; W27's build used an off-network v2.1 template with SKU/category data entirely unresolved. This cycle uses the standard v2.3 template and full SKU-level detail is available for the first time.</td><td>No action needed going forward.</td></tr>
+ <tr><td><strong>"Higher Level Greenfield" competitor misidentification</strong></td><td>Competitive intelligence accuracy</td><td><strong style="color:var(--warn)">FLAG</strong> &mdash; shares HLC's own address and license number; likely our own listing tracked as a competitor in prior cycles.</td><td>Brett/Patrick: confirm and remove from watchlist if verified; identify actual Greenfield competitors if any exist.</td></tr>
+ <tr><td><strong>Product catalog join (I-4,5,5b)</strong></td><td>SKU names, categories, margin</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; product IDs available; names blocked.</td><td>Pipeline: add includeInactive=true. <strong>Ticket #LINE-ITEMS-CATALOG-001</strong>.</td></tr>
+ <tr><td><strong>YoY exact weekly (I-7)</strong></td><td>Same-week prior-year comparison</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; HLC YoY Treez file exists in Drive but not yet joined this cycle.</td><td>Patrick: incorporate HLC YoY Treez file for next cycle.</td></tr>
+ <tr><td><strong>Customer new/returning split (I-9)</strong></td><td>Repeat rate, acquisition tracking</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; unique count estimated; history join needed.</td><td><strong>Ticket #CUST-HISTORY-001</strong>.</td></tr>
+ <tr><td><strong>Ray Riojas / Frances Tolentino hours</strong></td><td>Complete labor attribution</td><td><strong style="color:var(--alert)">GAP</strong> &mdash; both show Dutchie sales but no UKG hours, second cycle running.</td><td>Patrick: confirm whether new hires pending UKG sync or a payroll data gap.</td></tr>
 </table></div>
 
 <div class="sec-title">XIV. Methodology Notes</div>
 <div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;">
-<strong style="color:var(--white)">Period:</strong> Mon 2026-06-22 &rarr; Sun 2026-06-28. Generated 2026-06-29.<br>
-<strong style="color:var(--white)">Net sales:</strong> Dutchie transaction_line_items GAP_BACKFILL, totalBeforeTax, Retail type, isVoid=false, isReturn=false, deduped by transactionId.<br>
-<strong style="color:var(--white)">UKG hours:</strong> DetailedCalculatedTimeCounters 06/22&ndash;06/28. Regular + OT. PTO/VAC excluded. Retail cost-centers only.<br>
-<strong style="color:var(--white)">Rates:</strong> DetailedRates CSV, Rate Eff. To = &lsquo;&ndash;&rsquo;. Rate column removed from leaderboard display per v2.2 policy.<br>
-<strong style="color:var(--white)">Salaried notes:</strong> Ray Riojas and Frances Tolentino salaried 40h assumed each.<br>
-<strong style="color:var(--white)">Competitor data:</strong> Web survey 2026-06-29 via Weedmaps live menus (CA).
+ <strong style="color:var(--white)">Period:</strong> Mon 2026-07-06 &rarr; Sun 2026-07-12. Generated 2026-07-13.<br>
+ <strong style="color:var(--white)">Net sales:</strong> Dutchie transaction_line_items GAP_BACKFILL (2026-07-01_to_2026-07-13, filtered to reporting week), totalBeforeTax, Retail type, isVoid=false, isReturn=false, deduped by transactionId.<br>
+ <strong style="color:var(--white)">UKG hours:</strong> DetailedCalculatedTimeCounters 07/06&ndash;07/12. Regular + OT. PTO/VAC/PSL/Excused excluded. Greenfield Organix/Retail cost-center.<br>
+ <strong style="color:var(--white)">Rates:</strong> DetailedRates CSV, Rate Eff. To = &lsquo;&ndash;&rsquo;.<br>
+ <strong style="color:var(--white)">Competitor data:</strong> Web survey 2026-07-13 via Weedmaps/web search (CA); see Section II correction re: "Higher Level Greenfield."
 </div></div>
 
 <div class="footer">
-<div class="brand-line">Phat Panda Group &middot; Weekly Retail Analytics</div>
-<div>Methodology v2.2 &middot; &sect;5b / &sect;5f / &sect;5g / &sect;6.5 / &sect;8A / &sect;8.5 &middot; HTML Output Only</div>
-<div>Store 06 &middot; HLC Greenfield &middot; Retail Dispensary &middot; W26 2026-06-22 &rarr; 2026-06-28 &middot; Generated 2026-06-29</div>
+ <div class="brand-line">Phat Panda Group &middot; Weekly Retail Analytics</div>
+ <div>Methodology v2.3 &middot; HTML Output Only</div>
+ <div>Store 06 &middot; HLC Greenfield &middot; Retail Dispensary &middot; W28 2026-07-06 &rarr; 2026-07-12 &middot; Generated 2026-07-13</div>
 </div>
 </div></body></html>
