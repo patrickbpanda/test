@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
-<title>EMBR Lake Elsinore &mdash; W28 Weekly Dashboard &mdash; 2026-07-12</title>
+<title>EMBR Lake Elsinore &mdash; W29 Weekly Dashboard &mdash; 2026-07-19</title>
 <style>
 @page { size: Letter landscape; margin: 0.4in; }
 :root {
@@ -89,7 +89,6 @@ tr:nth-child(even) td { background:rgba(255,255,255,.02); }
 .muted { color:var(--muted); }
 .note { font-size:7pt; color:var(--muted); margin-top:5px; line-height:1.4; }
 </style></head><body>
-
 <div class="header">
  <div class="header-row">
  <div class="brand-block">
@@ -104,137 +103,132 @@ tr:nth-child(even) td { background:rgba(255,255,255,.02); }
  <div>License C10-0001234-LIC</div>
  <div>POS: Dutchie &middot; Payroll: UKG</div>
  <div><span class="loc-chip">&#9660; Lake Elsinore, CA</span></div>
- <div style="margin-top:5px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.3 &middot; Production</span> <span class="tag up">+6.0% WoW</span></div>
+ <div style="margin-top:5px;"><span class="badge badge-ok">POS Live</span><span class="badge badge-prod">v2.3 &middot; Production</span> <span class="tag dn">-25.7% WoW</span></div>
  </div>
  </div>
- <div class="meta" style="margin-top:8px;">Reporting week: <strong>Mon 2026-07-06 &rarr; Sun 2026-07-12 (W28)</strong> &middot; Dutchie GAP_BACKFILL 2026-07-02_to_2026-07-13 &middot; UKG Counter 07/06&ndash;07/12 &middot; DetailedRates 2026-07-06 &middot; Generated: 2026-07-13 &middot; Phat Panda Group Analytics &middot; Methodology v2.3</div>
+ <div class="meta" style="margin-top:8px;">Reporting week: <strong>Mon 2026-07-13 &rarr; Sun 2026-07-19 (W29)</strong> &middot; Dutchie GAP_BACKFILL 2026-07-08_to_2026-07-20 &middot; UKG Counter 07/13&ndash;07/19 &middot; DetailedRates 2026-07-06 &middot; Generated: 2026-07-21 &middot; Phat Panda Group Analytics &middot; Methodology v2.3</div>
 </div>
 
 <div class="container">
-<div class="alert-bar"><strong style="color:var(--neon)">[W28 &mdash; Production &mdash; 7/6&rarr;7/12]</strong> Dutchie GAP_BACKFILL 2026-07-02_to_2026-07-13 (window wider than reporting week; filtered to 7/6&ndash;7/12 per methodology). UKG Counter 07/06&ndash;07/12. Wholesale/non-retail excluded. Deduped by transactionId.</div>
+<div class="alert-bar"><strong style="color:var(--neon)">[W29 &mdash; Production &mdash; 7/13&rarr;7/19]</strong> Dutchie GAP_BACKFILL 2026-07-08_to_2026-07-20. UKG Counter 07/13&ndash;07/19. Security cost added this cycle (MOD/Lake Elsinore cost-center, $2,332.75/wk, split evenly across 7am&ndash;9pm operating hours; Production dept excluded per standing rule). Wholesale/non-retail excluded. Deduped by transactionId.</div>
 
-<div class="sec-title">I. Operations Snapshot &mdash; Week Ending 2026-07-12 <span class="right">Insight 1 &middot; 7/7 days</span></div>
+<div class="sec-title">I. Operations Snapshot &mdash; Week Ending 2026-07-19 <span class="right">Insight 1 &middot; 7/7 days</span></div>
 <div class="grid5">
- <div class="kpi"><div class="kpi-label">Net Sales &middot; Week</div><div class="kpi-val">$33,155.20</div><div class="kpi-sub">660 transactions &middot; 7/7 days</div></div>
- <div class="kpi"><div class="kpi-label">Prior Wk Net (W27)</div><div class="kpi-val">$31,289.79</div><div class="kpi-sub neutral">Jun 29&ndash;Jul 5 &middot; 591 txns</div></div>
- <div class="kpi"><div class="kpi-label">WoW &Delta; &middot; Insight 8</div><div class="kpi-val" style="color:var(--leaf)">+6.0%</div><div class="kpi-sub">$+1,865.41 vs W27</div></div>
- <div class="kpi"><div class="kpi-label">Avg Basket (AOV)</div><div class="kpi-val">$50.24</div><div class="kpi-sub neutral">Net $ / Txns</div></div>
- <div class="kpi"><div class="kpi-label">Labor % of Net Sales</div><div class="kpi-val">11.1%</div><div class="kpi-sub neutral">$3,674.38 / $33,155.20</div></div>
+ <div class="kpi"><div class="kpi-label">Net Sales &middot; Week</div><div class="kpi-val">$24,624.58</div><div class="kpi-sub">515 transactions &middot; 7/7 days</div></div>
+ <div class="kpi"><div class="kpi-label">Prior Wk Net (W28)</div><div class="kpi-val">$33,155.20</div><div class="kpi-sub neutral">Jul 6&ndash;Jul 12 &middot; 660 txns</div></div>
+ <div class="kpi"><div class="kpi-label">WoW &Delta; &middot; Insight 8</div><div class="kpi-val" style="color:var(--alert)">-25.7%</div><div class="kpi-sub gap">$-8,530.62 vs W28</div></div>
+ <div class="kpi"><div class="kpi-label">Avg Basket (AOV)</div><div class="kpi-val">$47.81</div><div class="kpi-sub neutral">Net $ / Txns</div></div>
+ <div class="kpi"><div class="kpi-label">Labor % of Net Sales</div><div class="kpi-val" style="color:var(--warn)">21.0%</div><div class="kpi-sub gap">$5,178.73 / $24,624.58 (incl. security)</div></div>
 </div>
 <div class="grid5">
- <div class="kpi ember"><div class="kpi-label">Worked Hours</div><div class="kpi-val">180.2</div><div class="kpi-sub neutral">6 emps &middot; UKG Counter</div></div>
- <div class="kpi ember"><div class="kpi-label">Payroll Cost</div><div class="kpi-val">$3,674.38</div><div class="kpi-sub neutral">$20.39/hr blended</div></div>
- <div class="kpi ember"><div class="kpi-label">Sales per Labor $</div><div class="kpi-val">$9.02</div><div class="kpi-sub neutral">Revenue / $1 payroll</div></div>
- <div class="kpi ember"><div class="kpi-label">$ per Labor Hour</div><div class="kpi-val">$184</div><div class="kpi-sub neutral">Net / worked hrs</div></div>
+ <div class="kpi ember"><div class="kpi-label">Worked Hours</div><div class="kpi-val">160.9</div><div class="kpi-sub neutral">6 emps &middot; UKG Counter</div></div>
+ <div class="kpi ember"><div class="kpi-label">Payroll Cost</div><div class="kpi-val">$2,845.98</div><div class="kpi-sub neutral">$17.69/hr blended</div></div>
+ <div class="kpi ember"><div class="kpi-label">Security Cost</div><div class="kpi-val">$2,332.75</div><div class="kpi-sub neutral">New this cycle</div></div>
+ <div class="kpi ember"><div class="kpi-label">Sales per Labor $</div><div class="kpi-val">$4.75</div><div class="kpi-sub neutral">Revenue / $1 total labor</div></div>
  <div class="kpi ember"><div class="kpi-label">Tax Regime</div><div class="kpi-val" style="font-size:9pt">CA</div><div class="kpi-sub neutral">CA excise + sales tax</div></div>
 </div>
 
 <div class="sec-title">II. Recommended Actions <span class="right">Sorted by severity</span></div>
-<div class="card"><div class="alert-bar warn"><span class="tag est">FLAG</span>&nbsp;<strong>Template inconsistency corrected:</strong> last week's (W27) Lake Elsinore dashboard was built on an older, nonstandard template (v2.1) with different CSS/section structure than the other 5 stores (all v2.3), and never completed its own WoW comparison (flagged "baseline pending"). This cycle reverts to the standard v2.3 template used network-wide; W27's own reported figures ($31,289.79 net, 591 txns, $52.94 AOV) are used as the WoW baseline below.</div>
-<div class="alert-bar" style="border-left-color:var(--leaf)"><span class="tag up">STRONG</span>&nbsp;<strong>+6.0% WoW, driven almost entirely by an exceptional Saturday ($12,732, 201 txns).</strong> No corrective action needed, but worth understanding what drove Saturday's spike for possible replication.</div>
-<div class="alert-bar warn"><span class="tag est">PIPELINE</span>&nbsp;<strong>UKG name mismatches persist (Colleen Loffer-Elliott, Briana Gustavesen).</strong> Hours matched via known aliasing; Patrick to confirm UKG roster spellings.</div>
+<div class="card"><div class="alert-bar warn"><span class="tag dn">FLAG</span>&nbsp;<strong>Net sales down -25.7% WoW, the sharpest decline of any store this cycle.</strong> This is largely a mean-reversion effect: W28 included an exceptional, unexplained Saturday spike ($12,732 &mdash; 2.4x any other day) that did not repeat this cycle. Excluding that anomaly, W29's daily pattern ($1,954&ndash;$5,269/day) is closer to W28's typical weekday range.</div>
+<div class="alert-bar warn"><span class="tag dn">FLAG</span>&nbsp;<strong>Labor % jumped to 21.0% (from 11.1% in W28), driven by both the sales decline and the new security cost line.</strong> Payroll-only labor % is ~11.6%, similar to W28; the total increase is mostly the newly added $2,332.75/wk security charge combined with lower sales.</div>
+<div class="alert-bar warn"><span class="tag est">PIPELINE</span>&nbsp;<strong>UKG name mismatches persist (Colleen Loffer-Elliott, Briana Gustavesen).</strong> Hours matched via known aliasing from prior cycles.</div>
 <div class="alert-bar info"><span class="tag info">PIPELINE</span>&nbsp;<strong>Catalog join still pending.</strong> Ticket #LINE-ITEMS-CATALOG-001.</div></div>
 
-<div class="sec-title">III. Daily Sales Trend &mdash; W28 <span class="right">Insight 2 &middot; Neon = sales, Ember = labor overlay</span></div>
+<div class="sec-title">III. Daily Sales Trend &mdash; W29 <span class="right">Insight 2 &middot; Neon = sales, Ember = labor overlay (incl. security)</span></div>
 <div class="card">
  <div class="day-bar-wrap"><div class="day-bar"><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$3,103.54</span><span class="day-aov-lbl">AOV $43.71</span></div>
- <div class="bar-outer" style="height:28px"><div class="bar-sales" style="height:23px"></div><div class="bar-labor" style="height:5px"></div></div>
- <div class="day-bottom"><span class="day-dow">MON</span><span class="day-date-lbl">7/6</span><span class="day-labor-lbl">$525 / 16.9%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$3,060.76</span><span class="day-aov-lbl">AOV $49.37</span></div>
+ <div class="bar-outer" style="height:67px"><div class="bar-sales" style="height:51px"></div><div class="bar-labor" style="height:16px"></div></div>
+ <div class="day-bottom"><span class="day-dow">MON</span><span class="day-date-lbl">7/13</span><span class="day-labor-lbl">$738 / 24.1%</span></div>
 </div><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$2,919.43</span><span class="day-aov-lbl">AOV $42.93</span></div>
- <div class="bar-outer" style="height:27px"><div class="bar-sales" style="height:23px"></div><div class="bar-labor" style="height:4px"></div></div>
- <div class="day-bottom"><span class="day-dow">TUE</span><span class="day-date-lbl">7/7</span><span class="day-labor-lbl">$422 / 14.5%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$1,954.02</span><span class="day-aov-lbl">AOV $34.28</span></div>
+ <div class="bar-outer" style="height:43px"><div class="bar-sales" style="height:29px"></div><div class="bar-labor" style="height:14px"></div></div>
+ <div class="day-bottom"><span class="day-dow">TUE</span><span class="day-date-lbl">7/14</span><span class="day-labor-lbl">$652 / 33.4%</span></div>
 </div><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$3,198.37</span><span class="day-aov-lbl">AOV $46.35</span></div>
- <div class="bar-outer" style="height:29px"><div class="bar-sales" style="height:23px"></div><div class="bar-labor" style="height:6px"></div></div>
- <div class="day-bottom"><span class="day-dow">WED</span><span class="day-date-lbl">7/8</span><span class="day-labor-lbl">$609 / 19.0%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$3,432.19</span><span class="day-aov-lbl">AOV $44.00</span></div>
+ <div class="bar-outer" style="height:76px"><div class="bar-sales" style="height:59px"></div><div class="bar-labor" style="height:17px"></div></div>
+ <div class="day-bottom"><span class="day-dow">WED</span><span class="day-date-lbl">7/15</span><span class="day-labor-lbl">$746 / 21.7%</span></div>
 </div><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$3,389.39</span><span class="day-aov-lbl">AOV $44.02</span></div>
- <div class="bar-outer" style="height:31px"><div class="bar-sales" style="height:28px"></div><div class="bar-labor" style="height:3px"></div></div>
- <div class="day-bottom"><span class="day-dow">THU</span><span class="day-date-lbl">7/9</span><span class="day-labor-lbl">$357 / 10.5%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$4,063.07</span><span class="day-aov-lbl">AOV $52.09</span></div>
+ <div class="bar-outer" style="height:89px"><div class="bar-sales" style="height:73px"></div><div class="bar-labor" style="height:16px"></div></div>
+ <div class="day-bottom"><span class="day-dow">THU</span><span class="day-date-lbl">7/16</span><span class="day-labor-lbl">$748 / 18.4%</span></div>
 </div><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$5,223.55</span><span class="day-aov-lbl">AOV $47.06</span></div>
- <div class="bar-outer" style="height:48px"><div class="bar-sales" style="height:42px"></div><div class="bar-labor" style="height:6px"></div></div>
- <div class="day-bottom"><span class="day-dow">FRI</span><span class="day-date-lbl">7/10</span><span class="day-labor-lbl">$605 / 11.6%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$5,269.10</span><span class="day-aov-lbl">AOV $52.17</span></div>
+ <div class="bar-outer" style="height:116px"><div class="bar-sales" style="height:99px"></div><div class="bar-labor" style="height:17px"></div></div>
+ <div class="day-bottom"><span class="day-dow">FRI</span><span class="day-date-lbl">7/17</span><span class="day-labor-lbl">$782 / 14.8%</span></div>
 </div><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$12,732.25</span><span class="day-aov-lbl">AOV $63.34</span></div>
- <div class="bar-outer" style="height:116px"><div class="bar-sales" style="height:110px"></div><div class="bar-labor" style="height:6px"></div></div>
- <div class="day-bottom"><span class="day-dow">SAT</span><span class="day-date-lbl">7/11</span><span class="day-labor-lbl">$639 / 5.0%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$3,820.82</span><span class="day-aov-lbl">AOV $49.62</span></div>
+ <div class="bar-outer" style="height:84px"><div class="bar-sales" style="height:66px"></div><div class="bar-labor" style="height:18px"></div></div>
+ <div class="day-bottom"><span class="day-dow">SAT</span><span class="day-date-lbl">7/18</span><span class="day-labor-lbl">$821 / 21.5%</span></div>
 </div><div class="day-col">
- <div class="day-top"><span class="day-val-lbl">$2,588.67</span><span class="day-aov-lbl">AOV $41.09</span></div>
- <div class="bar-outer" style="height:24px"><div class="bar-sales" style="height:19px"></div><div class="bar-labor" style="height:5px"></div></div>
- <div class="day-bottom"><span class="day-dow">SUN</span><span class="day-date-lbl">7/12</span><span class="day-labor-lbl">$516 / 19.9%</span></div>
+ <div class="day-top"><span class="day-val-lbl">$3,024.62</span><span class="day-aov-lbl">AOV $48.78</span></div>
+ <div class="bar-outer" style="height:67px"><div class="bar-sales" style="height:52px"></div><div class="bar-labor" style="height:15px"></div></div>
+ <div class="day-bottom"><span class="day-dow">SUN</span><span class="day-date-lbl">7/19</span><span class="day-labor-lbl">$692 / 22.9%</span></div>
 </div></div></div>
- <div class="bar-legend"><span><span class="swatch" style="background:var(--neon)"></span>Daily net sales</span><span><span class="swatch" style="background:var(--ember)"></span>Labor cost overlay</span></div>
- <div class="note">Saturday 7/11 was nearly 2.4x any other day this week ($12,732 vs a $2,600&ndash;$5,200 range) while running the week's lowest labor % (5.0%) &mdash; a standout, efficient day. See Section VI for hypotheses.</div>
+ <div class="bar-legend"><span><span class="swatch" style="background:var(--neon)"></span>Daily net sales</span><span><span class="swatch" style="background:var(--ember)"></span>Labor cost overlay (payroll + security)</span></div>
+ <div class="note">No repeat of W28's Saturday anomaly this cycle; Friday 7/17 was this week's peak ($5,269), a normal weekly pattern.</div>
 </div>
 
 <div class="sec-title">IV. Staffing-vs-Demand Review <span class="right">Permanent &middot; v2.3 &sect;5b</span></div>
 <div class="card"><table><tr><th>Day</th><th>Open Hrs</th><th>Worked Hrs</th><th>Avg Emp/Hr</th><th>Net Sales</th><th>$/Labor-Hr</th><th>Sales:Labor</th></tr>
-<tr><td><strong>MON</strong> 7/6</td><td>14</td><td>23.3</td><td>1.66</td><td>$3,103.54</td><td>$133</td><td>$5.91:$1</td></tr>
-<tr><td><strong>TUE</strong> 7/7</td><td>14</td><td>22.8</td><td>1.63</td><td>$2,919.43</td><td>$128</td><td>$6.91:$1</td></tr>
-<tr><td><strong>WED</strong> 7/8</td><td>14</td><td>27.4</td><td>1.96</td><td>$3,198.37</td><td>$117</td><td>$5.25:$1</td></tr>
-<tr><td><strong>THU</strong> 7/9</td><td>14</td><td>20.1</td><td>1.44</td><td>$3,389.39</td><td>$169</td><td>$9.48:$1</td></tr>
-<tr><td><strong>FRI</strong> 7/10</td><td>14</td><td>28.5</td><td>2.03</td><td>$5,223.55</td><td>$184</td><td>$8.63:$1</td></tr>
-<tr><td><strong>SAT</strong> 7/11</td><td>14</td><td>35.2</td><td>2.51</td><td>$12,732.25</td><td>$362</td><td>$19.93:$1</td></tr>
-<tr><td><strong>SUN</strong> 7/12</td><td>14</td><td>23.0</td><td>1.64</td><td>$2,588.67</td><td>$112</td><td>$5.01:$1</td></tr>
+<tr><td><strong>MON</strong> 7/13</td><td>14</td><td>23.2</td><td>1.66</td><td>$3,060.76</td><td>$132</td><td>$4.15:$1</td></tr><tr><td><strong>TUE</strong> 7/14</td><td>14</td><td>19.1</td><td>1.36</td><td>$1,954.02</td><td>$102</td><td>$3.00:$1</td></tr><tr><td><strong>WED</strong> 7/15</td><td>14</td><td>23.3</td><td>1.67</td><td>$3,432.19</td><td>$147</td><td>$4.60:$1</td></tr><tr><td><strong>THU</strong> 7/16</td><td>14</td><td>22.4</td><td>1.60</td><td>$4,063.07</td><td>$181</td><td>$5.43:$1</td></tr><tr><td><strong>FRI</strong> 7/17</td><td>14</td><td>24.6</td><td>1.76</td><td>$5,269.10</td><td>$214</td><td>$6.74:$1</td></tr><tr><td><strong>SAT</strong> 7/18</td><td>14</td><td>26.7</td><td>1.91</td><td>$3,820.82</td><td>$143</td><td>$4.65:$1</td></tr><tr><td><strong>SUN</strong> 7/19</td><td>14</td><td>21.6</td><td>1.54</td><td>$3,024.62</td><td>$140</td><td>$4.37:$1</td></tr>
 </table></div>
 
 <div class="sec-title">V. Period-over-Period Comparison <span class="right">Insights 6, 7, 8</span></div>
 <div class="card">
  <table>
- <tr><th>Metric</th><th>W28 (7/6&rarr;7/12)</th><th>W27 (6/29&rarr;7/5)</th><th>WoW &Delta;$</th><th>WoW &Delta;%</th></tr>
- <tr><td>Net Sales</td><td style="font-weight:700">$33,155.20</td><td>$31,289.79</td><td style="color:var(--leaf);font-weight:700">$+1,865.41</td><td style="color:var(--leaf);font-weight:700">+6.0%</td></tr>
- <tr><td>Transactions</td><td style="font-weight:700">660</td><td>591</td><td style="color:var(--leaf)">+69</td><td>+11.7%</td></tr>
- <tr><td>Avg Basket</td><td style="font-weight:700">$50.24</td><td>$52.94</td><td style="color:var(--alert)">$-2.70</td><td>-5.1%</td></tr>
+ <tr><th>Metric</th><th>W29 (7/13&rarr;7/19)</th><th>W28 (7/6&rarr;7/12)</th><th>WoW &Delta;$</th><th>WoW &Delta;%</th></tr>
+ <tr><td>Net Sales</td><td style="font-weight:700">$24,624.58</td><td>$33,155.20</td><td style="color:var(--alert);font-weight:700">$-8,530.62</td><td style="color:var(--alert);font-weight:700">-25.7%</td></tr>
+ <tr><td>Transactions</td><td style="font-weight:700">515</td><td>660</td><td style="color:var(--alert)">-145</td><td>-22.0%</td></tr>
+ <tr><td>Avg Basket</td><td style="font-weight:700">$47.81</td><td>$50.24</td><td style="color:var(--alert)">$-2.43</td><td>-4.8%</td></tr>
  </table>
- <div class="note">WoW vs W27 (Jun 29&ndash;Jul 5) using totalBeforeTax per methodology. This is the first cycle a proper WoW comparison could be computed for this store &mdash; W27's own dashboard build never completed its baseline (flagged "pending"). Net sales and transactions both grew, though AOV pulled back, consistent with Saturday's high-volume, still-above-average-basket surge.</div>
+ <div class="note">WoW vs W28 (Jul 6&ndash;Jul 12) using totalBeforeTax per methodology. The decline is best explained by W28's own anomaly: an unexplained Saturday spike ($12,732, 201 txns) that inflated the W28 baseline rather than reflecting a genuine downtrend this cycle. Recommend treating W29 as closer to this store's normal run-rate.</div>
 </div>
 
 <div class="sec-title">VI. Potential External Causes of Sales Changes <span class="right">&sect;6.5 &middot; EMBR Lake Elsinore</span></div>
 <div class="card"><table><tr><th>Date/Window</th><th>Local Factor</th><th>Effect</th><th>Conf.</th><th>Hypothesis</th></tr>
-<tr><td>Sat 7/11</td><td><strong>Exceptional single-day volume ($12,732 / 201 txns)</strong></td><td><span class="tag up">UPLIFT</span></td><td><span class="tag est">LOW</span></td><td style="font-size:7.5pt">No specific local event identified; could reflect a promo, local gathering, or lake-area weekend traffic. Worth asking Brett if a promotion ran that day.</td></tr>
-<tr><td>Mon&ndash;Thu</td><td><strong>Otherwise a typical week</strong></td><td><span class="tag neon">STABLE</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Mon&ndash;Thu net sales ($2.9k&ndash;$3.4k/day) tracked close to the $3k&ndash;$4.4k range seen most weekdays in W27.</td></tr>
-<tr><td>Mon&ndash;Sun</td><td><strong>No material competitor pricing changes identified</strong></td><td><span class="tag neon">STABLE</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Blazed Utopia's pricing ($7/1g house concentrate, $45/half-oz, $13/4g flower) confirmed unchanged from prior cycles. +6.0% WoW is not explained by competitive shifts.</td></tr>
+<tr><td>Mon&ndash;Sun 7/13&ndash;7/19</td><td><strong>No repeat of W28's exceptional Saturday</strong></td><td><span class="tag dn">MEAN-REVERSION</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">W28's $12,732 Saturday (2.4x any other day) was never explained by a specific promo or event; this cycle's more typical daily pattern accounts for most of the WoW decline.</td></tr>
+<tr><td>Mon&ndash;Sun</td><td><strong>Blazed Utopia, The Syndicate #2, STIIIZY all unchanged</strong></td><td><span class="tag neon">STABLE</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Blazed Utopia's pricing confirmed unchanged. STIIIZY (Wildomar location) continues aggressive B2G1/30%-off-first-time promos consistent with its new-entrant positioning since W26, not a new development this cycle.</td></tr>
+<tr><td>Mon&ndash;Sun</td><td><strong>The Healing Tree unchanged</strong></td><td><span class="tag neon">STABLE</span></td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">No new pricing or promo changes surfaced this cycle.</td></tr>
 </table></div>
 
 <div class="sec-title">VII. Top Performers <span class="right">Insight 3 &middot; sorted by Wk Net Sales</span></div>
 <div class="card">
  <h2>Budtenders / Cashiers who worked this period <span class="sub">&middot; Top 6 by net sales</span></h2>
  <table><tr><th>#</th><th>Employee (UKG)</th><th>Wk Hrs</th><th>Wk Net Sales</th><th>Txns</th><th>AOV</th><th>Txns/Hr</th></tr>
-<tr><td style="font-weight:800;color:var(--neon)">1</td><td>Colleen Loffer-Elliott</td><td>36.99</td><td style="font-weight:700">$7,166.35</td><td>130</td><td>$55.13</td><td>3.51</td></tr>
-<tr><td style="font-weight:800;color:var(--neon)">2</td><td>Briana Gustavesen</td><td>36.84</td><td style="font-weight:700">$6,948.97</td><td>123</td><td>$56.50</td><td>3.34</td></tr>
-<tr><td style="font-weight:800;color:var(--neon)">3</td><td>Marissa Oseguera</td><td>26.53</td><td style="font-weight:700">$5,843.41</td><td>131</td><td>$44.61</td><td>4.94</td></tr>
-<tr><td style="font-weight:800;color:var(--neon)">4</td><td>Jessica Hernandez</td><td>32.05</td><td style="font-weight:700">$5,518.93</td><td>110</td><td>$50.17</td><td>3.43</td></tr>
-<tr><td style="font-weight:800;color:var(--neon)">5</td><td>Keisha Jordan</td><td>25.33</td><td style="font-weight:700">$4,297.77</td><td>88</td><td>$48.84</td><td>3.47</td></tr>
-<tr><td style="font-weight:800;color:var(--neon)">6</td><td>Nicole Rodriguez</td><td>22.50</td><td style="font-weight:700">$3,379.77</td><td>78</td><td>$43.33</td><td>3.47</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">1</td><td>Marissa Oseguera</td><td>36.25</td><td style="font-weight:700">$5,403.60</td><td>132</td><td>$40.94</td><td>3.64</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">2</td><td>Colleen Loffer-Elliott</td><td>29.52</td><td style="font-weight:700">$5,278.15</td><td>90</td><td>$58.65</td><td>3.05</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">3</td><td>Briana Gustavesen</td><td>29.19</td><td style="font-weight:700">$4,852.35</td><td>112</td><td>$43.32</td><td>3.84</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">4</td><td>Jessica Hernandez</td><td>21.12</td><td style="font-weight:700">$3,629.89</td><td>61</td><td>$59.51</td><td>2.89</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">5</td><td>Keisha Jordan</td><td>26.76</td><td style="font-weight:700">$2,756.57</td><td>63</td><td>$43.76</td><td>2.35</td></tr>
+<tr><td style="font-weight:800;color:var(--neon)">6</td><td>Nicole Rodriguez</td><td>18.02</td><td style="font-weight:700">$2,704.02</td><td>57</td><td>$47.44</td><td>3.16</td></tr>
+
  </table>
- <div class="note">6 total employees on schedule this cycle (Retail dept only; Production-dept Modern Leaf staff excluded per standing rule). Hours from UKG Counter (Regular + OT), sales from Dutchie completedByUser join. Colleen Loffer-Elliott and Briana Gustavesen hours matched via known UKG spelling variants &mdash; see Data Gap Notice.</div>
+ <div class="note">6 total employees on schedule this cycle (Retail dept only; Production-dept Modern Leaf staff excluded per standing rule). Hours from UKG Counter (Regular + OT), sales from Dutchie completedByUser join. Colleen Loffer-Elliott and Briana Gustavesen hours matched via known UKG spelling variants.</div>
 </div>
 
 <div class="grid3">
  <div class="card"><h2>Top SKUs by Units <span class="sub">&middot; Insight 4</span></h2>
  <table><tr><th>#</th><th>Product ID</th><th>Vendor</th><th>Units</th><th>Avg $</th><th>Revenue</th></tr>
- <tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3841045</td><td>Bud Technology</td><td>59</td><td>$0.06</td><td style="font-weight:700">$4</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3831866</td><td>Garden of Weeden, Inc.</td><td>46</td><td>$2.00</td><td style="font-weight:700">$92</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3743629</td><td>Modern Leaf Culture, Inc.</td><td>45</td><td>$65.00</td><td style="font-weight:700">$2,925</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3745155</td><td>CDXX Virtuosi Group LLC</td><td>40</td><td>$10.01</td><td style="font-weight:700">$400</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3806491</td><td>CDXX Virtuosi Group LLC</td><td>30</td><td>$25.00</td><td style="font-weight:700">$750</td></tr>
- </table><div class="note">W28 SKU names pending /products catalog join (includeInactive=true). Ticket #LINE-ITEMS-CATALOG-001.</div></div>
+ <tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3855471</td><td>Garden of Weeden, Inc.</td><td>64</td><td>$0.01</td><td style="font-weight:700">$1</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3743629</td><td>Modern Leaf Culture, Inc.</td><td>53</td><td>$65.00</td><td style="font-weight:700">$3,445</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3831863</td><td>Garden of Weeden, Inc.</td><td>42</td><td>$2.00</td><td style="font-weight:700">$84</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3736002</td><td>Modern Leaf Culture, Inc.</td><td>38</td><td>$65.00</td><td style="font-weight:700">$2,470</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3745150</td><td>CDXX Virtuosi Group LLC</td><td>33</td><td>$25.00</td><td style="font-weight:700">$825</td></tr>
+ </table><div class="note">W29 SKU names pending /products catalog join (includeInactive=true). Ticket #LINE-ITEMS-CATALOG-001.</div></div>
  <div class="card"><h2>Top SKUs by Revenue <span class="sub">&middot; Insight 5</span></h2>
  <table><tr><th>#</th><th>Product ID</th><th>Vendor</th><th>Units</th><th>Avg $</th><th>Revenue</th></tr>
- <tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3743629</td><td>Modern Leaf Culture, Inc.</td><td>45</td><td>$65.00</td><td style="font-weight:700">$2,925</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3735421</td><td>Modern Leaf Culture, Inc.</td><td>28</td><td>$65.00</td><td style="font-weight:700">$1,820</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3853120</td><td>Modern Leaf Culture, Inc.</td><td>26</td><td>$65.00</td><td style="font-weight:700">$1,690</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3720966</td><td>Modern Leaf Culture, Inc.</td><td>25</td><td>$65.00</td><td style="font-weight:700">$1,625</td></tr>
-<tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3735422</td><td>Modern Leaf Culture, Inc.</td><td>24</td><td>$65.00</td><td style="font-weight:700">$1,560</td></tr>
- </table><div class="note">W28 SKU names pending /products catalog join. Modern Leaf Culture, Inc. overwhelmingly dominant across top revenue positions this cycle.</div></div>
+ <tr><td style="font-weight:700;color:var(--neon)">1</td><td style="font-size:7pt">ID:3743629</td><td>Modern Leaf Culture, Inc.</td><td>53</td><td>$65.00</td><td style="font-weight:700">$3,445</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">2</td><td style="font-size:7pt">ID:3736002</td><td>Modern Leaf Culture, Inc.</td><td>38</td><td>$65.00</td><td style="font-weight:700">$2,470</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">3</td><td style="font-size:7pt">ID:3735422</td><td>Modern Leaf Culture, Inc.</td><td>24</td><td>$65.00</td><td style="font-weight:700">$1,560</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">4</td><td style="font-size:7pt">ID:3735421</td><td>Modern Leaf Culture, Inc.</td><td>23</td><td>$65.00</td><td style="font-weight:700">$1,495</td></tr>
+ <tr><td style="font-weight:700;color:var(--neon)">5</td><td style="font-size:7pt">ID:3853120</td><td>Modern Leaf Culture, Inc.</td><td>22</td><td>$65.00</td><td style="font-weight:700">$1,430</td></tr>
+ </table><div class="note">W29 SKU names pending /products catalog join. Modern Leaf Culture, Inc. overwhelmingly dominant across top revenue positions, consistent with prior cycles.</div></div>
  <div class="card"><h2>Customer Metrics <span class="sub">&middot; Insight 9</span></h2>
- <div class="row"><span class="label">Unique customers</span><span class="val">~490 est</span></div>
- <div class="row"><span class="label">Net $ per customer</span><span class="val">~$67.66 est</span></div>
- <div class="row"><span class="label">Txns per day (avg)</span><span class="val">94</span></div>
- <div class="row"><span class="label">Peak day</span><span class="val">Sat 7/11 &middot; 201 txns</span></div>
+ <div class="row"><span class="label">Unique customers</span><span class="val">~365 est</span></div>
+ <div class="row"><span class="label">Net $ per customer</span><span class="val">~$67.46 est</span></div>
+ <div class="row"><span class="label">Txns per day (avg)</span><span class="val">74</span></div>
+ <div class="row"><span class="label">Peak day</span><span class="val">Fri 7/17 &middot; 101 txns</span></div>
  <div class="note">New/returning split requires full customer history join. Ticket #CUST-HISTORY-001.</div>
  </div>
 </div>
@@ -242,39 +236,39 @@ tr:nth-child(even) td { background:rgba(255,255,255,.02); }
 <div class="sec-title">VIII. Competitive Landscape <span class="right">Insight 10 &middot; &sect;9A Threat Matrix &amp; &sect;9B Pricing Scorecard</span></div>
 <div class="card"><h2>&sect;9A &mdash; EMBR Lake Elsinore Threat Matrix</h2>
 <table><tr><th>Competitor</th><th>Location</th><th>Rating</th><th>Threat</th><th>Notes / Action</th></tr>
-<tr><td><strong>Blazed Utopia</strong></td><td style="font-size:7.5pt">233 W Minthorn St</td><td style="font-size:7.5pt">Active</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Confirmed unchanged: $7/1g house concentrate, $45/half-oz house flower, $13/4g house flower. No change from prior cycles.</td></tr>
-<tr><td><strong>The Syndicate #2 (Corydon)</strong></td><td style="font-size:7.5pt">31885 Corydon Rd STE 130</td><td style="font-size:7.5pt">4.8&#9733;</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Everyday storewide discount positioning, unchanged from prior cycles.</td></tr>
-<tr><td><strong>STIIIZY Lake Elsinore</strong></td><td style="font-size:7.5pt">Regional presence</td><td style="font-size:7.5pt">Active</td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">New entrant as of W26; continue monitoring as it ramps.</td></tr>
-<tr><td><strong>The Healing Tree</strong></td><td style="font-size:7.5pt">Lake Elsinore, CA</td><td style="font-size:7.5pt">4.7&#9733; (613 reviews)</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Large competitor added to watchlist last cycle; no material pricing changes surfaced this cycle.</td></tr>
+<tr><td><strong>Blazed Utopia</strong></td><td style="font-size:7.5pt">233 W Minthorn St</td><td style="font-size:7.5pt">Active</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Confirmed unchanged pricing this cycle ($7/1g house concentrate, $45/half-oz, $13/4g house flower).</td></tr>
+<tr><td><strong>The Syndicate #2 (Corydon)</strong></td><td style="font-size:7.5pt">31885 Corydon Rd STE 130</td><td style="font-size:7.5pt">Active</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">Everyday storewide discount positioning, unchanged. 10+ storefronts across CA per company site.</td></tr>
+<tr><td><strong>STIIIZY Lake Elsinore</strong></td><td style="font-size:7.5pt">Wildomar (regional)</td><td style="font-size:7.5pt">4.5&#9733;&ndash;4.6&#9733;</td><td><span class="tag est">MED</span></td><td style="font-size:7.5pt">Aggressive ongoing promos (30% off first-time customers, B2G1 up to 50% off) &mdash; consistent with new-entrant positioning since W26, not a new change this cycle.</td></tr>
+<tr><td><strong>The Healing Tree</strong></td><td style="font-size:7.5pt">Lake Elsinore, CA</td><td style="font-size:7.5pt">4.7&#9733; (613 reviews)</td><td><span class="tag dn">HIGH</span></td><td style="font-size:7.5pt">No material pricing changes surfaced this cycle.</td></tr>
 </table></div>
-<div class="card"><h2>&sect;9B &mdash; Pricing Scorecard <span class="sub">&middot; Web Survey 2026-07-13</span></h2><div class="note" style="font-size:7.5pt;line-height:1.6;padding:4px 0;">No material competitive pricing shifts identified this cycle. +6.0% WoW growth (driven by Saturday's spike) does not appear to be a response to any competitor change.</div></div>
+<div class="card"><h2>&sect;9B &mdash; Pricing Scorecard <span class="sub">&middot; Web Survey 2026-07-21</span></h2><div class="note" style="font-size:7.5pt;line-height:1.6;padding:4px 0;">No material competitive pricing shifts identified this cycle. The -25.7% WoW decline is best explained by W28's own unexplained Saturday spike normalizing away, not by competitive pressure.</div></div>
 
-<div class="sec-title">IX. Category Performance <span class="right">items[] live W28</span></div>
-<div class="card"><div class="note">items[] populated &mdash; SKU line items active. Category breakdown requires /products catalog join. Track <strong>ticket #LINE-ITEMS-CATALOG-001</strong>.</div></div>
+<div class="sec-title">IX. Category Performance <span class="right">items[] live W29</span></div>
+<div class="card"><div class="note">items[] populated &mdash; SKU line items active (559 distinct product IDs, 1,447 line items this cycle). Category breakdown requires /products catalog join. Track <strong>ticket #LINE-ITEMS-CATALOG-001</strong>.</div></div>
 
 <div class="sec-title">X. Inventory Signals</div>
 <div class="grid2">
  <div class="card"><h2>Current SKU Picture</h2>
- <div class="row"><span class="label">Distinct product IDs sold (W28)</span><span class="val">732</span></div>
- <div class="note">Full SKU count requires /products catalog join with includeInactive=true. Ticket #LINE-ITEMS-CATALOG-001.</div>
+ <div class="row"><span class="label">Distinct product IDs sold (W29)</span><span class="val">559</span></div>
+ <div class="note">Full SKU names require /products catalog join with includeInactive=true. Ticket #LINE-ITEMS-CATALOG-001.</div>
  </div>
- <div class="card"><h2>Top Product Data (W28)</h2>
- <div class="note">Product names pending /products catalog join. items[] active this cycle. Modern Leaf Culture, Inc. overwhelmingly dominant across top revenue positions.</div>
+ <div class="card"><h2>Top Product Data (W29)</h2>
+ <div class="note">Product names pending /products catalog join. Modern Leaf Culture, Inc. overwhelmingly dominant across top revenue positions, consistent with prior cycles.</div>
  </div>
 </div>
 
 <div class="sec-title">XI. Local Market Context <span class="right">Insight 10 &middot; Synthesized from &sect;VI</span></div>
-<div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;">Key context W28: An exceptional Saturday ($12,732, 2.4x the next-best day) drove the entire +6.0% WoW gain; the rest of the week tracked normally. No material competitive changes identified. This is the first cycle with a completed WoW comparison for this store, since W27's build used a different, incomplete template.</div></div>
+<div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;">Key context W29: Net sales declined -25.7% WoW, but this is best understood as mean-reversion from W28's unexplained Saturday spike ($12,732, 2.4x any other day) rather than a genuine downtrend. This cycle's daily pattern ($1,954&ndash;$5,269/day) looks like a normal week. No material competitive changes identified.</div></div>
 
 <div class="sec-title">XII. 10-Insight Checklist <span class="right">v2.3 &sect;5f</span></div>
 <div class="card"><div class="checklist">
  <div class="ci pass">Insight 1 &mdash; Net Sales / AOV / Txns</div>
  <div class="ci pass">Insight 2 &mdash; Daily Sales Trend</div>
  <div class="ci pass">Insight 3 &mdash; Top Performers</div>
- <div class="ci partial">Insight 4 &mdash; Top SKUs by Units (items[] live; names need catalog join)</div>
- <div class="ci partial">Insight 5 &mdash; Top SKUs by Revenue (items[] live; names need catalog join)</div>
+ <div class="ci partial">Insight 4 &mdash; Top SKUs by Units (catalog join pending)</div>
+ <div class="ci partial">Insight 5 &mdash; Top SKUs by Revenue (catalog join pending)</div>
  <div class="ci partial">Insight 5b &mdash; SKU Margin (needs catalog join)</div>
- <div class="ci pass">Insight 6 &mdash; WoW &Delta;% (first completed baseline for this store)</div>
+ <div class="ci pass">Insight 6 &mdash; WoW &Delta;% (W28 proper baseline)</div>
  <div class="ci partial">Insight 7 &mdash; YoY &Delta;% (pending Jul 2025 monthly figure)</div>
  <div class="ci pass">Insight 8 &mdash; WoW &Delta;$</div>
  <div class="ci partial">Insight 9 &mdash; Customer Metrics (unique count est; new/returning needs history)</div>
@@ -283,26 +277,27 @@ tr:nth-child(even) td { background:rgba(255,255,255,.02); }
 
 <div class="sec-title">XIII. Data Gap Notice <span class="right">&sect;5g</span></div>
 <div class="card"><table>
- <tr><th>Item</th><th>Why it matters</th><th>Status W28</th><th>Owner / Next action</th></tr>
- <tr><td><strong>W27 template inconsistency</strong></td><td>Cross-store comparability, WoW accuracy</td><td><strong style="color:var(--leaf)">RESOLVED</strong> &mdash; W27's Lake Elsinore build used an off-network v2.1 template with an incomplete WoW baseline. This cycle uses the standard v2.3 template network-wide, with W27's own reported totals used as the WoW baseline.</td><td>No action needed going forward.</td></tr>
- <tr><td><strong>Product catalog join (I-4,5,5b)</strong></td><td>SKU names, categories, margin</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; product IDs available; names blocked.</td><td>Pipeline: add includeInactive=true. <strong>Ticket #LINE-ITEMS-CATALOG-001</strong>.</td></tr>
+ <tr><th>Item</th><th>Why it matters</th><th>Status W29</th><th>Owner / Next action</th></tr>
+ <tr><td><strong>W28 Saturday spike unexplained</strong></td><td>WoW baseline distortion</td><td><strong style="color:var(--warn)">FLAG</strong> &mdash; $12,732 Saturday in W28 was never explained by a specific promo/event; this cycle's -25.7% WoW is largely mean-reversion from that anomaly.</td><td>Brett: confirm if a promotion ran W28 Sat 7/11 for future reference.</td></tr>
+ <tr><td><strong>UKG name mismatches (Loffer-Elliott, Gustavesen)</strong></td><td>Hours accuracy</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; matched via known spelling aliasing.</td><td>Patrick: confirm UKG roster spellings to remove aliasing dependency.</td></tr>
+ <tr><td><strong>Product catalog join (I-4,5,5b,9)</strong></td><td>SKU names, categories, margin</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; product IDs available; names blocked.</td><td>Pipeline: add includeInactive=true. <strong>Ticket #LINE-ITEMS-CATALOG-001</strong>.</td></tr>
  <tr><td><strong>YoY exact weekly (I-7)</strong></td><td>Same-week prior-year comparison</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; Jul 2025 monthly figure needed for estimate.</td><td>Patrick: source Jul 2025 monthly management figure.</td></tr>
  <tr><td><strong>Customer new/returning split (I-9)</strong></td><td>Repeat rate, acquisition tracking</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; unique count estimated; history join needed.</td><td><strong>Ticket #CUST-HISTORY-001</strong>.</td></tr>
- <tr><td><strong>UKG name mismatches (Loffer-Elliott, Gustavesen)</strong></td><td>Hours accuracy</td><td><strong style="color:var(--warn)">PARTIAL</strong> &mdash; matched via known spelling aliasing.</td><td>Patrick: confirm UKG roster spellings to remove aliasing dependency.</td></tr>
 </table></div>
 
 <div class="sec-title">XIV. Methodology Notes</div>
 <div class="card"><div class="note" style="font-size:7.5pt;line-height:1.6;">
- <strong style="color:var(--white)">Period:</strong> Mon 2026-07-06 &rarr; Sun 2026-07-12. Generated 2026-07-13.<br>
- <strong style="color:var(--white)">Net sales:</strong> Dutchie transaction_line_items GAP_BACKFILL (2026-07-02_to_2026-07-13, filtered to reporting week), totalBeforeTax, Retail type, isVoid=false, isReturn=false, deduped by transactionId.<br>
- <strong style="color:var(--white)">UKG hours:</strong> DetailedCalculatedTimeCounters 07/06&ndash;07/12. Regular + OT. PTO/VAC/PSL/Excused excluded. MOD/Lake Elsinore/Retail cost-center only (Production dept excluded per standing rule).<br>
+ <strong style="color:var(--white)">Period:</strong> Mon 2026-07-13 &rarr; Sun 2026-07-19. Generated 2026-07-21.<br>
+ <strong style="color:var(--white)">Net sales:</strong> Dutchie transaction_line_items GAP_BACKFILL (2026-07-08_to_2026-07-20), totalBeforeTax, Retail type, isVoid=false, isReturn=false, deduped by transactionId.<br>
+ <strong style="color:var(--white)">UKG hours:</strong> DetailedCalculatedTimeCounters 07/13&ndash;07/19. Regular + OT. PTO/VAC/PSL/Excused excluded. MOD/Lake Elsinore/Retail cost-center only (Production dept excluded per standing rule).<br>
+ <strong style="color:var(--white)">Security:</strong> $2,332.75/wk, split evenly across daily operating hours (7am&ndash;9pm, 14h/day, 98h/wk = $23.80/hr).<br>
  <strong style="color:var(--white)">Rates:</strong> DetailedRates CSV, Rate Eff. To = &lsquo;&ndash;&rsquo;.<br>
- <strong style="color:var(--white)">Competitor data:</strong> Web survey 2026-07-13 via Weedmaps/web search (CA).
+ <strong style="color:var(--white)">Competitor data:</strong> Web survey 2026-07-21 via Weedmaps/web search (CA). No material changes identified at Blazed Utopia, The Syndicate #2, STIIIZY, or The Healing Tree.
 </div></div>
 
 <div class="footer">
  <div class="brand-line">Phat Panda Group &middot; Weekly Retail Analytics</div>
  <div>Methodology v2.3 &middot; HTML Output Only</div>
- <div>Store 05 &middot; EMBR Lake Elsinore &middot; Retail Dispensary &middot; W28 2026-07-06 &rarr; 2026-07-12 &middot; Generated 2026-07-13</div>
+ <div>Store 05 &middot; EMBR Lake Elsinore &middot; Retail Dispensary &middot; W29 2026-07-13 &rarr; 2026-07-19 &middot; Generated 2026-07-21</div>
 </div>
 </div></body></html>
